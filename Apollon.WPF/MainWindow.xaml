@@ -1,0 +1,72 @@
+﻿<Window x:Class="Apollon.WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Apollon.WPF" xmlns:views="clr-namespace:Apollon.WPF.Views"
+        mc:Ignorable="d"
+        Title="Apollon Auswertung Bogen"
+        Height="800"
+        Width="1120"
+        WindowStartupLocation="CenterScreen"
+        Background="Transparent"
+        AllowsTransparency="True"
+        WindowStyle="None"
+        MouseDown="Window_MouseDown">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35">
+
+            </RowDefinition>
+            <RowDefinition>
+
+            </RowDefinition>
+        </Grid.RowDefinitions>
+        <views:ApollonOverviewView Grid.RowSpan="2"/>
+        <Button Width="25"
+                Height="25"
+                Padding="-4"
+                Background="Transparent"
+                BorderBrush="Transparent"
+                Content="🗙"
+                FontSize="20"   
+                Foreground="SlateGray"                
+                VerticalContentAlignment="Center"
+                HorizontalContentAlignment="Center"
+                HorizontalAlignment="Right" Margin="0,2,24,8"                
+                Click="Button_Exit">
+          
+        </Button>
+        <Button Width="25"
+                Height="25"
+                Padding="-4"
+                BorderBrush="Transparent"
+                Content="☐"
+                FontSize="20" 
+                FontWeight="UltraBold"
+                Foreground="SlateGray"                
+                VerticalContentAlignment="Center"
+                HorizontalContentAlignment="Center"
+                HorizontalAlignment="Right" Margin="0,2,64,8"
+                Click="Button_Max" Background="#00000000"
+                
+                />
+
+        <Button Width="25"
+                Height="25"
+                Padding="-4"
+                Background="Transparent"
+                BorderBrush="Transparent"
+                Content="🗕"
+                FontSize="20"   
+                FontWeight="Bold"
+                Foreground="SlateGray"                
+                VerticalContentAlignment="Center"
+                HorizontalContentAlignment="Center"
+                HorizontalAlignment="Right" Margin="0,2,104,8"
+                Click="Button_Min"
+                ></Button>
+    </Grid>
+
+</Window>
