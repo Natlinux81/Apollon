@@ -3,15 +3,52 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Apollon.WPF.Views.Components"
+             xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+    <Grid>        
         <Border BorderBrush="#0000a0"
                 BorderThickness="1"
                 CornerRadius="10"
-                Width="300">
+                >
+            <ListView FontSize="16"
+                      Foreground="#0000a0"
+                      FontWeight="Bold"
+                      Background="Transparent"
+                      BorderBrush="Transparent"
+                      Padding="20"
+                      ItemsSource="{Binding ApollonOverviewListingItemViewModels}">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                    </Style>
+                </ListView.ItemContainerStyle>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="auto"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Text="{Binding Tournamentname}"/>
+                            <Button Grid.Column="1"
+                                    Background="Transparent"
+                                    BorderThickness="0"
+                                    Cursor="Hand"
+                                    Command="{Binding DeleteCommand}">
+                                <iconPacks:PackIconMaterial Kind="TrashCan"
+                                                        VerticalAlignment="Center"
+                                                        HorizontalAlignment="Center"
+                                                        Grid.Column="1"
+                                                        Foreground="Red"/>
+                            </Button>
+                        </Grid>
+                        
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </Border>
-        <ListView Background="Transparent"/>
+       
     </Grid>
 </UserControl>

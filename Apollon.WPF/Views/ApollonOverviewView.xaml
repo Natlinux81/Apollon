@@ -43,38 +43,68 @@
                    TextAlignment="Center"
                    FontFamily="Arial"
                    FontWeight="Bold"
-                   FontSize="18"
+                   FontSize="20"
                    Foreground="#0000a0">                
             </TextBlock>
         </StackPanel>
 
-        <StackPanel Grid.Row="2"
-                    VerticalAlignment="Center">            
-            <components:ApollonOverViewListing Height="400"/>
+        <StackPanel Grid.Row="2" 
+                    VerticalAlignment="Center">
+
+            <Image Grid.Column="2"
+               Grid.Row="2"
+               Source="D:\Projekte\Apollon\Apollon\Apollon.WPF\Images\Scheibe.png"
+               Width="250"
+               Height="250">
+            </Image>
+
             <Button Style="{StaticResource ModernButton}"
                     Content="Neues Turnier vorbereiten"
                     FontSize="16"
                     Height="40"
                     Width="210"
-                    Margin="40"/>
+                    Margin="40"
+                    Cursor="Hand"
+                    Command="{Binding AddTournamentCommand}"/>
         </StackPanel>
+
         <StackPanel Grid.Column="1"
                     Grid.Row="1"
                     VerticalAlignment="Center">
-            <components:ApollonOverviewDetails/>
+            <TextBlock
+                   Margin="20"
+                   Text="Liste der erstellten Turniere"
+                   TextAlignment="Center"
+                   FontFamily="Arial"
+                   FontWeight="Bold"
+                   FontSize="16"
+                   Foreground="#0000a0">
+            </TextBlock>
+            <components:ApollonOverViewListing Height="400"
+                                               DataContext="{Binding ApollonOverviewListingViewModel}"/>
+        </StackPanel>
+        
+        <StackPanel Grid.Column="2"
+                    Grid.Row="1"
+                    VerticalAlignment="Center">
+            <TextBlock
+                   Margin="20"
+                   Text="Turnieredetails"
+                   TextAlignment="Center"
+                   FontFamily="Arial"
+                   FontWeight="Bold"
+                   FontSize="16"
+                   Foreground="#0000a0"/>
+            <components:ApollonOverviewDetails Width="320"
+                                               DataContext="{Binding ApollonOverviewDetailsViewModel}"/>
             <Button Style="{StaticResource ModernButton}"
                 Content="Turnier bearbeiten"
                 FontSize="16"
                 Height="40"
                 Width="210"
-                Margin="40"/>
-        </StackPanel>
-       
-        <Image Grid.Column="2"
-               Grid.Row="2"
-               Source="D:\Projekte\Apollon\Apollon\Apollon.WPF\Images\Scheibe.png"
-               Width="300"
-               Height="300">            
-        </Image>        
+                Margin="40"
+                Cursor="Hand"/>
+        </StackPanel>       
+              
     </Grid>
 </UserControl>

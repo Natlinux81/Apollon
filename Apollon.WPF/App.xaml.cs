@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Apollon.WPF.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -15,7 +16,10 @@ namespace Apollon.WPF
     {
         protected override void OnStartup(StartupEventArgs e)
         {
-            MainWindow = new MainWindow();
+            MainWindow = new MainWindow()
+            {
+               DataContext = new ApollonOverviewViewModel()
+            };
             MainWindow.Show();
 
             base.OnStartup(e);

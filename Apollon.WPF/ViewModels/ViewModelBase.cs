@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace Apollon.WPF.ViewModels
 {
-    public class BaseViewModel : INotifyPropertyChanged
+    public class ViewModelBase : INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler? PropertyChanged;
+        public event PropertyChangedEventHandler PropertyChanged;
 
-        protected void OnPrpertyChanged(string properyName)
+        protected virtual void OnPrpertyChanged(string properyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(properyName));
         }
