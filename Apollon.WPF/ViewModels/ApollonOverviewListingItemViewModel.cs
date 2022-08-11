@@ -14,7 +14,8 @@ namespace Apollon.WPF.ViewModels
 
         public ApollonOverviewListingItemViewModel(string tournamentname)
         {
-            Tournamentname = tournamentname;            
+            Tournamentname = tournamentname;
+            
         }
     }
 }

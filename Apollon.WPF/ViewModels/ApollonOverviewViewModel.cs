@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Apollon.WPF.Stores;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,10 +14,10 @@ namespace Apollon.WPF.ViewModels
         public ApollonOverviewDetailsViewModel ApollonOverviewDetailsViewModel{ get; }
         public ICommand AddTournamentCommand { get; }
 
-        public ApollonOverviewViewModel()
+        public ApollonOverviewViewModel(SelectedTournamentStore _selectedTournamentStore)
         {
-            ApollonOverviewListingViewModel = new ApollonOverviewListingViewModel();
-            ApollonOverviewDetailsViewModel = new ApollonOverviewDetailsViewModel();
+            ApollonOverviewListingViewModel = new ApollonOverviewListingViewModel(_selectedTournamentStore);
+            ApollonOverviewDetailsViewModel = new ApollonOverviewDetailsViewModel(_selectedTournamentStore);
         }
     }
 }

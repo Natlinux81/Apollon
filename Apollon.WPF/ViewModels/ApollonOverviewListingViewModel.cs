@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Apollon.WPF.Stores;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace Apollon.WPF.ViewModels
         private readonly ObservableCollection<ApollonOverviewListingItemViewModel> _apollonOverviewListingItemViewModels;
         public IEnumerable<ApollonOverviewListingItemViewModel> ApollonOverviewListingItemViewModels => _apollonOverviewListingItemViewModels;
 
-        public ApollonOverviewListingViewModel()
+        public ApollonOverviewListingViewModel(SelectedTournamentStore _selectedTournamentStore)
         {
             _apollonOverviewListingItemViewModels = new ObservableCollection<ApollonOverviewListingItemViewModel>();
 

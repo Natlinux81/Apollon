@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 namespace Apollon.WPF.ViewModels
 {
     public class ViewModelBase : INotifyPropertyChanged
-    {
+    {        
         public event PropertyChangedEventHandler PropertyChanged;
 
-        protected virtual void OnPrpertyChanged(string properyName = null)
+        protected virtual void OnPropertyChanged(string propertyName = null)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(properyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

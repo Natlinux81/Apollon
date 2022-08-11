@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Apollon.WPF.Models;
+using Apollon.WPF.Stores;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,19 +10,20 @@ namespace Apollon.WPF.ViewModels
 {
     public class ApollonOverviewDetailsViewModel : ViewModelBase
     {
-        public string Organisation { get; }
-        public string Tournamentname { get; }
-        public string Category { get; }
-        public DateTime Datetime { get; }
-        public string Location { get; }
+        private readonly SelectedTournamentStore _selectedTournamentStore;
 
-        public ApollonOverviewDetailsViewModel()
+        private Tournament _selectedTournament => _selectedTournamentStore.SelectedTournament; 
+
+        public bool hasSelectedTournament => _selectedTournament != null;
+        public string Organisation => _selectedTournament?.Organisation ?? "keine Organisation";
+        public string Tournamentname => _selectedTournament?.Tournamentname ?? "kein Name";
+        public string Category => _selectedTournament?.Category ?? "keine Kategorie";
+        //public DateTime Datetime => _selectedTournament
+        public string Location => _selectedTournament?.Location ?? "kein Ort";
+
+        public ApollonOverviewDetailsViewModel(SelectedTournamentStore selectedTournamentStore)
         {
-            Organisation = "Deutscher Schützenbund";
-            Tournamentname = "Deutsche Meisterschaft 2021";
-            Category = "Bogenschießen im Freien";
-            Datetime = DateTime.Now;
-            Location = "Wiesbaden";
+           _selectedTournamentStore = selectedTournamentStore;
         }
     }
 }

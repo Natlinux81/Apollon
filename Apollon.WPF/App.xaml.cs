@@ -1,4 +1,5 @@
-﻿using Apollon.WPF.ViewModels;
+﻿using Apollon.WPF.Stores;
+using Apollon.WPF.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -14,11 +15,17 @@ namespace Apollon.WPF
     /// </summary>
     public partial class App : Application
     {
+        private readonly SelectedTournamentStore _selectedTournamentStore;
+
+        public App()
+        {
+            _selectedTournamentStore = new SelectedTournamentStore();
+        }
         protected override void OnStartup(StartupEventArgs e)
         {
             MainWindow = new MainWindow()
             {
-               DataContext = new ApollonOverviewViewModel()
+               DataContext = new ApollonOverviewViewModel(_selectedTournamentStore)
             };
             MainWindow.Show();
 
