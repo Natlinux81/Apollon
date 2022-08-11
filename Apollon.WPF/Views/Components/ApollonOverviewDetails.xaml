@@ -18,21 +18,43 @@
                        FontWeight="Bold"
                        FontSize="14"
                        Foreground="#0000a0"
-                       Margin="40"/>
-            <TextBlock Text="{Binding Datetime}"
+                       Margin="10"/>
+            <TextBlock Text="{Binding Organisation}"
                        TextAlignment="Center"
                        FontFamily="Arial"
                        FontWeight="Bold"
                        FontSize="14"
                        Foreground="#0000a0"
-                       Margin="0,0,0,40"/>
+                       Margin="10"/>
+            <TextBlock Text="{Binding Category}"
+                       TextAlignment="Center"
+                       FontFamily="Arial"
+                       FontWeight="Bold"
+                       FontSize="14"
+                       Foreground="#0000a0"
+                       Margin="10"/>
+            <WrapPanel Margin="10">
+                <TextBlock Text="{Binding Startdate}"
+                       TextAlignment="Center"
+                       FontFamily="Arial"
+                       FontWeight="Bold"
+                       FontSize="14"
+                       Foreground="#0000a0"/>
+                <TextBlock Text="{Binding Enddate}"
+                       TextAlignment="Center"
+                       FontFamily="Arial"
+                       FontWeight="Bold"
+                       FontSize="14"
+                       Foreground="#0000a0"/>
+            </WrapPanel>
+            
             <TextBlock Text="{Binding Location}"
                        TextAlignment="Center"
                        FontFamily="Arial"
                        FontWeight="Bold"
                        FontSize="14"
                        Foreground="#0000a0"
-                       Margin="0,0,0,40"/>
+                       Margin="10"/>
         </StackPanel>
     </Grid>
 </UserControl>

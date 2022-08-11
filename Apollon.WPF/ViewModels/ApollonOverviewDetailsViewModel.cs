@@ -18,7 +18,8 @@ namespace Apollon.WPF.ViewModels
         public string Organisation => _selectedTournament?.Organisation ?? "keine Organisation";
         public string Tournamentname => _selectedTournament?.Tournamentname ?? "kein Name";
         public string Category => _selectedTournament?.Category ?? "keine Kategorie";
-        //public DateTime Datetime => _selectedTournament
+        public DateTime Startdate => _selectedTournament?.Startdate ?? DateTime.MinValue;
+        public DateTime Enddate => _selectedTournament?.Enddate ?? DateTime.MinValue;
         public string Location => _selectedTournament?.Location ?? "kein Ort";
 
         public ApollonOverviewDetailsViewModel(SelectedTournamentStore selectedTournamentStore)
