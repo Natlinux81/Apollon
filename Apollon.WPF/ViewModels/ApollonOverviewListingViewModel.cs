@@ -39,9 +39,9 @@ namespace Apollon.WPF.ViewModels
             _selectedTournamentStore = selectedTournamentStore;
             _apollonOverviewListingItemViewModels = new ObservableCollection<ApollonOverviewListingItemViewModel>();
 
-            _apollonOverviewListingItemViewModels.Add(new ApollonOverviewListingItemViewModel(new Tournament("DSB", "Deutschemeisterschaft1", "Halle", "Wiesbaden")));
-            _apollonOverviewListingItemViewModels.Add(new ApollonOverviewListingItemViewModel(new Tournament("DSB", "Deutschemeisterschaft2", "im Freien", "Berlin")));
-            _apollonOverviewListingItemViewModels.Add(new ApollonOverviewListingItemViewModel(new Tournament("DSB", "Deutschemeisterschaft3", "Halle", "Bruchsal")));
+            _apollonOverviewListingItemViewModels.Add(new ApollonOverviewListingItemViewModel(new Tournament("DSB", "Deutschemeisterschaft1", "Halle", "01.01.2021", "05.01.2021", "Wiesbaden")));
+            _apollonOverviewListingItemViewModels.Add(new ApollonOverviewListingItemViewModel(new Tournament("DSB", "Deutschemeisterschaft2", "im Freien", "01.01.2021", "05.01.2021", "Berlin")));
+            _apollonOverviewListingItemViewModels.Add(new ApollonOverviewListingItemViewModel(new Tournament("DSB", "Deutschemeisterschaft3", "Halle", "01.01.2021", "05.01.2021", "Bruchsal")));
             
         }
     }

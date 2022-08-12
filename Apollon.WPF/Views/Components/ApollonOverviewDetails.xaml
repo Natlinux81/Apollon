@@ -33,8 +33,21 @@
                        FontSize="14"
                        Foreground="#0000a0"
                        Margin="10"/>
-            <WrapPanel Margin="10">
+            <WrapPanel Margin="10" HorizontalAlignment="Center">
+                <TextBlock Text="vom "
+                       TextAlignment="Center"
+                       FontFamily="Arial"
+                       FontWeight="Bold"
+                       FontSize="14"
+                       Foreground="#0000a0"/>
                 <TextBlock Text="{Binding Startdate}"
+                       TextAlignment="Center"
+                       FontFamily="Arial"
+                       FontWeight="Bold"
+                       FontSize="14"
+                       Foreground="#0000a0"
+                       Margin="0 0 5 0"/>
+                <TextBlock Text="bis "
                        TextAlignment="Center"
                        FontFamily="Arial"
                        FontWeight="Bold"
