@@ -17,7 +17,7 @@
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Border CornerRadius="20" Grid.RowSpan="2" Grid.ColumnSpan="3">
+        <Border CornerRadius="10" Grid.RowSpan="2" Grid.ColumnSpan="3">
             <Border.Background>
                 <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
                     <GradientStop Color="#d7e8fd" Offset="0.2"/>

@@ -11,63 +11,175 @@
                 BorderThickness="1"
                 CornerRadius="10">
         </Border>
-        <StackPanel>
-            <TextBlock Text="{Binding Tournamentname}"
+
+        <TextBlock Text="erstelle eine neues Tournier oder wähle ein vorhandenes Tournier um es zu bearbeiten!"
+                       TextAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontFamily="Arial"
+                       FontWeight="Bold"
+                       FontSize="16"
+                       Foreground="#0000a0"
+                       Padding="25"
+                       TextWrapping="WrapWithOverflow">
+            <TextBlock.Style>
+                <Style TargetType="TextBlock">
+                    <Setter Property="Visibility" Value="Hidden"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding HasSelectedTournament}" Value="false">
+                            <Setter Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
+             
+            <StackPanel>
+                <TextBlock Text="{Binding Tournamentname}"
                        TextAlignment="Center"
                        FontFamily="Arial"
                        FontWeight="Bold"
                        FontSize="14"
                        Foreground="#0000a0"
-                       Margin="10"/>
-            <TextBlock Text="{Binding Organisation}"
+                       Margin="10">
+                    <TextBlock.Style>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="Visibility" Value="Hidden"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding HasSelectedTournament}" Value="True">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+
+                <TextBlock Text="{Binding Organisation}"
                        TextAlignment="Center"
                        FontFamily="Arial"
                        FontWeight="Bold"
                        FontSize="14"
                        Foreground="#0000a0"
-                       Margin="10"/>
-            <TextBlock Text="{Binding Category}"
+                       Margin="10">
+                    <TextBlock.Style>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="Visibility" Value="Hidden"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding HasSelectedTournament}" Value="True">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+                <TextBlock Text="{Binding Category}"
                        TextAlignment="Center"
                        FontFamily="Arial"
                        FontWeight="Bold"
                        FontSize="14"
                        Foreground="#0000a0"
-                       Margin="10"/>
-            <WrapPanel Margin="10" HorizontalAlignment="Center">
-                <TextBlock Text="vom "
+                       Margin="10">
+                    <TextBlock.Style>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="Visibility" Value="Hidden"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding HasSelectedTournament}" Value="True">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+                <WrapPanel Margin="10" HorizontalAlignment="Center">
+                    <TextBlock Text="vom "
                        TextAlignment="Center"
                        FontFamily="Arial"
                        FontWeight="Bold"
                        FontSize="14"
-                       Foreground="#0000a0"/>
-                <TextBlock Text="{Binding Startdate}"
+                       Foreground="#0000a0">
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="Visibility" Value="Hidden"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding HasSelectedTournament}" Value="True">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+
+                    <TextBlock Text="{Binding Startdate}"
                        TextAlignment="Center"
                        FontFamily="Arial"
                        FontWeight="Bold"
                        FontSize="14"
                        Foreground="#0000a0"
-                       Margin="0 0 5 0"/>
-                <TextBlock Text="bis "
+                       Margin="0 0 5 0">
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="Visibility" Value="Hidden"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding HasSelectedTournament}" Value="True">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                    <TextBlock Text="bis "
                        TextAlignment="Center"
                        FontFamily="Arial"
                        FontWeight="Bold"
                        FontSize="14"
-                       Foreground="#0000a0"/>
-                <TextBlock Text="{Binding Enddate}"
+                       Foreground="#0000a0">
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="Visibility" Value="Hidden"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding HasSelectedTournament}" Value="True">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                    <TextBlock Text="{Binding Enddate}"
                        TextAlignment="Center"
                        FontFamily="Arial"
                        FontWeight="Bold"
                        FontSize="14"
-                       Foreground="#0000a0"/>
-            </WrapPanel>
-            
-            <TextBlock Text="{Binding Location}"
+                       Foreground="#0000a0">
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="Visibility" Value="Hidden"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding HasSelectedTournament}" Value="True">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                </WrapPanel>
+
+                <TextBlock Text="{Binding Location}"
                        TextAlignment="Center"
                        FontFamily="Arial"
                        FontWeight="Bold"
                        FontSize="14"
                        Foreground="#0000a0"
-                       Margin="10"/>
-        </StackPanel>
+                       Margin="10">
+                    <TextBlock.Style>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="Visibility" Value="Hidden"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding HasSelectedTournament}" Value="True">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+            </StackPanel>       
     </Grid>
 </UserControl>
