@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Apollon.WPF.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,13 +10,14 @@ namespace Apollon.WPF.ViewModels
 {
     public class ApollonOverviewListingItemViewModel : ViewModelBase
     {
-        public string Tournamentname { get; }
-        public ICommand DeleteCommand { get; }
+        public Tournament Tournament { get;}        
 
-        public ApollonOverviewListingItemViewModel(string tournamentname)
+        public string Tournamentname => Tournament.Tournamentname;
+        public ICommand DeleteCommand { get; }
+                
+        public ApollonOverviewListingItemViewModel(Tournament tournament)
         {
-            Tournamentname = tournamentname;
-            
+            Tournament = tournament;
         }
     }
 }

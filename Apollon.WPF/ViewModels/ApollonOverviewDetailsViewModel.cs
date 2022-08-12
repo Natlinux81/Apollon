@@ -18,13 +18,30 @@ namespace Apollon.WPF.ViewModels
         public string Organisation => _selectedTournament?.Organisation ?? "keine Organisation";
         public string Tournamentname => _selectedTournament?.Tournamentname ?? "kein Name";
         public string Category => _selectedTournament?.Category ?? "keine Kategorie";
-        public DateTime Startdate => _selectedTournament?.Startdate ?? DateTime.MinValue;
-        public DateTime Enddate => _selectedTournament?.Enddate ?? DateTime.MinValue;
+        //public DateTime Startdate => _selectedTournament?.Startdate ?? DateTime.MinValue;
+        //public DateTime Enddate => _selectedTournament?.Enddate ?? DateTime.MinValue;
         public string Location => _selectedTournament?.Location ?? "kein Ort";
 
         public ApollonOverviewDetailsViewModel(SelectedTournamentStore selectedTournamentStore)
         {
            _selectedTournamentStore = selectedTournamentStore;
+
+            _selectedTournamentStore.SelectedTournamentChanged += SelectedTournamentStore_SelectedTournamentChanged;
+        }
+
+        protected override void Dispose()
+        {
+            _selectedTournamentStore.SelectedTournamentChanged -= SelectedTournamentStore_SelectedTournamentChanged; 
+            base.Dispose();
+        }
+
+        private void SelectedTournamentStore_SelectedTournamentChanged()
+        {
+            OnPropertyChanged(nameof(hasSelectedTournament));
+            OnPropertyChanged(nameof(Organisation));
+            OnPropertyChanged(nameof(Tournamentname));
+            OnPropertyChanged(nameof(Category));
+            OnPropertyChanged(nameof(Location));
         }
     }
 }

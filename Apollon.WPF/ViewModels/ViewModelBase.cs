@@ -15,5 +15,7 @@ namespace Apollon.WPF.ViewModels
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        protected virtual void Dispose() { }
     }
 }

@@ -18,7 +18,8 @@
                       Background="Transparent"
                       BorderBrush="Transparent"
                       Padding="20"
-                      ItemsSource="{Binding ApollonOverviewListingItemViewModels}">
+                      ItemsSource="{Binding ApollonOverviewListingItemViewModels}"
+                      SelectedItem="{Binding SelectedOverviewListingItemViewModel}">
                 <ListView.ItemContainerStyle>
                     <Style TargetType="ListViewItem">
                         <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
