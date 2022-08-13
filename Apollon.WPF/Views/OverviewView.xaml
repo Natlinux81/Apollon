@@ -3,21 +3,28 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Apollon.WPF.Views" xmlns:components="clr-namespace:Apollon.WPF.Views.Components"
+             xmlns:local="clr-namespace:Apollon.WPF.Views"
+             xmlns:components="clr-namespace:Apollon.WPF.Views.Components"
              mc:Ignorable="d" 
-             d:DesignHeight="800" d:DesignWidth="1120"
+             d:DesignHeight="680" d:DesignWidth="1080"
              Background="Transparent">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="150"></RowDefinition>
-            <RowDefinition></RowDefinition>
+            <RowDefinition Height="150"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+        
         <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Border CornerRadius="10" Grid.RowSpan="2" Grid.ColumnSpan="3">
+        
+        <Border BorderThickness="4"
+                BorderBrush="#0000a0"
+                CornerRadius="5"
+                Grid.RowSpan="2" 
+                Grid.ColumnSpan="3">
             <Border.Background>
                 <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
                     <GradientStop Color="#d7e8fd" Offset="0.2"/>
@@ -25,6 +32,7 @@
                 </LinearGradientBrush>
             </Border.Background>           
         </Border>
+        
         <StackPanel Grid.ColumnSpan="3">
             <TextBlock 
                    Text="Apollon"
@@ -70,40 +78,41 @@
 
         <StackPanel Grid.Column="1"
                     Grid.Row="1"
-                    VerticalAlignment="Center">
-            <TextBlock
-                   Margin="20"
-                   Text="Liste der erstellten Turniere"
-                   TextAlignment="Center"
-                   FontFamily="Arial"
-                   FontWeight="Bold"
-                   FontSize="16"
-                   Foreground="#0000a0">
-            </TextBlock>
+                    Margin="20">
+            
+            <TextBlock Margin="20"
+                       Text="Liste der erstellten Turniere"
+                       TextAlignment="Center"
+                       FontFamily="Arial"
+                       FontWeight="Bold"
+                       FontSize="16"
+                       Foreground="#0000a0"/>
+            
             <components:OverViewListing Height="400"
-                                               DataContext="{Binding OverviewListingViewModel}"/>
+                                        DataContext="{Binding OverviewListingViewModel}"/>
         </StackPanel>
         
         <StackPanel Grid.Column="2"
                     Grid.Row="1"
                     VerticalAlignment="Center">
-            <TextBlock
-                   Margin="20"
-                   Text="Turnieredetails"
-                   TextAlignment="Center"
-                   FontFamily="Arial"
-                   FontWeight="Bold"
-                   FontSize="16"
-                   Foreground="#0000a0"/>
+            
+            <TextBlock Margin="20"
+                       Text="Turnieredetails"
+                       TextAlignment="Center"
+                       FontFamily="Arial"
+                       FontWeight="Bold"
+                       FontSize="16"
+                       Foreground="#0000a0"/>
             <components:OverviewDetails Width="320"
-                                               DataContext="{Binding OverviewDetailsViewModel}"/>
+                                        DataContext="{Binding OverviewDetailsViewModel}"/>
+            
             <Button Style="{StaticResource ModernButton}"
-                Content="Turnier bearbeiten"
-                FontSize="16"
-                Height="40"
-                Width="210"
-                Margin="40"
-                Cursor="Hand"/>
+                    Content="Turnier bearbeiten"
+                    FontSize="16"
+                    Height="40"
+                    Width="210"
+                    Margin="40"
+                    Cursor="Hand"/>
         </StackPanel>       
               
     </Grid>

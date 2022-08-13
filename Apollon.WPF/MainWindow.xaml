@@ -6,70 +6,57 @@
         xmlns:local="clr-namespace:Apollon.WPF" xmlns:views="clr-namespace:Apollon.WPF.Views"
         mc:Ignorable="d"
         Title="Apollon Auswertung Bogen"
-        Height="800"
-        Width="1120"
+        Height="680"
+        Width="1080"
         WindowStartupLocation="CenterScreen"
         Background="Transparent"
         AllowsTransparency="True"
         WindowStyle="None"
-        MouseDown="Window_MouseDown">
-    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        ResizeMode="CanResizeWithGrip">
+    <ScrollViewer HorizontalScrollBarVisibility="Auto"
+                  VerticalScrollBarVisibility="Auto">
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="auto">
-
-                </RowDefinition>
-                <RowDefinition>
-
-                </RowDefinition>
+                <RowDefinition Height="auto"/>
+                <RowDefinition/>
             </Grid.RowDefinitions>
-            <views:OverviewView Grid.RowSpan="2" DataContext="{Binding OverviewViewModel}"/>
-        <Button Width="25"
-                Height="25"
-                Padding="-4"
-                Background="Transparent"
-                BorderBrush="Transparent"
-                Content="🗙"
-                FontSize="18"   
-                Foreground="#0000a0"                
-                VerticalContentAlignment="Center"
-                HorizontalContentAlignment="Center"
-                HorizontalAlignment="Right" Margin="0,2,24,8"                
-                Click="Button_Exit">
-          
-        </Button>
-        <Button Width="25"
-                Height="25"
-                Padding="-4"
-                BorderBrush="Transparent"
-                Content="☐"
-                FontSize="18" 
-                FontWeight="UltraBold"
-                Foreground="#0000a0"                
-                VerticalContentAlignment="Center"
-                HorizontalContentAlignment="Center"
-                HorizontalAlignment="Right" Margin="0,2,64,8"
-                Click="Button_Max" Background="#00000000"
+            
+            <views:OverviewView Grid.RowSpan="2"
+                                DataContext="{Binding OverviewViewModel}"
+                                MouseDown="Window_MouseDown"/>
+
+            <WrapPanel HorizontalAlignment="Right"
+                       Margin="0 0 5 0">
+
+                <Button Width="35"
+                        Height="35"                    
+                        Background="Transparent"
+                        BorderBrush="Transparent"
+                        Content="🗕"
+                        FontSize="18"   
+                        FontWeight="Bold"
+                        Foreground="#0000a0"
+                        Click="Button_Min"/>
+
+                <Button Width="35"
+                        Height="35"                    
+                        Background="Transparent"
+                        BorderBrush="Transparent"
+                        Content="☐"
+                        FontSize="18"   
+                        FontWeight="Bold"
+                        Foreground="#0000a0"
+                        Click="Button_Max"/>
                 
-                />
-
-        <Button Width="25"
-                Height="25"
-                Padding="-4"
-                Background="Transparent"
-                BorderBrush="Transparent"
-                Content="🗕"
-                FontSize="18"   
-                FontWeight="Bold"
-                Foreground="#0000a0"                
-                VerticalContentAlignment="Center"
-                HorizontalContentAlignment="Center"
-                HorizontalAlignment="Right" Margin="0,2,104,8"
-                Click="Button_Min"
-                ></Button>
+                <Button Width="35"
+                        Height="35"                    
+                        Background="Transparent"
+                        BorderBrush="Transparent"
+                        Content="🗙"
+                        FontSize="18"   
+                        Foreground="#0000a0"
+                        Click="Button_Exit"/>
+            </WrapPanel>
         </Grid>
-
     </ScrollViewer>
-
-
 </Window>
