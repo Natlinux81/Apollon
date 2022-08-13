@@ -16,14 +16,13 @@ using System.Windows.Shapes;
 namespace Apollon.WPF.Views
 {
     /// <summary>
-    /// Interaction logic for AddTournamentView.xaml
+    /// Interaction logic for EditTournamentView.xaml
     /// </summary>
-    public partial class AddTournamentView : UserControl
+    public partial class EditTournamentView : UserControl
     {
-        public AddTournamentView()
+        public EditTournamentView()
         {
             InitializeComponent();
         }
-       
     }
 }

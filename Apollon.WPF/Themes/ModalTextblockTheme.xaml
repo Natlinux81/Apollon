@@ -4,7 +4,8 @@
            x:Key="ModalTextBlock">
         <Setter Property="FontFamily" Value="Arial"/>
         <Setter Property="FontWeight" Value="Bold"/>
-        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="Foreground" Value="#0000a0"/>
     </Style>
 </ResourceDictionary>

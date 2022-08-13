@@ -37,6 +37,7 @@
                                     Background="Transparent"
                                     BorderThickness="0"
                                     Cursor="Hand"
+                                    ToolTip="Löschen"
                                     Command="{Binding DeleteCommand}">
                                 <iconPacks:PackIconMaterial Kind="TrashCan"
                                                         VerticalAlignment="Center"

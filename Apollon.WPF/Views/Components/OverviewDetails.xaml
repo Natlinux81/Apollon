@@ -12,7 +12,7 @@
                 CornerRadius="10">
         </Border>
 
-        <TextBlock Text="erstelle eine neues Tournier oder wähle ein vorhandenes Tournier um es zu bearbeiten!"
+        <TextBlock Text="klicke auf neues Turnier erstellen oder wähle ein vorhandenes Turnier um es zu bearbeiten!"
                        TextAlignment="Center"
                        VerticalAlignment="Center"
                        FontFamily="Arial"

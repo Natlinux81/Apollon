@@ -3,7 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Apollon.WPF" xmlns:views="clr-namespace:Apollon.WPF.Views"
+        xmlns:local="clr-namespace:Apollon.WPF" 
+        xmlns:views="clr-namespace:Apollon.WPF.Views"
+        xmlns:vms="clr-namespace:Apollon.WPF.ViewModels" 
+        xmlns:custom="clr-namespace:ModalControl;assembly=ModalControl"
         mc:Ignorable="d"
         Title="Apollon Auswertung Bogen"
         Height="680"
@@ -13,6 +16,11 @@
         AllowsTransparency="True"
         WindowStyle="None"
         ResizeMode="CanResizeWithGrip">
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type vms:AddTournametViewModel}">
+            <views:AddTournamentView/>
+        </DataTemplate>
+    </Window.Resources>
     <ScrollViewer HorizontalScrollBarVisibility="Auto"
                   VerticalScrollBarVisibility="Auto">
         <Grid>
@@ -20,6 +28,11 @@
                 <RowDefinition Height="auto"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
+
+            <custom:Modal Grid.RowSpan="2" Panel.ZIndex="1" IsOpen="{Binding IsModalOpen}">
+
+                <ContentControl Margin="100 50 100 50" Content="{Binding CurrentModalViewModel}"/>
+            </custom:Modal>
             
             <views:OverviewView Grid.RowSpan="2"
                                 DataContext="{Binding OverviewViewModel}"

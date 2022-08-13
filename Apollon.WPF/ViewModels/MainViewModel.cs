@@ -21,6 +21,8 @@ namespace Apollon.WPF.ViewModels
             OverviewViewModel = overviewViewModel;
 
             _modalNavigationStore.CurrentViewModelChanged += ModalNavigationStore_CurrentViewModelChanged;
+
+            //_modalNavigationStore.CurrentViewModel = new AddTournametViewModel();
         }
 
         protected override void Dispose()
