@@ -15,17 +15,21 @@ namespace Apollon.WPF
     /// </summary>
     public partial class App : Application
     {
+        private readonly ModalNavigationStore _modalNavigationStore;
         private readonly SelectedTournamentStore _selectedTournamentStore;
 
         public App()
         {
+            _modalNavigationStore = new ModalNavigationStore();
             _selectedTournamentStore = new SelectedTournamentStore();
         }
         protected override void OnStartup(StartupEventArgs e)
         {
+            OverviewViewModel overviewViewModel = new OverviewViewModel(_selectedTournamentStore);
+
             MainWindow = new MainWindow()
             {
-               DataContext = new OverviewViewModel(_selectedTournamentStore)
+               DataContext = new MainViewModel(_modalNavigationStore, overviewViewModel)
             };
             MainWindow.Show();
 

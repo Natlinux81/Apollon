@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace Apollon.WPF.ViewModels
 {
-    internal class AddTournametViewModel
+    public class AddTournametViewModel : ViewModelBase
     {
+        public AddEditDetailsViewModel AddEditDetailsViewModel { get; }
+
+        public AddTournametViewModel()
+        {
+            AddEditDetailsViewModel = new AddEditDetailsViewModel();
+        }
+
     }
 }

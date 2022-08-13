@@ -10,14 +10,14 @@ namespace Apollon.WPF.ViewModels
 {
     public class OverviewViewModel : ViewModelBase
     {
-        public OverviewListingViewModel ApollonOverviewListingViewModel { get; }
-        public OverviewDetailsViewModel ApollonOverviewDetailsViewModel{ get; }
+        public OverviewListingViewModel OverviewListingViewModel { get; }
+        public OverviewDetailsViewModel OverviewDetailsViewModel{ get; }
         public ICommand AddTournamentCommand { get; }
 
         public OverviewViewModel(SelectedTournamentStore _selectedTournamentStore)
         {
-            ApollonOverviewListingViewModel = new OverviewListingViewModel(_selectedTournamentStore);
-            ApollonOverviewDetailsViewModel = new OverviewDetailsViewModel(_selectedTournamentStore);
+            OverviewListingViewModel = new OverviewListingViewModel(_selectedTournamentStore);
+            OverviewDetailsViewModel = new OverviewDetailsViewModel(_selectedTournamentStore);
         }
     }
 }

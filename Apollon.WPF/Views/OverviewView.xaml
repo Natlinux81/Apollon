@@ -81,7 +81,7 @@
                    Foreground="#0000a0">
             </TextBlock>
             <components:OverViewListing Height="400"
-                                               DataContext="{Binding ApollonOverviewListingViewModel}"/>
+                                               DataContext="{Binding OverviewListingViewModel}"/>
         </StackPanel>
         
         <StackPanel Grid.Column="2"
@@ -96,7 +96,7 @@
                    FontSize="16"
                    Foreground="#0000a0"/>
             <components:OverviewDetails Width="320"
-                                               DataContext="{Binding ApollonOverviewDetailsViewModel}"/>
+                                               DataContext="{Binding OverviewDetailsViewModel}"/>
             <Button Style="{StaticResource ModernButton}"
                 Content="Turnier bearbeiten"
                 FontSize="16"

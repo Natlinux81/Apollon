@@ -75,7 +75,8 @@
                     Height="25"
                     HorizontalAlignment="Left"
                     Margin="0 0 80 0"
-                    IsEnabled="False"/>
+                    IsEnabled="{Binding CanSubmit}">                
+            </Button>
             <Button Content="Abbrechen"
                     Command="{Binding CancelCommand}"
                     Style="{StaticResource ModernButton}"
