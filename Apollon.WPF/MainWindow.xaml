@@ -13,17 +13,18 @@
         AllowsTransparency="True"
         WindowStyle="None"
         MouseDown="Window_MouseDown">
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35">
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="35">
+                </RowDefinition>
+                <RowDefinition>
 
-            </RowDefinition>
-            <RowDefinition>
-
-            </RowDefinition>
-        </Grid.RowDefinitions>
-        <views:ApollonOverviewView Grid.RowSpan="2"/>
+                </RowDefinition>
+            </Grid.RowDefinitions>
+            <views:AddTournamentView Grid.RowSpan="2"></views:AddTournamentView >
+            <!--<views:OverviewView Grid.RowSpan="2"/>
         <Button Width="25"
                 Height="25"
                 Padding="-4"
@@ -66,7 +67,10 @@
                 HorizontalContentAlignment="Center"
                 HorizontalAlignment="Right" Margin="0,2,104,8"
                 Click="Button_Min"
-                ></Button>
-    </Grid>
+                ></Button>-->
+        </Grid>
+
+    </ScrollViewer>
+
 
 </Window>

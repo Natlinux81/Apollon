@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Apollon.WPF.ViewModels
 {
-    public class ApollonOverviewDetailsViewModel : ViewModelBase
+    public class OverviewDetailsViewModel : ViewModelBase
     {
         private readonly SelectedTournamentStore _selectedTournamentStore;
 
@@ -22,7 +22,7 @@ namespace Apollon.WPF.ViewModels
         public string Enddate => SelectedTournament?.Enddate ?? "kein Datum";
         public string Location => SelectedTournament?.Location ?? "kein Ort";
 
-        public ApollonOverviewDetailsViewModel(SelectedTournamentStore selectedTournamentStore)
+        public OverviewDetailsViewModel(SelectedTournamentStore selectedTournamentStore)
         {
            _selectedTournamentStore = selectedTournamentStore;
 

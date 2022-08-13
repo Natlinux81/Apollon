@@ -25,7 +25,7 @@ namespace Apollon.WPF
         {
             MainWindow = new MainWindow()
             {
-               DataContext = new ApollonOverviewViewModel(_selectedTournamentStore)
+               DataContext = new OverviewViewModel(_selectedTournamentStore)
             };
             MainWindow.Show();
 

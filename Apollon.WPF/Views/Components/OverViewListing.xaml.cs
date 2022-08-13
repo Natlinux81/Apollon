@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Apollon.WPF.Views
+namespace Apollon.WPF.Views.Components
 {
     /// <summary>
-    /// Interaction logic for ApollonOverviewView.xaml
+    /// Interaction logic for ApollonOverViewListing.xaml
     /// </summary>
-    public partial class ApollonOverviewView : UserControl
+    public partial class OverViewListing : UserControl
     {
-        public ApollonOverviewView()
+        public OverViewListing()
         {
             InitializeComponent();
         }

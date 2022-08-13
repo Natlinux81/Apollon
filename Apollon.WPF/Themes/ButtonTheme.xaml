@@ -6,7 +6,7 @@
         <Setter Property="Foreground" Value="#0000a0"/>
         <Setter Property="FontFamily" Value="Arial"/>
         <Setter Property="FontWeight" Value="Bold"/>
-
+        <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="Background" Value="#808080"/>
         <Setter Property="Template">
             <Setter.Value>
@@ -27,7 +27,7 @@
                 <Setter Property="Background" Value="#ff8000"/>
                 <Setter Property="Opacity" Value="0.8"/>
                 <Setter Property="Foreground" Value="#0000a0"/>
-            </Trigger>
+            </Trigger>            
         </Style.Triggers>
 
     </Style>

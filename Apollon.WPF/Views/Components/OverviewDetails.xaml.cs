@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Apollon.WPF.Views.Components
 {
     /// <summary>
-    /// Interaction logic for ApollonOverViewListing.xaml
+    /// Interaction logic for ApollonOverviewDetails.xaml
     /// </summary>
-    public partial class ApollonOverViewListing : UserControl
+    public partial class OverviewDetails : UserControl
     {
-        public ApollonOverViewListing()
+        public OverviewDetails()
         {
             InitializeComponent();
         }

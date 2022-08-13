@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Apollon.WPF.Views.Components
+namespace Apollon.WPF.Views
 {
     /// <summary>
-    /// Interaction logic for ApollonOverviewDetails.xaml
+    /// Interaction logic for AddTournamentView.xaml
     /// </summary>
-    public partial class ApollonOverviewDetails : UserControl
+    public partial class AddTournamentView : UserControl
     {
-        public ApollonOverviewDetails()
+        public AddTournamentView()
         {
             InitializeComponent();
         }

@@ -8,14 +8,14 @@ using System.Windows.Input;
 
 namespace Apollon.WPF.ViewModels
 {
-    public class ApollonOverviewListingItemViewModel : ViewModelBase
+    public class OverviewListingItemViewModel : ViewModelBase
     {
         public Tournament Tournament { get;}        
 
         public string Tournamentname => Tournament.Tournamentname;
         public ICommand DeleteCommand { get; }
                 
-        public ApollonOverviewListingItemViewModel(Tournament tournament)
+        public OverviewListingItemViewModel(Tournament tournament)
         {
             Tournament = tournament;
         }
