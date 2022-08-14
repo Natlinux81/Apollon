@@ -8,7 +8,7 @@ namespace Apollon.WPF.Models
 {
     public class Tournament
     {
-        public Tournament(string organisation, string tournamentname, string category, string startdate, string enddate, string location)
+        public Tournament(string organisation, string tournamentname, string category, string startdate, string enddate, string location, int rounds = 0)
         {
             Organisation = organisation;
             Tournamentname = tournamentname;
@@ -16,8 +16,8 @@ namespace Apollon.WPF.Models
             Startdate = startdate;
             Enddate = enddate;
             Location = location;
-                        
-        }        
+            Rounds = rounds;
+        }
 
         public string Organisation { get; }
         public string Tournamentname { get; }
@@ -25,6 +25,7 @@ namespace Apollon.WPF.Models
         public string Startdate { get; }
         public string Enddate { get; }
         public string Location { get; }
+        public int Rounds { get; }       
                 
     }
 }

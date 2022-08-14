@@ -21,6 +21,7 @@ namespace Apollon.WPF.ViewModels
         public string Startdate => SelectedTournament?.Startdate ?? "kein Datum";
         public string Enddate => SelectedTournament?.Enddate ?? "kein Datum";
         public string Location => SelectedTournament?.Location ?? "kein Ort";
+        public int Rounds => SelectedTournament?.Rounds ?? 0;
 
         public OverviewDetailsViewModel(SelectedTournamentStore selectedTournamentStore)
         {
@@ -44,6 +45,7 @@ namespace Apollon.WPF.ViewModels
             OnPropertyChanged(nameof(Startdate));
             OnPropertyChanged(nameof(Enddate));
             OnPropertyChanged(nameof(Location));
+            OnPropertyChanged(nameof(Rounds));
         }
     }
 }

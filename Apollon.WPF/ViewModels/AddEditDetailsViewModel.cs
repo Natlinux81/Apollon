@@ -80,6 +80,20 @@ namespace Apollon.WPF.ViewModels
 			}
 		}
 
+		private int _rounds;
+		public int Rounds
+		{
+			get
+			{
+				return _rounds;
+			}
+			set
+			{
+				_rounds = value;
+				OnPropertyChanged(nameof(Rounds));
+			}
+		}
+
 		private string _location;
 		public string Location
 		{

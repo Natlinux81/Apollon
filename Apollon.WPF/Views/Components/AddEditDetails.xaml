@@ -13,6 +13,7 @@
                 <RowDefinition Height="55"/>
                 <RowDefinition Height="55"/>
                 <RowDefinition Height="55"/>
+                <RowDefinition Height="55"/>
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
@@ -37,8 +38,11 @@
             <TextBlock Grid.Row="5"
                        Text="Veranstaltungsort: "
                        Style="{StaticResource ModalTextBlock}"/>
+        <TextBlock Grid.Row="6"
+                       Text="Durchgänge: "
+                       Style="{StaticResource ModalTextBlock}"/>
 
-            <TextBox Grid.Column="1"
+        <TextBox Grid.Column="1"
                      Text="{Binding Organisation}"
                      FontFamily="Arial"
                      FontSize="16"
@@ -83,8 +87,18 @@
                      Height="30"
                      VerticalContentAlignment="Center"
                      Background="LightGray"/>
+        <TextBox Grid.Row="6"
+                     Grid.Column="1"
+                     Text="{Binding Rounds}"
+                     FontFamily="Arial"                     
+                     FontSize="16"
+                     Height="30"
+                     Width="50"
+                     VerticalContentAlignment="Center"
+                     HorizontalAlignment="Left"
+                     Background="LightGray"/>
 
-        <Grid Grid.Row="6"
+        <Grid Grid.Row="7"
               Grid.ColumnSpan="2"
               Margin="0 30 0 0"
               Width="450"
