@@ -47,7 +47,7 @@
                      VerticalContentAlignment="Center"/>
             <TextBox Grid.Row="1"
                      Grid.Column="1"
-                     Text="{Binding Tournamentname}"
+                     Text="{Binding Tournamentname, UpdateSourceTrigger=PropertyChanged}"
                      FontFamily="Arial"                     
                      FontSize="16"
                      Height="30"

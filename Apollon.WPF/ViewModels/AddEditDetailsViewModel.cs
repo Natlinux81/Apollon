@@ -95,8 +95,15 @@ namespace Apollon.WPF.ViewModels
 		}
 
         public bool CanSubmit => !string.IsNullOrEmpty(Tournamentname);
+
         public ICommand SubmitCommand { get; }
         public ICommand CancelCommand { get; }
+
+        public AddEditDetailsViewModel(ICommand submitCommand, ICommand cancelCommand)
+        {
+            SubmitCommand = submitCommand;
+            CancelCommand = cancelCommand;
+        }
     }
 
 	

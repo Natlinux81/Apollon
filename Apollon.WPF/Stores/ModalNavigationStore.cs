@@ -27,5 +27,10 @@ namespace Apollon.WPF.Stores
 		public bool IsOpen => CurrentViewModel != null;
 
 		public event Action CurrentViewModelChanged;
-	}
+
+        internal void Close()
+        {
+            CurrentViewModel = null;
+        }
+    }
 }

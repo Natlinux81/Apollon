@@ -25,7 +25,7 @@ namespace Apollon.WPF
         }
         protected override void OnStartup(StartupEventArgs e)
         {
-            OverviewViewModel overviewViewModel = new OverviewViewModel(_selectedTournamentStore);
+            OverviewViewModel overviewViewModel = new OverviewViewModel(_selectedTournamentStore, _modalNavigationStore);
 
             MainWindow = new MainWindow()
             {

@@ -13,6 +13,7 @@
                        FontWeight="Bold"
                        FontSize="25"
                        Foreground="#0000a0"/>
-        <components:AddEditDetails Margin="0 50 0 0"/>
+        <components:AddEditDetails Margin="0 50 0 0"
+                                   DataContext="{Binding AddEditDetailsViewModel}"/>
     </Grid>
 </UserControl>
