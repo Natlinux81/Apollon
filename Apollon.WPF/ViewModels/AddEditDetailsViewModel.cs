@@ -24,7 +24,7 @@ namespace Apollon.WPF.ViewModels
 		}
 
 		private string _tournamentname;
-		public string Tounamentname
+		public string Tournamentname
 		{
 			get
 			{
@@ -33,7 +33,7 @@ namespace Apollon.WPF.ViewModels
 			set
 			{
 				_tournamentname = value;
-				OnPropertyChanged(nameof(Tounamentname));
+				OnPropertyChanged(nameof(Tournamentname));
 				OnPropertyChanged(nameof(CanSubmit));
 			}
 		}
@@ -94,9 +94,9 @@ namespace Apollon.WPF.ViewModels
 			}
 		}
 
-        public bool CanSubmit => !string.IsNullOrEmpty(Tounamentname);
+        public bool CanSubmit => !string.IsNullOrEmpty(Tournamentname);
         public ICommand SubmitCommand { get; }
-        public ICommand CancleCommand { get; }
+        public ICommand CancelCommand { get; }
     }
 
 	

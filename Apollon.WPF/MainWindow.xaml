@@ -20,6 +20,9 @@
         <DataTemplate DataType="{x:Type vms:AddTournametViewModel}">
             <views:AddTournamentView/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type vms:EditTournamentViewModel}">
+            <views:EditTournamentView/>
+        </DataTemplate>
     </Window.Resources>
     <ScrollViewer HorizontalScrollBarVisibility="Auto"
                   VerticalScrollBarVisibility="Auto">
