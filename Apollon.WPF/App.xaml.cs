@@ -18,7 +18,7 @@ namespace Apollon.WPF
     {
         private readonly ModalNavigationStore _modalNavigationStore;
         private readonly SelectedTournamentStore _selectedTournamentStore;
-        private readonly Tournament _tournament;
+        //private readonly Tournament _tournament;
 
         public App()
         {
@@ -27,7 +27,7 @@ namespace Apollon.WPF
         }
         protected override void OnStartup(StartupEventArgs e)
         {
-            OverviewViewModel overviewViewModel = new OverviewViewModel(_selectedTournamentStore, _modalNavigationStore, _tournament);
+            OverviewViewModel overviewViewModel = new OverviewViewModel(_selectedTournamentStore, _modalNavigationStore);
 
             MainWindow = new MainWindow()
             {

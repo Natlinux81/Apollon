@@ -14,18 +14,19 @@ namespace Apollon.WPF.ViewModels
     {
         public AddEditDetailsViewModel AddEditDetailsViewModel { get; }
 
-        public EditTournamentViewModel(Tournament tournament, ModalNavigationStore modalNavigationStore)
+        public EditTournamentViewModel(ModalNavigationStore modalNavigationStore)
         {
+            ICommand submitCommand = new EditTournamentCommand(modalNavigationStore);
             ICommand cancelCommand = new CloseModalCommand(modalNavigationStore);
-            AddEditDetailsViewModel = new AddEditDetailsViewModel(null, cancelCommand)
+            AddEditDetailsViewModel = new AddEditDetailsViewModel(submitCommand, cancelCommand )
             {
-                Organisation = tournament.Organisation,
-                Tournamentname = tournament.Tournamentname,
-                Category = tournament.Category,
-                Startdate = tournament.Startdate,
-                Enddate = tournament.Enddate,
-                Location = tournament.Location,
-                Rounds = tournament.Rounds,
+                //Organisation = tournament.Organisation,
+                //Tournamentname = tournament.Tournamentname,
+                //Category = tournament.Category,
+                //Startdate = tournament.Startdate,
+                //Enddate = tournament.Enddate,
+                //Location = tournament.Location,
+                //Rounds = tournament.Rounds,
             };
         }       
     }

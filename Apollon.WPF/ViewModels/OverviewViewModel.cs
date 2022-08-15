@@ -20,13 +20,13 @@ namespace Apollon.WPF.ViewModels
 
         
 
-        public OverviewViewModel(SelectedTournamentStore selectedTournamentStore, ModalNavigationStore modalNavigationStore, Tournament tournament)
+        public OverviewViewModel(SelectedTournamentStore selectedTournamentStore, ModalNavigationStore modalNavigationStore)
         {
             OverviewListingViewModel = new OverviewListingViewModel(selectedTournamentStore, modalNavigationStore);
             OverviewDetailsViewModel = new OverviewDetailsViewModel(selectedTournamentStore);
 
             AddTournamentCommand = new OpenAddTournamentCommand(modalNavigationStore);
-            EditTournamentCommand = new OpenEditTournamentCommand(modalNavigationStore, tournament);
+            EditTournamentCommand = new OpenEditTournamentCommand(modalNavigationStore);
         }
     }
 }
