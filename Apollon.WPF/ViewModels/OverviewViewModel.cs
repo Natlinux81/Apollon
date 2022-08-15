@@ -1,4 +1,5 @@
 ﻿using Apollon.WPF.Commands;
+using Apollon.WPF.Models;
 using Apollon.WPF.Stores;
 using System;
 using System.Collections.Generic;
@@ -17,13 +18,15 @@ namespace Apollon.WPF.ViewModels
         public ICommand AddTournamentCommand { get; }
         public ICommand EditTournamentCommand { get; }
 
-        public OverviewViewModel(SelectedTournamentStore _selectedTournamentStore, ModalNavigationStore modalNavigationStore)
+        
+
+        public OverviewViewModel(SelectedTournamentStore selectedTournamentStore, ModalNavigationStore modalNavigationStore, Tournament tournament)
         {
-            OverviewListingViewModel = new OverviewListingViewModel(_selectedTournamentStore);
-            OverviewDetailsViewModel = new OverviewDetailsViewModel(_selectedTournamentStore);
+            OverviewListingViewModel = new OverviewListingViewModel(selectedTournamentStore, modalNavigationStore);
+            OverviewDetailsViewModel = new OverviewDetailsViewModel(selectedTournamentStore);
 
             AddTournamentCommand = new OpenAddTournamentCommand(modalNavigationStore);
-            EditTournamentCommand = new OpenEditTournamentCommand(modalNavigationStore);
+            EditTournamentCommand = new OpenEditTournamentCommand(modalNavigationStore, tournament);
         }
     }
 }

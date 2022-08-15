@@ -1,4 +1,5 @@
-﻿using Apollon.WPF.Stores;
+﻿using Apollon.WPF.Models;
+using Apollon.WPF.Stores;
 using Apollon.WPF.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,7 @@ namespace Apollon.WPF
     {
         private readonly ModalNavigationStore _modalNavigationStore;
         private readonly SelectedTournamentStore _selectedTournamentStore;
+        private readonly Tournament _tournament;
 
         public App()
         {
@@ -25,7 +27,7 @@ namespace Apollon.WPF
         }
         protected override void OnStartup(StartupEventArgs e)
         {
-            OverviewViewModel overviewViewModel = new OverviewViewModel(_selectedTournamentStore, _modalNavigationStore);
+            OverviewViewModel overviewViewModel = new OverviewViewModel(_selectedTournamentStore, _modalNavigationStore, _tournament);
 
             MainWindow = new MainWindow()
             {

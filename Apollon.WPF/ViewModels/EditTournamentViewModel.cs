@@ -1,4 +1,5 @@
 ﻿using Apollon.WPF.Commands;
+using Apollon.WPF.Models;
 using Apollon.WPF.Stores;
 using System;
 using System.Collections.Generic;
@@ -13,10 +14,19 @@ namespace Apollon.WPF.ViewModels
     {
         public AddEditDetailsViewModel AddEditDetailsViewModel { get; }
 
-        public EditTournamentViewModel(ModalNavigationStore modalNavigationStore)
+        public EditTournamentViewModel(Tournament tournament, ModalNavigationStore modalNavigationStore)
         {
             ICommand cancelCommand = new CloseModalCommand(modalNavigationStore);
-            AddEditDetailsViewModel = new AddEditDetailsViewModel(null, cancelCommand); ;
-        }
+            AddEditDetailsViewModel = new AddEditDetailsViewModel(null, cancelCommand)
+            {
+                Organisation = tournament.Organisation,
+                Tournamentname = tournament.Tournamentname,
+                Category = tournament.Category,
+                Startdate = tournament.Startdate,
+                Enddate = tournament.Enddate,
+                Location = tournament.Location,
+                Rounds = tournament.Rounds,
+            };
+        }       
     }
 }
