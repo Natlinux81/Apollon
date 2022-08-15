@@ -9,11 +9,11 @@ using System.Windows.Input;
 
 namespace Apollon.WPF.ViewModels
 {
-    public class AddTournametViewModel : ViewModelBase
+    public class AddTournamentViewModel : ViewModelBase
     {
         public AddEditDetailsViewModel AddEditDetailsViewModel { get; }
 
-        public AddTournametViewModel(ModalNavigationStore modalNavigationStore)
+        public AddTournamentViewModel(ModalNavigationStore modalNavigationStore)
         {
             ICommand cancelCommand = new CloseModalCommand(modalNavigationStore);
             AddEditDetailsViewModel = new AddEditDetailsViewModel(null, cancelCommand);

@@ -11,10 +11,10 @@ namespace Apollon.WPF.ViewModels
 {
     public class OverviewListingViewModel : ViewModelBase
     {
-        private readonly ObservableCollection<OverviewListingItemViewModel> _apollonOverviewListingItemViewModels;
+        private readonly ObservableCollection<OverviewListingItemViewModel> _OverviewListingItemViewModels;
         private readonly SelectedTournamentStore _selectedTournamentStore;
 
-        public IEnumerable<OverviewListingItemViewModel> ApollonOverviewListingItemViewModels => _apollonOverviewListingItemViewModels;
+        public IEnumerable<OverviewListingItemViewModel> OverviewListingItemViewModels => _OverviewListingItemViewModels;
 
         private OverviewListingItemViewModel _selectedOverviewListingItemViewModel;
 
@@ -37,11 +37,11 @@ namespace Apollon.WPF.ViewModels
         {
 
             _selectedTournamentStore = selectedTournamentStore;
-            _apollonOverviewListingItemViewModels = new ObservableCollection<OverviewListingItemViewModel>();
+            _OverviewListingItemViewModels = new ObservableCollection<OverviewListingItemViewModel>();
 
-            _apollonOverviewListingItemViewModels.Add(new OverviewListingItemViewModel(new Tournament("DSB", "Deutschemeisterschaft1", "Halle", "01.01.2021", "05.01.2021", "Wiesbaden",3)));
-            _apollonOverviewListingItemViewModels.Add(new OverviewListingItemViewModel(new Tournament("DSB", "Deutschemeisterschaft2", "im Freien", "01.01.2021", "05.01.2021", "Berlin",5)));
-            _apollonOverviewListingItemViewModels.Add(new OverviewListingItemViewModel(new Tournament("DSB", "Deutschemeisterschaft3", "Halle", "01.01.2021", "05.01.2021", "Bruchsal", 6)));
+            _OverviewListingItemViewModels.Add(new OverviewListingItemViewModel(new Tournament("DSB", "Deutschemeisterschaft1", "Halle", "01.01.2021", "05.01.2021", "Wiesbaden",3)));
+            _OverviewListingItemViewModels.Add(new OverviewListingItemViewModel(new Tournament("DSB", "Deutschemeisterschaft2", "im Freien", "01.01.2021", "05.01.2021", "Berlin",5)));
+            _OverviewListingItemViewModels.Add(new OverviewListingItemViewModel(new Tournament("DSB", "Deutschemeisterschaft3", "Halle", "01.01.2021", "05.01.2021", "Bruchsal", 6)));
             
         }
     }

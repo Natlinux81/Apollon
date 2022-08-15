@@ -8,19 +8,19 @@ using System.Threading.Tasks;
 
 namespace Apollon.WPF.Commands
 {
-    public class OpenAddTournamentCommand : CommandBase
+    public class OpenEditTournamentCommand : CommandBase
     {
         private readonly ModalNavigationStore _modalNavigationStore;
 
-        public OpenAddTournamentCommand(ModalNavigationStore modalNavigationStore)
+        public OpenEditTournamentCommand(ModalNavigationStore modalNavigationStore)
         {
             _modalNavigationStore = modalNavigationStore;
         }
 
         public override void Execute(object parameter)
         {
-            AddTournamentViewModel addTournamentViewModel = new AddTournamentViewModel(_modalNavigationStore);
-            _modalNavigationStore.CurrentViewModel = addTournamentViewModel;
+            EditTournamentViewModel editTournamentViewModel = new EditTournamentViewModel(_modalNavigationStore);
+            _modalNavigationStore.CurrentViewModel = editTournamentViewModel;
         }
     }
 }

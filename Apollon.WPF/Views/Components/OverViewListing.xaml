@@ -18,7 +18,7 @@
                       Background="Transparent"
                       BorderBrush="Transparent"
                       Padding="20"
-                      ItemsSource="{Binding ApollonOverviewListingItemViewModels}"
+                      ItemsSource="{Binding OverviewListingItemViewModels}"
                       SelectedItem="{Binding SelectedOverviewListingItemViewModel}">
                 <ListView.ItemContainerStyle>
                     <Style TargetType="ListViewItem">

@@ -17,7 +17,7 @@
         WindowStyle="None"
         ResizeMode="CanResizeWithGrip">
     <Window.Resources>
-        <DataTemplate DataType="{x:Type vms:AddTournametViewModel}">
+        <DataTemplate DataType="{x:Type vms:AddTournamentViewModel}">
             <views:AddTournamentView/>
         </DataTemplate>
         <DataTemplate DataType="{x:Type vms:EditTournamentViewModel}">

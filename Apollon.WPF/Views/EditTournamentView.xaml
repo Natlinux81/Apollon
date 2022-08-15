@@ -7,7 +7,7 @@
              xmlns:components="clr-namespace:Apollon.WPF.Views.Components"
              mc:Ignorable="d">
     <Grid>
-        <TextBlock Text="Turniers Bearbeiten"
+        <TextBlock Text="Turniers bearbeiten"
                        TextAlignment="Center"
                        FontFamily="Arial"
                        FontWeight="Bold"
