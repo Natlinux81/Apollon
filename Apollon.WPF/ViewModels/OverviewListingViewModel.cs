@@ -15,6 +15,9 @@ namespace Apollon.WPF.ViewModels
     {
         private readonly ObservableCollection<OverviewListingItemViewModel> _overviewListingItemViewModels;
         private readonly SelectedTournamentStore _selectedTournamentStore;
+        private readonly ModalNavigationStore _modalNavigationStore;
+        private readonly TournamentStore _tournamentStore;
+        
 
         public IEnumerable<OverviewListingItemViewModel> OverviewListingItemViewModels => _overviewListingItemViewModels;
 
@@ -35,20 +38,36 @@ namespace Apollon.WPF.ViewModels
             }
         }
 
-        public OverviewListingViewModel(SelectedTournamentStore selectedTournamentStore, ModalNavigationStore modalNavigationStore)
+        public OverviewListingViewModel(SelectedTournamentStore selectedTournamentStore, ModalNavigationStore modalNavigationStore, TournamentStore tournamentStore)
         {
-
+            _tournamentStore = tournamentStore;
             _selectedTournamentStore = selectedTournamentStore;
+            _modalNavigationStore = modalNavigationStore;
             _overviewListingItemViewModels = new ObservableCollection<OverviewListingItemViewModel>();
 
-            AddTournament(new Tournament("DSB", "Deutschemeisterschaft1", "Halle", "01.01.2021", "05.01.2021", "Wiesbaden",3),modalNavigationStore);
-            AddTournament(new Tournament("DSB", "Deutschemeisterschaft2", "im Freien", "01.01.2021", "05.01.2021", "Berlin",5),modalNavigationStore);
-            AddTournament(new Tournament("DSB", "Deutschemeisterschaft3", "Halle", "01.01.2021", "05.01.2021", "Bruchsal", 6),modalNavigationStore);
+            _tournamentStore.TournamentAdded += _tournamentStore_TournamentAdded;
+
+            //AddTournament(new Tournament("DSB", "Deutschemeisterschaft1", "Halle", "01.01.2021", "05.01.2021", "Wiesbaden",3),modalNavigationStore);
+            //AddTournament(new Tournament("DSB", "Deutschemeisterschaft2", "im Freien", "01.01.2021", "05.01.2021", "Berlin",5),modalNavigationStore);
+            //AddTournament(new Tournament("DSB", "Deutschemeisterschaft3", "Halle", "01.01.2021", "05.01.2021", "Bruchsal", 6),modalNavigationStore);
             
         }
-        private void AddTournament(Tournament tournament, ModalNavigationStore modalNavigationStore)
+
+        protected override void Dispose()
         {
-            ICommand editTournamentCommand = new OpenAddTournamentCommand(modalNavigationStore);
+            _tournamentStore.TournamentAdded -= _tournamentStore_TournamentAdded;
+
+            base.Dispose();
+        }
+
+        private void _tournamentStore_TournamentAdded(Tournament tournament)
+        {
+            AddTournament(tournament);
+        }
+
+        private void AddTournament(Tournament tournament)
+        {
+            //ICommand editTournamentCommand = new OpenEditTournamentCommand(_modalNavigationStore);
             _overviewListingItemViewModels.Add(new OverviewListingItemViewModel(tournament
                 //,editTournamentCommand
                 ));
