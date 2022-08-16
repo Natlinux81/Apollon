@@ -18,7 +18,7 @@ namespace Apollon.WPF
     {
         private readonly ModalNavigationStore _modalNavigationStore;
         private readonly SelectedTournamentStore _selectedTournamentStore;
-        //private readonly Tournament _tournament;
+        
 
         public App()
         {

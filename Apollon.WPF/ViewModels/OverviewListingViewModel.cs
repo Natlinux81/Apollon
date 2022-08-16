@@ -48,7 +48,10 @@ namespace Apollon.WPF.ViewModels
         }
         private void AddTournament(Tournament tournament, ModalNavigationStore modalNavigationStore)
         {
-            _overviewListingItemViewModels.Add(new OverviewListingItemViewModel(tournament));
+            ICommand editTournamentCommand = new OpenAddTournamentCommand(modalNavigationStore);
+            _overviewListingItemViewModels.Add(new OverviewListingItemViewModel(tournament
+                //,editTournamentCommand
+                ));
         }
     }
     
