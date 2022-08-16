@@ -17,7 +17,7 @@ namespace Apollon.WPF.ViewModels
         public bool HasSelectedTournament => SelectedTournament != null;
         public string Organisation => SelectedTournament?.Organisation ?? "keine Organisation";
         public string Tournamentname => SelectedTournament?.Tournamentname ?? "kein Name";
-        public string Category => SelectedTournament?.Category ?? "keine Kategorie";
+        public string Category => SelectedTournament?.Competition ?? "keine Kategorie";
         public string Startdate => SelectedTournament?.Startdate ?? "kein Datum";
         public string Enddate => SelectedTournament?.Enddate ?? "kein Datum";
         public string Location => SelectedTournament?.Location ?? "kein Ort";

@@ -22,7 +22,7 @@ namespace Apollon.WPF.ViewModels
             {
                 Organisation = tournament.Organisation,
                 Tournamentname = tournament.Tournamentname,
-                Category = tournament.Category,
+                Competition = tournament.Competition,
                 Startdate = tournament.Startdate,
                 Enddate = tournament.Enddate,
                 Location = tournament.Location,

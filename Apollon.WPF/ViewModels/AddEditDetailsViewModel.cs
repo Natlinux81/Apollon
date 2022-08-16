@@ -39,7 +39,7 @@ namespace Apollon.WPF.ViewModels
 		}
 
 		private string _category;
-		public string Category
+		public string Competition
 		{
 			get
 			{
@@ -48,7 +48,7 @@ namespace Apollon.WPF.ViewModels
 			set
 			{
 				_category = value;
-				OnPropertyChanged(nameof(Category));
+				OnPropertyChanged(nameof(Competition));
 			}
 		}
 

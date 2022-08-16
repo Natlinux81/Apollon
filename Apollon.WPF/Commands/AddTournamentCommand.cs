@@ -32,7 +32,7 @@ namespace Apollon.WPF.Commands
         public override async Task ExecuteAsync(object parameter)
         {
             AddEditDetailsViewModel formViewModel = _addTournamentViewModel.AddEditDetailsViewModel;
-            Tournament tournament = new Tournament(formViewModel.Organisation,formViewModel.Tournamentname, formViewModel.Category, formViewModel.Startdate, formViewModel.Enddate,
+            Tournament tournament = new Tournament(formViewModel.Organisation,formViewModel.Tournamentname, formViewModel.Competition, formViewModel.Startdate, formViewModel.Enddate,
                                                     formViewModel.Location, formViewModel.Rounds);
 
             try
