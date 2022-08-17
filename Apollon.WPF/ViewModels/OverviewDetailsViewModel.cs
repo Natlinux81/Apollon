@@ -16,10 +16,10 @@ namespace Apollon.WPF.ViewModels
 
         public bool HasSelectedTournament => SelectedTournament != null;
         public string Organisation => SelectedTournament?.Organisation ?? "keine Organisation";
-        public string Tournamentname => SelectedTournament?.Tournamentname ?? "kein Name";
+        public string TournamentName => SelectedTournament?.TournamentName ?? "kein Name";
         public string Category => SelectedTournament?.Competition ?? "keine Kategorie";
-        public string Startdate => SelectedTournament?.Startdate ?? "kein Datum";
-        public string Enddate => SelectedTournament?.Enddate ?? "kein Datum";
+        public string StartDate => SelectedTournament?.StartDate.ToString("d") ?? "kein Datum"; 
+        public string EndDate => SelectedTournament?.EndDate.ToString("d") ?? "kein Datum";
         public string Location => SelectedTournament?.Location ?? "kein Ort";
         public int Rounds => SelectedTournament?.Rounds ?? 0;
 
@@ -40,10 +40,10 @@ namespace Apollon.WPF.ViewModels
         {
             OnPropertyChanged(nameof(HasSelectedTournament));
             OnPropertyChanged(nameof(Organisation));
-            OnPropertyChanged(nameof(Tournamentname));
+            OnPropertyChanged(nameof(TournamentName));
             OnPropertyChanged(nameof(Category));
-            OnPropertyChanged(nameof(Startdate));
-            OnPropertyChanged(nameof(Enddate));
+            OnPropertyChanged(nameof(StartDate));
+            OnPropertyChanged(nameof(EndDate));
             OnPropertyChanged(nameof(Location));
             OnPropertyChanged(nameof(Rounds));
         }

@@ -33,7 +33,7 @@
                                 <ColumnDefinition Width="auto"></ColumnDefinition>
                             </Grid.ColumnDefinitions>
                             <WrapPanel Grid.Column="0">
-                                <TextBlock Text="{Binding Tournamentname}"
+                                <TextBlock Text="{Binding TournamentName}"
                                            Margin="0 0 4 0"/>
                                 <TextBlock Text="{Binding Location}"/>
                             </WrapPanel>

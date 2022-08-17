@@ -12,7 +12,7 @@ namespace Apollon.WPF.ViewModels
     {
         public Tournament Tournament { get;}        
 
-        public string Tournamentname => Tournament.Tournamentname;
+        public string TournamentName => Tournament.TournamentName;
         public string Location => Tournament.Location;
         public ICommand DeleteCommand { get; }
                 

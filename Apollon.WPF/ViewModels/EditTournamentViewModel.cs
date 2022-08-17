@@ -21,10 +21,10 @@ namespace Apollon.WPF.ViewModels
             AddEditDetailsViewModel = new AddEditDetailsViewModel(submitCommand, cancelCommand )
             {
                 Organisation = tournament.Organisation,
-                Tournamentname = tournament.Tournamentname,
+                TournamentName = tournament.TournamentName,
                 Competition = tournament.Competition,
-                Startdate = tournament.Startdate,
-                Enddate = tournament.Enddate,
+                StartDate = tournament.StartDate,
+                EndDate = tournament.EndDate,
                 Location = tournament.Location,
                 Rounds = tournament.Rounds,
             };

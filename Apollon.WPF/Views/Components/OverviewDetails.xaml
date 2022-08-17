@@ -34,7 +34,7 @@
         </TextBlock>
              
             <StackPanel>
-                <TextBlock Text="{Binding Tournamentname}"
+                <TextBlock Text="{Binding TournamentName}"
                        TextAlignment="Center"
                        FontFamily="Arial"
                        FontWeight="Bold"
@@ -109,26 +109,8 @@
                 </Image>
             </WrapPanel>              
 
-            <WrapPanel Margin="10" HorizontalAlignment="Center">
-                    <TextBlock Text="vom "
-                       TextAlignment="Center"
-                       FontFamily="Arial"
-                       FontWeight="Bold"
-                       FontSize="14"
-                       Foreground="#0000a0">
-                        <TextBlock.Style>
-                            <Style TargetType="TextBlock">
-                                <Setter Property="Visibility" Value="Hidden"/>
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding HasSelectedTournament}" Value="True">
-                                        <Setter Property="Visibility" Value="Visible"/>
-                                    </DataTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </TextBlock.Style>
-                    </TextBlock>
-
-                    <TextBlock Text="{Binding Startdate}"
+            <WrapPanel Margin="10" HorizontalAlignment="Center"> 
+                    <TextBlock Text="{Binding StartDate}"
                        TextAlignment="Center"
                        FontFamily="Arial"
                        FontWeight="Bold"
@@ -163,7 +145,7 @@
                             </Style>
                         </TextBlock.Style>
                     </TextBlock>
-                    <TextBlock Text="{Binding Enddate}"
+                    <TextBlock Text="{Binding EndDate}"
                        TextAlignment="Center"
                        FontFamily="Arial"
                        FontWeight="Bold"

@@ -51,7 +51,7 @@
                      VerticalContentAlignment="Center"/>
         <TextBox Grid.Row="1"
                      Grid.Column="1"
-                     Text="{Binding Tournamentname, UpdateSourceTrigger=PropertyChanged}"
+                     Text="{Binding TournamentName, UpdateSourceTrigger=PropertyChanged}"
                      FontFamily="Arial"                     
                      FontSize="16"
                      Height="30"
@@ -65,18 +65,20 @@
                       VerticalContentAlignment="Center"
                       HorizontalAlignment="Left"/>
 
-        <DatePicker Grid.Row="3"
+        <DatePicker     SelectedDateFormat="Long"
+                        Grid.Row="3"
+                        SelectedDate="{Binding StartDate}"
                         Grid.Column="1"                        
                         Height="30"
-                        FontSize="16"
-                        Width="160"
+                        FontSize="16"                        
                         HorizontalAlignment="Left"/>
 
-        <DatePicker Grid.Row="4"
+        <DatePicker     SelectedDateFormat="Long"
+                        Grid.Row="4"
+                        SelectedDate="{Binding EndDate}"
                         Grid.Column="1"                        
                         Height="30"
-                        FontSize="16"
-                        Width="160"
+                        FontSize="16"                        
                         HorizontalAlignment="Left"/>
 
         <TextBox Grid.Row="5"
