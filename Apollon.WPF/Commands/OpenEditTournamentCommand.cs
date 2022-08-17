@@ -12,17 +12,17 @@ namespace Apollon.WPF.Commands
     public class OpenEditTournamentCommand : CommandBase
     {
         private readonly ModalNavigationStore _modalNavigationStore;
-        private readonly Tournament _tournament;
+       
 
-        public OpenEditTournamentCommand(ModalNavigationStore modalNavigationStore, Tournament tournament)
+        public OpenEditTournamentCommand(ModalNavigationStore modalNavigationStore)
         {
             _modalNavigationStore = modalNavigationStore;
-            _tournament = tournament;
+            
         }
 
         public override void Execute(object parameter)
         {
-            EditTournamentViewModel editTournamentViewModel = new EditTournamentViewModel(_modalNavigationStore, _tournament);
+            EditTournamentViewModel editTournamentViewModel = new EditTournamentViewModel(_modalNavigationStore);
             _modalNavigationStore.CurrentViewModel = editTournamentViewModel;
         }
     }
