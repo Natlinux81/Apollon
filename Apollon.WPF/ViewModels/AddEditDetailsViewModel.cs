@@ -39,16 +39,16 @@ namespace Apollon.WPF.ViewModels
 			}
 		}
 
-		private string _category;
+		private string _competition;
 		public string Competition
 		{
 			get
 			{
-				return _category;
+				return _competition;
 			}
 			set
 			{
-				_category = value;
+				_competition = value;
 				OnPropertyChanged(nameof(Competition));
 			}
 		}

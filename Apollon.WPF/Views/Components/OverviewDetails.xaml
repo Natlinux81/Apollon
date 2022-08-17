@@ -72,7 +72,7 @@
                     </TextBlock.Style>
                 </TextBlock>
             <WrapPanel HorizontalAlignment="Center">
-                <TextBlock Text="{Binding Category}"
+                <TextBlock Text="{Binding Competition}"
                        TextAlignment="Center"
                        VerticalAlignment="Center"
                        FontFamily="Arial"
