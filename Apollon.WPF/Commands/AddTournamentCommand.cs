@@ -32,22 +32,26 @@ namespace Apollon.WPF.Commands
         public override async Task ExecuteAsync(object parameter)
         {
             AddEditDetailsViewModel formViewModel = _addTournamentViewModel.AddEditDetailsViewModel;
-            Tournament tournament = new Tournament(formViewModel.Organisation,formViewModel.TournamentName, formViewModel.Competition, formViewModel.StartDate, formViewModel.EndDate,
-                                                    formViewModel.Location, formViewModel.Rounds);
+            Tournament tournament = new Tournament(
+                formViewModel.Organisation,
+                formViewModel.TournamentName,
+                formViewModel.Competition,
+                formViewModel.StartDate,
+                formViewModel.EndDate,
+                formViewModel.Location,
+                formViewModel.Rounds);
 
             try
             {
                 await _tournamentStore.Add(tournament);
+
+                _modalNavigationStore.Close();
             }
             catch (Exception)
             {
 
                 throw;
-            }
-            // Add Tournament to Database
-            
-
-            _modalNavigationStore.Close();
+            }            
         }
     }
 }

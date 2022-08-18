@@ -16,7 +16,7 @@ namespace Apollon.WPF.ViewModels
         public OverviewDetailsViewModel OverviewDetailsViewModel{ get; }
 
         public ICommand AddTournamentCommand { get; }
-        public ICommand EditTournamentCommand { get; set ; }
+        public ICommand EditTournamentCommand { get;}
 
         
 
@@ -28,12 +28,6 @@ namespace Apollon.WPF.ViewModels
             AddTournamentCommand = new OpenAddTournamentCommand(tournamentStore, modalNavigationStore);
             EditTournamentCommand = new OpenEditTournamentCommand(modalNavigationStore);
 
-            AddTournament(new Tournament("DSB", "Deutschemeisterschaft3", "Halle", DateTime.Now, DateTime.Today, "Bruchsal", 6), modalNavigationStore);
-        }
-
-        private void AddTournament(Tournament tournament, ModalNavigationStore modalNavigationStore)
-        {
-            ICommand editTournamentCommand = new EditTournamentCommand(modalNavigationStore);
 
         }
     }

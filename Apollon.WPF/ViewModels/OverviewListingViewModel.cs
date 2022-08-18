@@ -45,16 +45,21 @@ namespace Apollon.WPF.ViewModels
             _modalNavigationStore = modalNavigationStore;
             _overviewListingItemViewModels = new ObservableCollection<OverviewListingItemViewModel>();
 
-            //_overviewListingItemViewModels.Add(new OverviewListingItemViewModel(new Tournament("DSB", "Meisterschaft", "Halle", DateTime.Now, DateTime.Now, "Bruchsal", 10)));
-
-
-            //AddTournament(new Tournament("DSB", "Deutschemeisterschaft1", "Halle", "01.01.2021", "05.01.2021", "Wiesbaden",3),modalNavigationStore);
-            //AddTournament(new Tournament("DSB", "Deutschemeisterschaft2", "im Freien", "01.01.2021", "05.01.2021", "Berlin",5),modalNavigationStore);
-            AddTournament(new Tournament("DSB", "Deutschemeisterschaft3", "Halle", DateTime.Now, DateTime.Today, "Bruchsal", 6), modalNavigationStore);
-
+            _tournamentStore.TournamentAdded += TournamentStore_TournamentAdded; 
         }
 
-        private void AddTournament(Tournament tournament, ModalNavigationStore modalNavigationStore)
+        protected override void Dispose()
+        {
+            _tournamentStore.TournamentAdded -= TournamentStore_TournamentAdded;
+
+            base.Dispose();
+        }
+        private void TournamentStore_TournamentAdded(Tournament tournament)
+        {
+            AddTournament(tournament);
+        }
+
+        private void AddTournament(Tournament tournament)
         {
             // TO DO EditTournamentCommand
             _overviewListingItemViewModels.Add(new OverviewListingItemViewModel(tournament));
