@@ -7,13 +7,19 @@ using System.Threading.Tasks;
 
 namespace Apollon.WPF.Stores
 {
-    public class TournamentStore
+    public class TournamentsStore
     {
         public event Action<Tournament> TournamentAdded;
+        public event Action<Tournament> TournamentUpdated;
 
         public async Task Add(Tournament tournament)
         {
             TournamentAdded?.Invoke(tournament);
+        }
+
+        public async Task Update (Tournament tournament)
+        {
+            TournamentUpdated?.Invoke(tournament);
         }
     }
 }

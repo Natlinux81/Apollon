@@ -14,9 +14,9 @@ namespace Apollon.WPF.ViewModels
     public class OverviewListingViewModel : ViewModelBase
     {
         private readonly ObservableCollection<OverviewListingItemViewModel> _overviewListingItemViewModels;
-        private readonly SelectedTournamentStore _selectedTournamentStore;
+        private readonly SelectedTournamentsStore _selectedTournamentStore;
         private readonly ModalNavigationStore _modalNavigationStore;
-        private readonly TournamentStore _tournamentStore;
+        private readonly TournamentsStore _tournamentStore;
         
 
         public IEnumerable<OverviewListingItemViewModel> OverviewListingItemViewModels => _overviewListingItemViewModels;
@@ -38,19 +38,21 @@ namespace Apollon.WPF.ViewModels
             }
         }
 
-        public OverviewListingViewModel(SelectedTournamentStore selectedTournamentStore, ModalNavigationStore modalNavigationStore, TournamentStore tournamentStore)
+        public OverviewListingViewModel(SelectedTournamentsStore selectedTournamentStore, ModalNavigationStore modalNavigationStore, TournamentsStore tournamentStore)
         {
             _tournamentStore = tournamentStore;
             _selectedTournamentStore = selectedTournamentStore;
             _modalNavigationStore = modalNavigationStore;
             _overviewListingItemViewModels = new ObservableCollection<OverviewListingItemViewModel>();
 
-            _tournamentStore.TournamentAdded += TournamentStore_TournamentAdded; 
-        }
+            _tournamentStore.TournamentAdded += TournamentStore_TournamentAdded;
+            _tournamentStore.TournamentUpdated += TournamentStore_TournamentUpdated;
+        }       
 
         protected override void Dispose()
         {
             _tournamentStore.TournamentAdded -= TournamentStore_TournamentAdded;
+            _tournamentStore.TournamentUpdated -= TournamentStore_TournamentUpdated;
 
             base.Dispose();
         }
@@ -59,10 +61,21 @@ namespace Apollon.WPF.ViewModels
             AddTournament(tournament);
         }
 
+        private void TournamentStore_TournamentUpdated(Tournament tournament)
+        {
+            OverviewListingItemViewModel overviewViewModel =
+                _overviewListingItemViewModels.FirstOrDefault(y => y.Tournament.Id == tournament.Id);
+
+            if(overviewViewModel != null)
+            {
+                overviewViewModel.Update(tournament);
+            }
+        }
+
         private void AddTournament(Tournament tournament)
         {
-            // TO DO EditTournamentCommand
-            _overviewListingItemViewModels.Add(new OverviewListingItemViewModel(tournament));
+            OverviewListingItemViewModel itemViewModel = new OverviewListingItemViewModel(tournament, _tournamentStore, _modalNavigationStore);
+            _overviewListingItemViewModels.Add(itemViewModel);
         }
     }
 }

@@ -10,10 +10,10 @@ namespace Apollon.WPF.Commands
 {
     public class OpenAddTournamentCommand : CommandBase
     {
-        private readonly TournamentStore _tournamentStore;
+        private readonly TournamentsStore _tournamentStore;
         private readonly ModalNavigationStore _modalNavigationStore;
 
-        public OpenAddTournamentCommand(TournamentStore tournamentStore, ModalNavigationStore modalNavigationStore)
+        public OpenAddTournamentCommand(TournamentsStore tournamentStore, ModalNavigationStore modalNavigationStore)
         {
             _tournamentStore = tournamentStore;
             _modalNavigationStore = modalNavigationStore;

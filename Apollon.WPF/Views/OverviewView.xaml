@@ -113,8 +113,7 @@
                     Height="40"
                     Width="210"
                     Margin="40"
-                    Cursor="Hand"
-                    Command="{Binding EditTournamentCommand}"/>
+                    Cursor="Hand"/>
         </StackPanel>       
               
     </Grid>

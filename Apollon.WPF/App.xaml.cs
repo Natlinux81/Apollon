@@ -17,15 +17,15 @@ namespace Apollon.WPF
     public partial class App : Application
     {
         private readonly ModalNavigationStore _modalNavigationStore;
-        private readonly TournamentStore _tournamentStore;
-        private readonly SelectedTournamentStore _selectedTournamentStore;
+        private readonly TournamentsStore _tournamentStore;
+        private readonly SelectedTournamentsStore _selectedTournamentStore;
         
 
         public App()
         {
             _modalNavigationStore = new ModalNavigationStore();
-            _tournamentStore = new TournamentStore();
-            _selectedTournamentStore = new SelectedTournamentStore();
+            _tournamentStore = new TournamentsStore();
+            _selectedTournamentStore = new SelectedTournamentsStore(_tournamentStore);
         }
         protected override void OnStartup(StartupEventArgs e)
         {

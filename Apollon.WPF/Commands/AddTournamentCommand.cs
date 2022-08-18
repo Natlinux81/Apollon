@@ -11,18 +11,18 @@ namespace Apollon.WPF.Commands
 {
     public class AddTournamentCommand : AsyncCommandBase
     {
-        private readonly TournamentStore _tournamentStore;
+        private readonly TournamentsStore _tournamentStore;
         private readonly ModalNavigationStore _modalNavigationStore;
         private AddTournamentViewModel _addTournamentViewModel;
         
 
-        public AddTournamentCommand(TournamentStore tournamentStore, ModalNavigationStore modalNavigationStore)
+        public AddTournamentCommand(TournamentsStore tournamentStore, ModalNavigationStore modalNavigationStore)
         {
             _tournamentStore = tournamentStore;
             _modalNavigationStore = modalNavigationStore;
         }
 
-        public AddTournamentCommand(AddTournamentViewModel addTournamentViewModel, TournamentStore tournamentStore, ModalNavigationStore modalNavigationStore)
+        public AddTournamentCommand(AddTournamentViewModel addTournamentViewModel, TournamentsStore tournamentStore, ModalNavigationStore modalNavigationStore)
         {
             _addTournamentViewModel = addTournamentViewModel;
             _tournamentStore = tournamentStore;
@@ -31,15 +31,16 @@ namespace Apollon.WPF.Commands
 
         public override async Task ExecuteAsync(object parameter)
         {
-            AddEditDetailsViewModel formViewModel = _addTournamentViewModel.AddEditDetailsViewModel;
+            AddEditDetailsViewModel detailsViewModel = _addTournamentViewModel.AddEditDetailsViewModel;
             Tournament tournament = new Tournament(
-                formViewModel.Organisation,
-                formViewModel.TournamentName,
-                formViewModel.Competition,
-                formViewModel.StartDate,
-                formViewModel.EndDate,
-                formViewModel.Location,
-                formViewModel.Rounds);
+                Guid.NewGuid(),
+                detailsViewModel.Organisation,
+                detailsViewModel.TournamentName,
+                detailsViewModel.Competition,
+                detailsViewModel.StartDate,
+                detailsViewModel.EndDate,
+                detailsViewModel.Location,
+                detailsViewModel.Rounds);
 
             try
             {

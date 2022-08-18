@@ -37,19 +37,35 @@
                                            Margin="0 0 4 0"/>
                                 <TextBlock Text="{Binding Location}"/>
                             </WrapPanel>
-                            
-                            <Button Grid.Column="1"
+                            <WrapPanel Grid.Column="1">
+                                <Button 
+                                    Background="Transparent"
+                                    BorderThickness="0"
+                                    Cursor="Hand"
+                                    ToolTip="Löschen"
+                                    Command="{Binding EditCommand}">
+                                    <iconPacks:PackIconMaterial Kind="Pencil"
+                                                        VerticalAlignment="Center"
+                                                        HorizontalAlignment="Center"
+                                                        Grid.Column="1"
+                                                        Foreground="#0000a0"
+                                                        Margin="4"/>
+                                </Button>
+                                <Button Grid.Column="1"
                                     Background="Transparent"
                                     BorderThickness="0"
                                     Cursor="Hand"
                                     ToolTip="Löschen"
                                     Command="{Binding DeleteCommand}">
-                                <iconPacks:PackIconMaterial Kind="TrashCan"
+                                    <iconPacks:PackIconMaterial Kind="TrashCan"
                                                         VerticalAlignment="Center"
                                                         HorizontalAlignment="Center"
                                                         Grid.Column="1"
                                                         Foreground="Red"/>
-                            </Button>
+                                </Button>
+                            </WrapPanel>
+                            
+                            
                         </Grid>
                         
                     </DataTemplate>

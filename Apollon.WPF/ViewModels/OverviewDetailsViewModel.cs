@@ -10,7 +10,7 @@ namespace Apollon.WPF.ViewModels
 {
     public class OverviewDetailsViewModel : ViewModelBase
     {
-        private readonly SelectedTournamentStore _selectedTournamentStore;
+        private readonly SelectedTournamentsStore _selectedTournamentStore;
 
         private Tournament SelectedTournament => _selectedTournamentStore.SelectedTournament; 
 
@@ -23,7 +23,7 @@ namespace Apollon.WPF.ViewModels
         public string Location => SelectedTournament?.Location ?? "kein Ort";
         public int Rounds => SelectedTournament?.Rounds ?? 0;
 
-        public OverviewDetailsViewModel(SelectedTournamentStore selectedTournamentStore)
+        public OverviewDetailsViewModel(SelectedTournamentsStore selectedTournamentStore)
         {
            _selectedTournamentStore = selectedTournamentStore;
 
