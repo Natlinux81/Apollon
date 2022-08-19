@@ -31,8 +31,8 @@
             </Grid.RowDefinitions>
 
             <custom:Modal Grid.RowSpan="2" Panel.ZIndex="1" IsOpen="{Binding IsModalOpen}">
-
-                <ContentControl Margin="100 50 100 50" Content="{Binding CurrentModalViewModel}"/>
+            
+                <ContentControl Margin="30" Content="{Binding CurrentModalViewModel}"/>
             </custom:Modal>
             
             <views:OverviewView Grid.RowSpan="2"

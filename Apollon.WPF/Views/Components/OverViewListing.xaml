@@ -19,7 +19,7 @@
                       BorderBrush="Transparent"
                       Padding="5"
                       ItemsSource="{Binding OverviewListingItemViewModels}"
-                      SelectedItem="{Binding SelectedOverviewListingItemViewModel}">
+                      SelectedItem="{Binding SelectedOverviewListingItemViewModel}"                      >
                 <ListView.ItemContainerStyle>
                     <Style TargetType="ListViewItem">
                         <Setter Property="HorizontalContentAlignment" Value="Stretch"/>

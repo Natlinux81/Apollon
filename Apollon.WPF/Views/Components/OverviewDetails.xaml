@@ -31,8 +31,7 @@
                     </Style.Triggers>
                 </Style>
             </TextBlock.Style>
-        </TextBlock>
-             
+        </TextBlock>             
             <StackPanel>
                 <TextBlock Text="{Binding TournamentName}"
                        TextAlignment="Center"
@@ -66,8 +65,8 @@
                             <Style.Triggers>
                                 <DataTrigger Binding="{Binding HasSelectedTournament}" Value="True">
                                     <Setter Property="Visibility" Value="Visible"/>
-                                </DataTrigger>
-                            </Style.Triggers>
+                                </DataTrigger>                            
+                        </Style.Triggers>
                         </Style>
                     </TextBlock.Style>
                 </TextBlock>

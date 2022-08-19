@@ -57,7 +57,7 @@
         </StackPanel>
 
         <StackPanel Grid.Row="2" 
-                    VerticalAlignment="Center">
+                    VerticalAlignment="Stretch">
 
             <Image Grid.Column="2"
                Grid.Row="2"

@@ -27,18 +27,20 @@ namespace Apollon.WPF.ViewModels
         {
            _selectedTournamentStore = selectedTournamentStore;
 
-            _selectedTournamentStore.SelectedTournamentChanged += SelectedTournamentStore_SelectedTournamentChanged;
+            _selectedTournamentStore.SelectedTournamentChanged += SelectedTournamentStore_SelectedTournamentChanged;           
         }
 
         protected override void Dispose()
         {
+           
             _selectedTournamentStore.SelectedTournamentChanged -= SelectedTournamentStore_SelectedTournamentChanged; 
+
             base.Dispose();
         }
 
         private void SelectedTournamentStore_SelectedTournamentChanged()
         {
-            OnPropertyChanged(nameof(HasSelectedTournament));
+            //OnPropertyChanged(nameof(HasSelectedTournament));
             OnPropertyChanged(nameof(Organisation));
             OnPropertyChanged(nameof(TournamentName));
             OnPropertyChanged(nameof(Competition));

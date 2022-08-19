@@ -23,6 +23,6 @@ namespace Apollon.WPF.Views.Components
         public OverViewListing()
         {
             InitializeComponent();
-        }
+        }        
     }
 }

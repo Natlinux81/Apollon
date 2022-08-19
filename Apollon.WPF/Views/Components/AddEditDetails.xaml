@@ -22,86 +22,109 @@
         </Grid.ColumnDefinitions>
 
         <TextBlock Text="Veranstalter: "                       
-                       Style="{StaticResource ModalTextBlock}"/>
+                   Style="{StaticResource ModalTextBlock}"/>
+        
         <TextBlock Grid.Row="1"
-                       Text="Turniername: "
-                       Style="{StaticResource ModalTextBlock}"/>
-        <TextBlock Grid.Row="2"
-                       Text="Wettkampfart: "                       
-                       Style="{StaticResource ModalTextBlock}"/>
+                   Text="Turniername: "
+                   Style="{StaticResource ModalTextBlock}"/>
+        
+        <TextBlock Grid.Row="2"                   
+                   Text="Wettkampfart: "                    
+                   Style="{StaticResource ModalTextBlock}"/>
+        
         <TextBlock Grid.Row="3"
-                       Text="Startdatum: "
-                       Style="{StaticResource ModalTextBlock}"/>
+                   Text="Startdatum: "
+                   Style="{StaticResource ModalTextBlock}"/>
+        
         <TextBlock Grid.Row="4"
-                       Text="Enddatum: "
-                       Style="{StaticResource ModalTextBlock}"/>
+                   Text="Enddatum: "
+                   Style="{StaticResource ModalTextBlock}"/>
+        
         <TextBlock Grid.Row="5"
-                       Text="Veranstaltungsort: "
-                       Style="{StaticResource ModalTextBlock}"/>
+                   Text="Veranstaltungsort: "
+                   Style="{StaticResource ModalTextBlock}"/>
+        
         <TextBlock Grid.Row="6"
-                       Text="Durchgänge: "
-                       Style="{StaticResource ModalTextBlock}"/>
+                   Text="Durchgänge: "
+                   Style="{StaticResource ModalTextBlock}"/>
 
         <TextBox Grid.Column="1"
-                     Text="{Binding Organisation}"
-                     FontFamily="Arial"
-                     FontSize="16"
-                     Height="30"
-                     Background="LightGray"
-                     VerticalContentAlignment="Center"/>
+                 Text="{Binding Organisation}"
+                 FontFamily="Arial"
+                 FontSize="16"
+                 Height="30"
+                 Background="LightGray"
+                 VerticalContentAlignment="Center"/>
+        
         <TextBox Grid.Row="1"
-                     Grid.Column="1"
-                     Text="{Binding TournamentName, UpdateSourceTrigger=PropertyChanged}"
-                     FontFamily="Arial"                     
-                     FontSize="16"
-                     Height="30"
-                     VerticalContentAlignment="Center"                     
-                     Background="LightGray"/>
-        <ComboBox     Grid.Row="2"
-                      Text="{Binding Competition}"
-                      IsEditable="True"
-                      Grid.Column="1"
-                      Height="30"
-                      Width="150"
-                      FontSize="16"
-                      
-                      VerticalContentAlignment="Center"
-                      HorizontalAlignment="Left"/>
+                 Grid.Column="1"
+                 Text="{Binding TournamentName, UpdateSourceTrigger=PropertyChanged}"
+                 FontFamily="Arial"                     
+                 FontSize="16"
+                 Height="30"
+                 VerticalContentAlignment="Center"                     
+                 Background="LightGray"/>
 
-        <DatePicker     SelectedDateFormat="Long"
-                        Grid.Row="3"
-                        SelectedDate="{Binding StartDate}"
-                        Grid.Column="1"                        
-                        Height="30"
-                        FontSize="16"                        
-                        HorizontalAlignment="Left"/>
+        <ComboBox Grid.Row="2"
+                  x:Name="ComboBox"                   
+                  Text="{Binding Competition}"
+                  IsReadOnly="False"
+                  IsEditable="True"
+                  Grid.Column="1"
+                  Height="30"
+                  Width="150"
+                  FontSize="16"
+                  VerticalContentAlignment="Center"
+                  HorizontalAlignment="Left">
+            <ComboBoxItem Content="Halle"></ComboBoxItem>
+            <ComboBoxItem Content="im Freien"></ComboBoxItem>
+            <ComboBoxItem Content="Feld"></ComboBoxItem>
+            <ComboBoxItem Content="3 D"></ComboBoxItem>            
+        </ComboBox>
 
-        <DatePicker     SelectedDateFormat="Long"
-                        Grid.Row="4"
-                        SelectedDate="{Binding EndDate}"
-                        Grid.Column="1"                        
-                        Height="30"
-                        FontSize="16"                        
-                        HorizontalAlignment="Left"/>
+        <Image x:Name="CompetitionImage"                 
+               Grid.Row="2"
+               Grid.Column="1"
+               Grid.RowSpan="2"
+               Height="80"
+               Width="80"
+               HorizontalAlignment="Right"
+               Margin="0 0 80 0"/>
+        
+        <DatePicker SelectedDateFormat="Long"
+                    Grid.Row="3"
+                    SelectedDate="{Binding StartDate}"
+                    Grid.Column="1"                        
+                    Height="30"
+                    FontSize="14"                        
+                    HorizontalAlignment="Left"/>
+                    
+        <DatePicker SelectedDateFormat="Long"
+                    Grid.Row="4"
+                    SelectedDate="{Binding EndDate}"
+                    Grid.Column="1"                        
+                    Height="30"
+                    FontSize="14"                        
+                    HorizontalAlignment="Left"/>
 
         <TextBox Grid.Row="5"
-                     Grid.Column="1"
-                     Text="{Binding Location}"
-                     FontFamily="Arial"                     
-                     FontSize="16"
-                     Height="30"
-                     VerticalContentAlignment="Center"
-                     Background="LightGray"/>
+                 Grid.Column="1"
+                 Text="{Binding Location}"
+                 FontFamily="Arial"                     
+                 FontSize="16"
+                 Height="30"
+                 VerticalContentAlignment="Center"
+                 Background="LightGray"/>
         <TextBox Grid.Row="6"
-                     Grid.Column="1"
-                     Text="{Binding Rounds}"
-                     FontFamily="Arial"                     
-                     FontSize="16"
-                     Height="30"
-                     Width="50"
-                     VerticalContentAlignment="Center"
-                     HorizontalAlignment="Left"
-                     Background="LightGray"/>
+                 Grid.Column="1"
+                 Text="{Binding Rounds}"
+                 FontFamily="Arial"                     
+                 FontSize="16"
+                 Height="30"
+                 Width="50"
+                 VerticalContentAlignment="Center"
+                 HorizontalAlignment="Left"
+                 Background="LightGray"/>
 
         <Grid Grid.Row="7"
               Grid.ColumnSpan="2"
@@ -112,14 +135,15 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
+
             <Button Content="Speichern"
                     Command="{Binding SubmitCommand}"
                     Style="{StaticResource ModernButton}"
                     Width="120"
                     Height="35" 
                     FontSize="16"
-                    IsEnabled="{Binding CanSubmit}">
-            </Button>
+                    IsEnabled="{Binding CanSubmit}"/>
+            
             <Button Content="Abbrechen"
                     Command="{Binding CancelCommand}"
                     Style="{StaticResource ModernButton}"
@@ -128,8 +152,5 @@
                     FontSize="16"
                     Grid.Column="1"/>
         </Grid>
-
-
     </Grid>
-
 </UserControl>

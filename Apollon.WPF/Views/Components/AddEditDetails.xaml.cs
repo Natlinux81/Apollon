@@ -22,7 +22,8 @@ namespace Apollon.WPF.Views.Components
     {
         public AddEditDetails()
         {
-            InitializeComponent();
-        }
+            InitializeComponent();           
+           
+        }        
     }
 }
