@@ -12,4 +12,8 @@
     <PackageReference Include="SimpleModal.WPF" Version="1.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Apollon.Domain\Apollon.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

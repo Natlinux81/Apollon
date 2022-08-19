@@ -1,4 +1,4 @@
-﻿using Apollon.WPF.Models;
+﻿using Apollon.Domain.Models;
 using Apollon.WPF.Stores;
 using System;
 using System.Collections.Generic;
@@ -40,7 +40,7 @@ namespace Apollon.WPF.ViewModels
 
         private void SelectedTournamentStore_SelectedTournamentChanged()
         {
-            //OnPropertyChanged(nameof(HasSelectedTournament));
+            OnPropertyChanged(nameof(HasSelectedTournament));
             OnPropertyChanged(nameof(Organisation));
             OnPropertyChanged(nameof(TournamentName));
             OnPropertyChanged(nameof(Competition));

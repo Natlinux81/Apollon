@@ -1,5 +1,5 @@
 ﻿using Apollon.WPF.Commands;
-using Apollon.WPF.Models;
+using Apollon.Domain.Models;
 using Apollon.WPF.Stores;
 using System;
 using System.Collections.Generic;

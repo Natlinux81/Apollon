@@ -1,4 +1,4 @@
-﻿using Apollon.WPF.Models;
+﻿using Apollon.Domain.Models;
 using Apollon.WPF.Stores;
 using Apollon.WPF.ViewModels;
 using System;
