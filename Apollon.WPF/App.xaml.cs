@@ -34,7 +34,7 @@ namespace Apollon.WPF
 
         public App()
         {
-            string connectionString = "Data Source=NATHALIE-PC\\NATLINUXDB;Database=Apollon;Trusted_Connection=True;MultipleActiveResultSets=true";
+            string connectionString = "Server=NATHALIE-PC\\NATLINUXDB;Database=Apollon;Trusted_Connection=True;MultipleActiveResultSets=true";
 
             _modalNavigationStore = new ModalNavigationStore();
             _tournamentsDbContextFactory = new TournamentsDbContextFactory(
@@ -48,6 +48,11 @@ namespace Apollon.WPF
         }
         protected override void OnStartup(StartupEventArgs e)
         {
+            using(TournamentsDbContext context = _tournamentsDbContextFactory.Create())
+            {
+                context.Database.Migrate();
+            }
+
             OverviewViewModel overviewViewModel = new OverviewViewModel(
                 _tournamentStore,
                 _selectedTournamentStore,
