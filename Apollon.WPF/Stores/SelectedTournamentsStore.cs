@@ -33,7 +33,13 @@ namespace Apollon.WPF.Stores
             _tournamentStore = tournamentstore;
 
 			_tournamentStore.TournamentUpdated += TournamentStore_TournamentUpdated;
+			_tournamentStore.TournamentAdded += TournamentStore_TournamentAdded;
         }
+
+		private void TournamentStore_TournamentAdded(Tournament tournament)
+		{
+			SelectedTournament = tournament;
+		}
 
 		private void TournamentStore_TournamentUpdated(Tournament tournament)
 		{

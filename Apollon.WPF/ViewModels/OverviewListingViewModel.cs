@@ -19,21 +19,17 @@ namespace Apollon.WPF.ViewModels
         private readonly TournamentsStore _tournamentStore;        
 
         public IEnumerable<OverviewListingItemViewModel> OverviewListingItemViewModels => _overviewListingItemViewModels;
-
-        private OverviewListingItemViewModel _selectedOverviewListingItemViewModel;        
-
+        
         public OverviewListingItemViewModel SelectedOverviewListingItemViewModel
         {
             get
             {
-                return _selectedOverviewListingItemViewModel;
+                return _overviewListingItemViewModels.
+                    FirstOrDefault(y => y.Tournament?.Id == _selectedTournamentStore.SelectedTournament?.Id); 
             }
             set
-            {
-                _selectedOverviewListingItemViewModel = value;
-                OnPropertyChanged(nameof(SelectedOverviewListingItemViewModel));
-
-                _selectedTournamentStore.SelectedTournament = _selectedOverviewListingItemViewModel.Tournament;
+            {           
+                _selectedTournamentStore.SelectedTournament = value?.Tournament;                
             }
         }
 
@@ -48,10 +44,14 @@ namespace Apollon.WPF.ViewModels
 
             LoadTournamentsCommand = new LoadTournamentsCommand(tournamentStore);
 
+            _selectedTournamentStore.SelectedTournamentChanged += SelectedTournamentStore_SelectedTournamentChanged;
+
             _tournamentStore.TournamentLoaded += TournamentStore_TournamentLoaded;
             _tournamentStore.TournamentAdded += TournamentStore_TournamentAdded;
             _tournamentStore.TournamentUpdated += TournamentStore_TournamentUpdated;
             _tournamentStore.TournamentDeleted += TournamentStore_TournamentDeleted;
+
+            _overviewListingItemViewModels.CollectionChanged += OverviewListingItemViewModels_CollectionChanged;
         }        
 
         public static OverviewListingViewModel LoadViewModel(SelectedTournamentsStore selectedTournamentStore, ModalNavigationStore modalNavigationStore, TournamentsStore tournamentStore)
@@ -65,12 +65,19 @@ namespace Apollon.WPF.ViewModels
 
         protected override void Dispose()
         {
+            _selectedTournamentStore.SelectedTournamentChanged += SelectedTournamentStore_SelectedTournamentChanged;
+
             _tournamentStore.TournamentLoaded -= TournamentStore_TournamentLoaded;
             _tournamentStore.TournamentAdded -= TournamentStore_TournamentAdded;
             _tournamentStore.TournamentUpdated -= TournamentStore_TournamentUpdated;
             _tournamentStore.TournamentDeleted -= TournamentStore_TournamentDeleted;
 
             base.Dispose();
+        }
+
+        private void SelectedTournamentStore_SelectedTournamentChanged()
+        {
+            OnPropertyChanged(nameof(SelectedOverviewListingItemViewModel));
         }
 
         private void TournamentStore_TournamentLoaded()
@@ -107,6 +114,11 @@ namespace Apollon.WPF.ViewModels
             {
                 _overviewListingItemViewModels.Remove(itemViewModel);
             }
+        }
+
+        private void OverviewListingItemViewModels_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        {
+            OnPropertyChanged(nameof(SelectedOverviewListingItemViewModel));
         }
 
         private void AddTournament(Tournament tournament)
