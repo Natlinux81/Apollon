@@ -108,7 +108,7 @@
                                         DataContext="{Binding OverviewDetailsViewModel}"/>
             
             <Button Style="{StaticResource ModernButton}"
-                    Content="Turnier bearbeiten"
+                    Content="Namensliste"
                     FontSize="16"
                     Height="40"
                     Width="210"
