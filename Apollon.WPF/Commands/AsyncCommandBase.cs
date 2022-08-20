@@ -14,10 +14,8 @@ namespace Apollon.WPF.Commands
             {
                 await ExecuteAsync(parameter);
             }
-            catch (Exception) { }
-                        
+            catch (Exception) { }                        
         }
-
         public abstract Task ExecuteAsync(object parameter);
     }    
 }

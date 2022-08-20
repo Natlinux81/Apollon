@@ -13,7 +13,7 @@ namespace Apollon.EntityFramework
         
         public TournamentsDbContext CreateDbContext(string[] args = null)
         {         
-            return new TournamentsDbContext(new DbContextOptionsBuilder().UseSqlServer("Data Source=NATHALIE-PC\\NATLINUXDB;Database=Apollon;Trusted_Connection=True;MultipleActiveResultSets=true").Options);
+            return new TournamentsDbContext(new DbContextOptionsBuilder().UseSqlServer("Server=NATHALIE-PC\\NATLINUXDB;Database=Apollon;Trusted_Connection=True;MultipleActiveResultSets=true").Options);
         }
     }
 }

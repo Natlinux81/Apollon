@@ -15,7 +15,9 @@ namespace Apollon.WPF.Commands
         private readonly OverviewListingItemViewModel _overviewListingItemViewModel;
         private readonly TournamentsStore _tournamentStore;
 
-        public OpenEditTournamentCommand(OverviewListingItemViewModel overviewListingItemViewModel, TournamentsStore tournamentStore, ModalNavigationStore modalNavigationStore)
+        public OpenEditTournamentCommand(OverviewListingItemViewModel overviewListingItemViewModel,
+            TournamentsStore tournamentStore, 
+            ModalNavigationStore modalNavigationStore)
         {
             _overviewListingItemViewModel = overviewListingItemViewModel;
             _tournamentStore = tournamentStore;

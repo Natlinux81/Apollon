@@ -9,9 +9,9 @@ namespace Apollon.WPF.Stores
 {
     public class SelectedTournamentsStore
     {
-		private readonly TournamentsStore _tournamentStore;
-		
-		private Tournament _selectedTournament;
+		private readonly TournamentsStore _tournamentStore;       
+
+        private Tournament _selectedTournament;
 
 		public Tournament SelectedTournament
 		{
@@ -42,5 +42,6 @@ namespace Apollon.WPF.Stores
 				SelectedTournament = tournament;
 			}
 		}
+
 	}
 }
