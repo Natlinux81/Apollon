@@ -11,16 +11,16 @@ namespace Apollon.EntityFramework.Commands
 {
     public class DeleteTournamentCommand : IDeleteTournamentCommand
     {
-        private readonly TournamentsDBContextFactory _contextFactory;
+        private readonly TournamentsDbContextFactory _contextFactory;
 
-        public DeleteTournamentCommand(TournamentsDBContextFactory contextFactory)
+        public DeleteTournamentCommand(TournamentsDbContextFactory contextFactory)
         {
             _contextFactory = contextFactory;
         }
 
         public async Task Execute(Guid id)
         {
-            using (TournamentsDBContext context = _contextFactory.Create())
+            using (TournamentsDbContext context = _contextFactory.Create())
             {
                 TournamentDto tournamentDto = new TournamentDto()
                 {

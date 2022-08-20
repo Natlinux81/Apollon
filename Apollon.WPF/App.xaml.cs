@@ -23,7 +23,7 @@ namespace Apollon.WPF
     public partial class App : Application
     {
         private readonly ModalNavigationStore _modalNavigationStore;
-        private readonly TournamentsDBContextFactory _tournamentsDBContextFactory;
+        private readonly TournamentsDbContextFactory _tournamentsDbContextFactory;
         private readonly IGetAllTournamentsQuery _getAllTournamentQuery;
         private readonly ICreateTournamentCommand _createTournamentCommand;
         private readonly IUpdateTournamentCommand _updateTournamentCommand;
@@ -34,15 +34,15 @@ namespace Apollon.WPF
 
         public App()
         {
-            string connectionString = "Server=NATHALIE-PC\NATLINUXDB;Database=OfficeOrganizer;Trusted_Connection=True;MultipleActiveResultSets=true\";
+            string connectionString = "Data Source=NATHALIE-PC\\NATLINUXDB;Database=Apollon;Trusted_Connection=True;MultipleActiveResultSets=true";
 
             _modalNavigationStore = new ModalNavigationStore();
-            _tournamentsDBContextFactory = new TournamentsDBContextFactory(
+            _tournamentsDbContextFactory = new TournamentsDbContextFactory(
                 new DbContextOptionsBuilder().UseSqlServer(connectionString).Options);
-            _getAllTournamentQuery = new GetAllTournamentsQuery();
-            _createTournamentCommand = new CreateTournamentCommand();
-            _updateTournamentCommand = new UpdateTournamentCommand();
-            _deleteTournamentCommand = new DeleteTournamentCommand();
+            _getAllTournamentQuery = new GetAllTournamentsQuery(_tournamentsDbContextFactory);
+            _createTournamentCommand = new CreateTournamentCommand(_tournamentsDbContextFactory);
+            _updateTournamentCommand = new UpdateTournamentCommand(_tournamentsDbContextFactory);
+            _deleteTournamentCommand = new DeleteTournamentCommand(_tournamentsDbContextFactory);
             _tournamentStore = new TournamentsStore(_getAllTournamentQuery, _createTournamentCommand, _updateTournamentCommand, _deleteTournamentCommand);
             _selectedTournamentStore = new SelectedTournamentsStore(_tournamentStore);
         }

@@ -14,6 +14,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Apollon.Domain\Apollon.Domain.csproj" />
+    <ProjectReference Include="..\Apollon.EntityFramework\Apollon.EntityFramework.csproj" />
   </ItemGroup>
 
 </Project>
