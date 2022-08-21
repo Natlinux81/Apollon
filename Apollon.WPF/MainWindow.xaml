@@ -23,6 +23,9 @@
         <DataTemplate DataType="{x:Type vms:EditTournamentViewModel}">
             <views:EditTournamentView/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type vms:WarningDeleteViewModel}">
+            <views:WarningDeleteView/>
+        </DataTemplate>
     </Window.Resources>    
         <Grid>
             <Grid.RowDefinitions>

@@ -18,14 +18,16 @@ namespace Apollon.WPF.ViewModels
         public string Location => Tournament.Location;
 
         public ICommand EditCommand { get; }
-        public ICommand DeleteCommand { get; }
+        //public ICommand DeleteCommand { get; }
+        public ICommand WarningDeleteCommand { get; }
 
         public OverviewListingItemViewModel(Tournament tournament, TournamentsStore tournamentStore, ModalNavigationStore modalNavigationStore)
         {
             Tournament = tournament;
 
             EditCommand = new OpenEditTournamentCommand(this, tournamentStore, modalNavigationStore);
-            DeleteCommand = new DeleteTournamentCommand(this, tournamentStore);
+            //DeleteCommand = new DeleteTournamentCommand(this, tournamentStore);
+            WarningDeleteCommand = new OpenWarningDeleteCommand(modalNavigationStore);
         }
 
         public void Update(Tournament tournament)

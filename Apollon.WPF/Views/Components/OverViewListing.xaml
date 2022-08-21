@@ -58,7 +58,7 @@
                                     BorderThickness="0"
                                     Cursor="Hand"
                                     ToolTip="Löschen"
-                                    Command="{Binding DeleteCommand}">
+                                    Command="{Binding WarningDeleteCommand}">
                                     <iconPacks:PackIconMaterial Kind="TrashCan"
                                                         VerticalAlignment="Center"
                                                         HorizontalAlignment="Center"
