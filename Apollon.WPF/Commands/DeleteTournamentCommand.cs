@@ -13,11 +13,13 @@ namespace Apollon.WPF.Commands
     {        
         private readonly OverviewListingItemViewModel _overviewListingItemViewModel;
         private readonly TournamentsStore _tournamentStore;
+        private readonly ModalNavigationStore _modalNavigationStore;
 
-        public DeleteTournamentCommand(OverviewListingItemViewModel overviewListingItemViewModel, TournamentsStore tournamentStore)
+        public DeleteTournamentCommand(OverviewListingItemViewModel overviewListingItemViewModel, TournamentsStore tournamentStore, ModalNavigationStore modalNavigationStore)
         {
             _overviewListingItemViewModel = overviewListingItemViewModel;
-            _tournamentStore = tournamentStore;            
+            _tournamentStore = tournamentStore;
+            _modalNavigationStore = modalNavigationStore;
         }
         
         public override async Task ExecuteAsync(object parameter)
@@ -27,6 +29,8 @@ namespace Apollon.WPF.Commands
             try
             {
                 await _tournamentStore.Delete(tournament.Id);
+
+                _modalNavigationStore.Close();
             }
             catch (Exception)
             {

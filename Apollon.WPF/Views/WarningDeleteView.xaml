@@ -38,7 +38,7 @@
 
                 <Button Grid.Column="1"
                 Content="Abbrechen"
-                Command="{Binding CancelCommand}"
+                Command="{Binding WarningCloseCommand}"
                 Style="{StaticResource ModernButton}"
                 Width="100"
                 Height="30"

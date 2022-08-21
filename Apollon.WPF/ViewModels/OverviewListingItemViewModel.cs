@@ -27,7 +27,7 @@ namespace Apollon.WPF.ViewModels
 
             EditCommand = new OpenEditTournamentCommand(this, tournamentStore, modalNavigationStore);
             //DeleteCommand = new DeleteTournamentCommand(this, tournamentStore);
-            WarningDeleteCommand = new OpenWarningDeleteCommand(modalNavigationStore);
+            WarningDeleteCommand = new OpenWarningDeleteCommand(this, modalNavigationStore, tournamentStore);
         }
 
         public void Update(Tournament tournament)
