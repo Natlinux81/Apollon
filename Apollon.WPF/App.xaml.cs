@@ -22,6 +22,7 @@ namespace Apollon.WPF
     /// </summary>
     public partial class App : Application
     {
+        private readonly NavigationStore _navigationStore;
         private readonly ModalNavigationStore _modalNavigationStore;
         private readonly TournamentsDbContextFactory _tournamentsDbContextFactory;
         private readonly IGetAllTournamentsQuery _getAllTournamentQuery;
@@ -36,6 +37,7 @@ namespace Apollon.WPF
         {
             string connectionString = "Server=NATHALIE-PC\\NATLINUXDB;Database=Apollon;Trusted_Connection=True;MultipleActiveResultSets=true";
 
+            _navigationStore = new NavigationStore();
             _modalNavigationStore = new ModalNavigationStore();
             _tournamentsDbContextFactory = new TournamentsDbContextFactory(
                 new DbContextOptionsBuilder().UseSqlServer(connectionString).Options);
@@ -52,15 +54,22 @@ namespace Apollon.WPF
             {
                 context.Database.Migrate();
             }
-
+            
             OverviewViewModel overviewViewModel = new OverviewViewModel(
                 _tournamentStore,
                 _selectedTournamentStore,
-                _modalNavigationStore);
+                _modalNavigationStore,
+                _navigationStore);
+
+            _navigationStore.CurrentViewModel = new OverviewViewModel(
+                _tournamentStore,
+                _selectedTournamentStore,
+                _modalNavigationStore,
+                _navigationStore);
 
             MainWindow = new MainWindow()
             {
-               DataContext = new MainViewModel(_modalNavigationStore, overviewViewModel)
+               DataContext = new MainViewModel(_modalNavigationStore, overviewViewModel,_navigationStore)
             };
             MainWindow.Show();
 

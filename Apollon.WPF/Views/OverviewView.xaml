@@ -20,18 +20,18 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         
-        <Border BorderThickness="4"
+        <!--<Border BorderThickness="4"
                 BorderBrush="#0000a0"
                 CornerRadius="5"
                 Grid.RowSpan="2" 
                 Grid.ColumnSpan="3">
             <Border.Background>
                 <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
-                    <GradientStop Color="#d7e8fd" Offset="0.2"/>
-                    <GradientStop Color="#81a9e2" Offset="0.8"/>
+                    <GradientStop Color="{StaticResource ColorPrimary4}" Offset="0.2"/>
+                    <GradientStop Color="{StaticResource ColorPrimary5}" Offset="0.8"/>
                 </LinearGradientBrush>
             </Border.Background>           
-        </Border>
+        </Border>-->
         
         <StackPanel Grid.ColumnSpan="3">
             <TextBlock 
@@ -39,7 +39,7 @@
                    FontSize="50"                   
                    TextAlignment="Center"
                    Margin="0,35"
-                   Foreground="#ff8000"
+                   Foreground="{StaticResource BrushPrimary2}"
                    FontFamily="Arial Black">
                 <TextBlock.Effect>
                     <DropShadowEffect Color="#808080"></DropShadowEffect>
@@ -52,7 +52,7 @@
                    FontFamily="Arial"
                    FontWeight="Bold"
                    FontSize="20"
-                   Foreground="#0000a0">                
+                   Foreground="{StaticResource BrushPrimary1}">                
             </TextBlock>
         </StackPanel>
 
@@ -86,7 +86,7 @@
                        FontFamily="Arial"
                        FontWeight="Bold"
                        FontSize="16"
-                       Foreground="#0000a0"/>
+                       Foreground="{StaticResource BrushPrimary1}"/>
             
             <components:OverViewListing Height="400"
                                         Width="400"
@@ -103,7 +103,7 @@
                        FontFamily="Arial"
                        FontWeight="Bold"
                        FontSize="16"
-                       Foreground="#0000a0"/>
+                       Foreground="{StaticResource BrushPrimary1}"/>
             <components:OverviewDetails Width="320"
                                         DataContext="{Binding OverviewDetailsViewModel}"/>
             
@@ -113,7 +113,8 @@
                     Height="40"
                     Width="210"
                     Margin="40"
-                    Cursor="Hand"/>
+                    Cursor="Hand"
+                    Command="{Binding NavigateNavBarCommand}"/>
         </StackPanel>       
               
     </Grid>

@@ -15,7 +15,8 @@
         Background="Transparent"
         AllowsTransparency="True"
         WindowStyle="None"
-        ResizeMode="NoResize">
+        ResizeMode="NoResize"
+        MouseDown="Window_MouseDown">
     <Window.Resources>
         <DataTemplate DataType="{x:Type vms:AddTournamentViewModel}">
             <views:AddTournamentView/>
@@ -25,6 +26,12 @@
         </DataTemplate>
         <DataTemplate DataType="{x:Type vms:WarningDeleteViewModel}">
             <views:WarningDeleteView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vms:NavBarViewModel}">
+            <views:NavBarView Content="{Binding CurrentViewModel}" DataContext="{Binding NavBarViewModel}"/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vms:OverviewViewModel}">
+            <views:OverviewView Content="{Binding CurrentViewModel}" DataContext="{Binding OverviewViewModel}"/>
         </DataTemplate>
     </Window.Resources>    
         <Grid>
@@ -37,12 +44,21 @@
             
                 <ContentControl Margin="30" Content="{Binding CurrentModalViewModel}"/>
             </custom:Modal>
-            
-            <views:OverviewView Grid.RowSpan="2"
-                                DataContext="{Binding OverviewViewModel}"
-                                MouseDown="Window_MouseDown"/>
+      
+        <views:Layout Grid.RowSpan="2"/>
 
-            <WrapPanel HorizontalAlignment="Right"
+        <ContentControl Content="{Binding CurrentViewModel}">
+            <ContentControl.Resources>
+                <DataTemplate DataType="{x:Type vms:OverviewViewModel}">
+                    <views:OverviewView/>
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type vms:NavBarViewModel}">
+                    <views:NavBarView/>
+                </DataTemplate>
+            </ContentControl.Resources>
+        </ContentControl>        
+
+        <WrapPanel HorizontalAlignment="Right"
                        Margin="0 0 5 0">
 
                 <Button Width="35"
