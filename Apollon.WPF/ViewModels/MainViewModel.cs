@@ -15,19 +15,16 @@ namespace Apollon.WPF.ViewModels
         public ViewModelBase CurrentModalViewModel => _modalNavigationStore.CurrentViewModel;
         public ViewModelBase CurrentViewModel => _navigationStore.CurrentViewModel;
         public bool IsModalOpen => _modalNavigationStore.IsOpen;
-        public OverviewViewModel OverviewViewModel { get; }
-        
+        public OverviewViewModel OverviewViewModel { get; }        
 
         public MainViewModel(ModalNavigationStore modalNavigationStore, OverviewViewModel overviewViewModel, NavigationStore navigationStore)
         {
             _navigationStore = navigationStore;
             _modalNavigationStore = modalNavigationStore;
-            OverviewViewModel = overviewViewModel;
-            
+            OverviewViewModel = overviewViewModel;            
 
             _navigationStore.CurrentViewModelChanged += NavigationStore_CurrentViewModelChanged;
-            _modalNavigationStore.CurrentViewModelChanged += ModalNavigationStore_CurrentViewModelChanged;
-            
+            _modalNavigationStore.CurrentViewModelChanged += ModalNavigationStore_CurrentViewModelChanged;            
         }
 
         protected override void Dispose()
@@ -45,7 +42,6 @@ namespace Apollon.WPF.ViewModels
         {
             OnPropertyChanged(nameof(CurrentModalViewModel));
             OnPropertyChanged(nameof(IsModalOpen));
-
         }
     }
 }

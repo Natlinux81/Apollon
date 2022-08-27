@@ -65,15 +65,11 @@
                                                         Grid.Column="1"
                                                         Foreground="Red"/>
                                 </Button>
-                            </WrapPanel>
-                            
-                            
-                        </Grid>
-                        
+                            </WrapPanel>   
+                        </Grid>                        
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-        </Border>
-       
+        </Border>       
     </Grid>
 </UserControl>

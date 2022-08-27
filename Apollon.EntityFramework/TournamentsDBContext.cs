@@ -13,7 +13,6 @@ namespace Apollon.EntityFramework
         public TournamentsDbContext(DbContextOptions options) : base(options)
         {
         }
-
         public DbSet<TournamentDto> Tournaments { get; set; }
     }
 }

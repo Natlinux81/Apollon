@@ -11,7 +11,6 @@ using System.Threading.Tasks;
 namespace Apollon.EntityFramework.Commands
 {
     public class CreateTournamentCommand : ICreateTournamentCommand
-
     {
         private readonly TournamentsDbContextFactory _contextFactory;
 
@@ -23,7 +22,7 @@ namespace Apollon.EntityFramework.Commands
         public  async Task Execute(Tournament tournament)
         {
             using (TournamentsDbContext context = _contextFactory.Create())
-            {
+            {                
                 TournamentDto tournamentDto = new TournamentDto()
                 {
                     Id = tournament.Id,

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace Apollon.WPF.Commands
 {
     public class OpenWarningDeleteCommand : CommandBase
-    {
+    {        
         private readonly OverviewListingItemViewModel _overviewListingItemViewModel;
         private readonly ModalNavigationStore _modalNavigationStore;
         private readonly TournamentsStore _tournamentsStore;
@@ -24,7 +24,6 @@ namespace Apollon.WPF.Commands
 
         public override void Execute(object parameter)
         {
-            Tournament tournament =_overviewListingItemViewModel.Tournament;
             WarningDeleteViewModel warningDeleteViewModel = new WarningDeleteViewModel(_modalNavigationStore,_tournamentsStore,_overviewListingItemViewModel);
             _modalNavigationStore.CurrentViewModel = warningDeleteViewModel;
         }

@@ -25,6 +25,9 @@ namespace Apollon.WPF.Commands
         public override async Task ExecuteAsync(object parameter)
         {
             AddEditDetailsViewModel detailsViewModel = _editTournamentViewModel.AddEditDetailsViewModel;
+
+            detailsViewModel.IsSubmitting = true;
+
             Tournament tournament = new Tournament(
                 _editTournamentViewModel.TournamentId,
                 detailsViewModel.Organisation,
@@ -45,6 +48,10 @@ namespace Apollon.WPF.Commands
             {
 
                 throw;
+            }
+            finally
+            {
+                detailsViewModel.IsSubmitting = false;
             }
         }
     }

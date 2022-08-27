@@ -11,7 +11,6 @@ namespace Apollon.WPF.ViewModels
     public class OverviewDetailsViewModel : ViewModelBase
     {
         private readonly SelectedTournamentsStore _selectedTournamentStore;
-
         private Tournament SelectedTournament => _selectedTournamentStore.SelectedTournament; 
 
         public bool HasSelectedTournament => SelectedTournament != null;

@@ -20,7 +20,7 @@ namespace Apollon.WPF.ViewModels
         {
             get
             {
-                return IsLoading;
+                return _isLoading;
             }
             set
             {

@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Apollon.WPF.Views"
+             xmlns:local="clr-namespace:Apollon.WPF.Views" 
+             xmlns:custom="clr-namespace:LoadingSpinnerControl;assembly=LoadingSpinnerControl"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
@@ -25,6 +26,7 @@
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
+                    <ColumnDefinition Width="35"/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Button Grid.Column="0"
@@ -36,13 +38,18 @@
                 FontSize="14"
                 />
 
-                <Button Grid.Column="1"
+                <Button Grid.Column="2"
                 Content="Abbrechen"
                 Command="{Binding WarningCloseCommand}"
                 Style="{StaticResource ModernButton}"
                 Width="100"
                 Height="30"
                 FontSize="14"/>
+                <custom:LoadingSpinner Grid.Column="1" 
+                                   Diameter="25" 
+                                   Thickness="2" 
+                                   Color="{StaticResource BrushPrimary1}" 
+                                   IsLoading="{Binding IsDeleting}"/>
             </Grid>
         </StackPanel>
     </Grid>

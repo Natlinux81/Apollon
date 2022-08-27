@@ -30,8 +30,7 @@ namespace Apollon.WPF
         private readonly IUpdateTournamentCommand _updateTournamentCommand;
         private readonly IDeleteTournamentCommand _deleteTournamentCommand;
         private readonly TournamentsStore _tournamentStore;
-        private readonly SelectedTournamentsStore _selectedTournamentStore;
-        
+        private readonly SelectedTournamentsStore _selectedTournamentStore;        
 
         public App()
         {
@@ -61,10 +60,10 @@ namespace Apollon.WPF
                 _tournamentStore,
                 _navigationStore);
 
-            _navigationStore.CurrentViewModel = new OverviewViewModel(
-                _tournamentStore,
+            _navigationStore.CurrentViewModel = OverviewViewModel.LoadViewModel(
                 _selectedTournamentStore,
                 _modalNavigationStore,
+                _tournamentStore,
                 _navigationStore);
 
             MainWindow = new MainWindow()

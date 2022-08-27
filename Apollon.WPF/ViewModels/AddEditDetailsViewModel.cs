@@ -21,8 +21,7 @@ namespace Apollon.WPF.ViewModels
 				_organisation = value;
 				OnPropertyChanged(nameof(Organisation));
 			}
-		}
-		
+		}		
 
 		private string _tournamentName;
 		public string TournamentName
@@ -53,10 +52,7 @@ namespace Apollon.WPF.ViewModels
 			}
 		}
 
-		private DateTime _startDate = DateTime.Today;
-			
-		
-		
+		private DateTime _startDate = DateTime.Today;		
 		public DateTime StartDate 
 		{
 			
@@ -115,7 +111,21 @@ namespace Apollon.WPF.ViewModels
 			}
 		}
 
-        public bool CanSubmit => !string.IsNullOrEmpty(TournamentName);
+		private bool _isSubmitting;
+		public bool IsSubmitting
+		{
+			get
+			{
+				return _isSubmitting;
+			}
+			set
+			{
+				_isSubmitting = value;
+				OnPropertyChanged(nameof(IsSubmitting));
+			}
+		}
+
+		public bool CanSubmit => !string.IsNullOrEmpty(TournamentName);
 
         public ICommand SubmitCommand { get; }
         public ICommand CancelCommand { get; }
@@ -125,8 +135,6 @@ namespace Apollon.WPF.ViewModels
             SubmitCommand = submitCommand;
             CancelCommand = cancelCommand;
         }
-    }
-
-	
+    }	
 	
 }

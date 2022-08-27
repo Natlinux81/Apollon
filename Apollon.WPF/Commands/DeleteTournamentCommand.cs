@@ -10,20 +10,29 @@ using System.Threading.Tasks;
 namespace Apollon.WPF.Commands
 {
     public class DeleteTournamentCommand : AsyncCommandBase
-    {        
+    {              
         private readonly OverviewListingItemViewModel _overviewListingItemViewModel;
         private readonly TournamentsStore _tournamentStore;
         private readonly ModalNavigationStore _modalNavigationStore;
+        private readonly WarningDeleteViewModel _warningDeleteViewModel; 
 
-        public DeleteTournamentCommand(OverviewListingItemViewModel overviewListingItemViewModel, TournamentsStore tournamentStore, ModalNavigationStore modalNavigationStore)
+        public DeleteTournamentCommand(WarningDeleteViewModel warningDeleteViewModel, OverviewListingItemViewModel overviewListingItemViewModel, TournamentsStore tournamentsStore, ModalNavigationStore modalNavigationStore)
         {
+            _warningDeleteViewModel = warningDeleteViewModel;
             _overviewListingItemViewModel = overviewListingItemViewModel;
-            _tournamentStore = tournamentStore;
+            _tournamentStore = tournamentsStore;
             _modalNavigationStore = modalNavigationStore;
         }
-        
+
+        public OverviewListingItemViewModel OverviewListingItemViewModel { get; }
+        public TournamentsStore TournamentsStore { get; }
+        public ModalNavigationStore ModalNavigationStore { get; }
+        public WarningDeleteViewModel WarningDeleteViewModel { get; }
+
         public override async Task ExecuteAsync(object parameter)
         {
+            _warningDeleteViewModel.IsDeleting = true;
+            
             Tournament tournament = _overviewListingItemViewModel.Tournament;
 
             try
@@ -35,7 +44,12 @@ namespace Apollon.WPF.Commands
             catch (Exception)
             {
                 throw;
-            }            
+            }
+            finally
+            {
+                _warningDeleteViewModel.IsDeleting = false;
+
+            }
         }
     }
 }

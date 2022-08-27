@@ -21,7 +21,7 @@ namespace Apollon.EntityFramework.Commands
         public async Task Execute(Tournament tournament)
         {
             using (TournamentsDbContext context = _contextFactory.Create())
-            {
+            {                
                 TournamentDto tournamentDto = new TournamentDto()
                 {
                     Id = tournament.Id,

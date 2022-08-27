@@ -33,7 +33,6 @@ namespace Apollon.WPF.ViewModels
             }
         }
 
-
         public OverviewListingViewModel(SelectedTournamentsStore selectedTournamentStore, ModalNavigationStore modalNavigationStore, TournamentsStore tournamentStore)
         {
             _tournamentStore = tournamentStore;

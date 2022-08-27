@@ -11,12 +11,25 @@ namespace Apollon.WPF.ViewModels
 {
     public class WarningDeleteViewModel : ViewModelBase
     {
-        public ICommand WarningCloseCommand { get;}
+		private bool _isDeleting;
+		public bool IsDeleting
+        {
+			get
+			{
+				return _isDeleting;
+			}
+			set
+			{
+				_isDeleting = value;
+				OnPropertyChanged(nameof(IsDeleting));
+			}
+		}
+		public ICommand WarningCloseCommand { get;}
         public ICommand DeleteCommand { get; }
         public WarningDeleteViewModel(ModalNavigationStore modalNavigationStore,TournamentsStore tournamentsStore, OverviewListingItemViewModel overviewListingItemViewModel)
         {
             WarningCloseCommand = new CloseModalCommand(modalNavigationStore);
-            DeleteCommand = new DeleteTournamentCommand(overviewListingItemViewModel, tournamentsStore, modalNavigationStore);
+            DeleteCommand = new DeleteTournamentCommand(this, overviewListingItemViewModel, tournamentsStore, modalNavigationStore);
         }
     }
 }

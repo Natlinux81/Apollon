@@ -13,8 +13,7 @@ namespace Apollon.WPF.Commands
     {
         private readonly TournamentsStore _tournamentStore;
         private readonly ModalNavigationStore _modalNavigationStore;
-        private AddTournamentViewModel _addTournamentViewModel;
-        
+        private AddTournamentViewModel _addTournamentViewModel;        
 
         public AddTournamentCommand(TournamentsStore tournamentStore, ModalNavigationStore modalNavigationStore)
         {
@@ -32,6 +31,9 @@ namespace Apollon.WPF.Commands
         public override async Task ExecuteAsync(object parameter)
         {
             AddEditDetailsViewModel detailsViewModel = _addTournamentViewModel.AddEditDetailsViewModel;
+
+            detailsViewModel.IsSubmitting = true;
+
             Tournament tournament = new Tournament(
                 Guid.NewGuid(),
                 detailsViewModel.Organisation,
@@ -51,9 +53,12 @@ namespace Apollon.WPF.Commands
             }
             catch (Exception)
             {
-
                 throw;
-            }            
+            }
+            finally
+            {
+                detailsViewModel.IsSubmitting = false;
+            }
         }
     }
 }
