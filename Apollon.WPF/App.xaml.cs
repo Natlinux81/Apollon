@@ -55,10 +55,10 @@ namespace Apollon.WPF
                 context.Database.Migrate();
             }
             
-            OverviewViewModel overviewViewModel = new OverviewViewModel(
-                _tournamentStore,
+            OverviewViewModel overviewViewModel = OverviewViewModel.LoadViewModel(
                 _selectedTournamentStore,
                 _modalNavigationStore,
+                _tournamentStore,
                 _navigationStore);
 
             _navigationStore.CurrentViewModel = new OverviewViewModel(

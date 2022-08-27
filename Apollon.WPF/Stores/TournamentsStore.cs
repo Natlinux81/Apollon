@@ -50,6 +50,9 @@ namespace Apollon.WPF.Stores
         public async Task Add(Tournament tournament)
         {
            await _createTournamentCommand.Execute(tournament);
+
+            _tournaments.Add(tournament);
+
             TournamentAdded?.Invoke(tournament);
         }
 
@@ -59,7 +62,7 @@ namespace Apollon.WPF.Stores
 
             int currentIndex = _tournaments.FindIndex(y => y.Id == tournament.Id);
 
-            if (currentIndex == -1)
+            if (currentIndex != -1)
             {
                 _tournaments[currentIndex] = tournament;
             }

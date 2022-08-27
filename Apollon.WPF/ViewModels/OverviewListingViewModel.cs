@@ -33,16 +33,13 @@ namespace Apollon.WPF.ViewModels
             }
         }
 
-        public ICommand LoadTournamentsCommand { get;}
 
         public OverviewListingViewModel(SelectedTournamentsStore selectedTournamentStore, ModalNavigationStore modalNavigationStore, TournamentsStore tournamentStore)
         {
             _tournamentStore = tournamentStore;
             _selectedTournamentStore = selectedTournamentStore;
             _modalNavigationStore = modalNavigationStore;
-            _overviewListingItemViewModels = new ObservableCollection<OverviewListingItemViewModel>();
-
-            LoadTournamentsCommand = new LoadTournamentsCommand(tournamentStore);
+            _overviewListingItemViewModels = new ObservableCollection<OverviewListingItemViewModel>();           
 
             _selectedTournamentStore.SelectedTournamentChanged += SelectedTournamentStore_SelectedTournamentChanged;
 
@@ -52,16 +49,7 @@ namespace Apollon.WPF.ViewModels
             _tournamentStore.TournamentDeleted += TournamentStore_TournamentDeleted;
 
             _overviewListingItemViewModels.CollectionChanged += OverviewListingItemViewModels_CollectionChanged;
-        }        
-
-        public static OverviewListingViewModel LoadViewModel(SelectedTournamentsStore selectedTournamentStore, ModalNavigationStore modalNavigationStore, TournamentsStore tournamentStore)
-        {
-            OverviewListingViewModel viewModel = new OverviewListingViewModel(selectedTournamentStore, modalNavigationStore, tournamentStore);
-
-            viewModel.LoadTournamentsCommand.Execute(null);
-
-            return viewModel;
-        }
+        }  
 
         protected override void Dispose()
         {
