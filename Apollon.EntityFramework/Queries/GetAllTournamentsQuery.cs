@@ -30,6 +30,7 @@ namespace Apollon.EntityFramework.Queries
                     y.Organisation,
                     y.TournamentName,
                     y.Competition,
+                    y.CompetitionImage,
                     y.StartDate,
                     y.EndDate,
                     y.Location,

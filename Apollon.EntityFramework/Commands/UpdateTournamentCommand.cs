@@ -28,6 +28,7 @@ namespace Apollon.EntityFramework.Commands
                     Organisation = tournament.Organisation,
                     TournamentName = tournament.TournamentName,
                     Competition = tournament.Competition,
+                    CompetitionImage = tournament.CompetitionImage,
                     StartDate = tournament.StartDate,
                     EndDate = tournament.EndDate,
                     Location = tournament.Location,

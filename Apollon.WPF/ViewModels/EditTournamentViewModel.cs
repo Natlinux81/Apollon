@@ -26,7 +26,7 @@ namespace Apollon.WPF.ViewModels
             {
                 Organisation = tournament.Organisation,
                 TournamentName = tournament.TournamentName,
-                Competition = tournament.Competition,
+                Competition = tournament.Competition,                
                 StartDate = tournament.StartDate,
                 EndDate = tournament.EndDate,
                 Location = tournament.Location,

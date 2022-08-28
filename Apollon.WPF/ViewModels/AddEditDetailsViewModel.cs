@@ -52,6 +52,20 @@ namespace Apollon.WPF.ViewModels
 			}
 		}
 
+		private string _competitionImage;
+		public string CompetitionImage
+		{
+			get
+			{
+				return _competitionImage;
+			}
+			set
+			{
+				_competitionImage = value;
+				OnPropertyChanged(nameof(CompetitionImage));
+			}
+		}
+
 		private DateTime _startDate = DateTime.Today;		
 		public DateTime StartDate 
 		{

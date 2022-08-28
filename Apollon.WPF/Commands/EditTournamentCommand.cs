@@ -33,6 +33,7 @@ namespace Apollon.WPF.Commands
                 detailsViewModel.Organisation,
                 detailsViewModel.TournamentName,
                 detailsViewModel.Competition,
+                detailsViewModel.CompetitionImage,
                 detailsViewModel.StartDate,
                 detailsViewModel.EndDate,
                 detailsViewModel.Location,
