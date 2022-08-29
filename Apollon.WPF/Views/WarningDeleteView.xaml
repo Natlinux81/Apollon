@@ -7,6 +7,9 @@
              xmlns:custom="clr-namespace:LoadingSpinnerControl;assembly=LoadingSpinnerControl"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    </UserControl.Resources>
     <Grid>
         <StackPanel Grid.ColumnSpan="2"
                     MaxWidth="300">
@@ -51,6 +54,15 @@
                                    Color="{StaticResource BrushPrimary1}" 
                                    IsLoading="{Binding IsDeleting}"/>
             </Grid>
+            <TextBlock 
+                   Text="{Binding ErrorMessage}"
+                   Margin="5"
+                   Grid.Row="7"
+                   Grid.ColumnSpan="2"
+                   TextAlignment="Center"
+                   FontSize="14"
+                   Foreground="Red"
+                   Visibility="{Binding HasErrorMessage, Converter= {StaticResource BooleanToVisibilityConverter}}"/>
         </StackPanel>
     </Grid>
 </UserControl>

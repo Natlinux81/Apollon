@@ -26,6 +26,7 @@ namespace Apollon.WPF.Commands
         {
             AddEditDetailsViewModel detailsViewModel = _editTournamentViewModel.AddEditDetailsViewModel;
 
+            detailsViewModel.ErrorMessage = null;
             detailsViewModel.IsSubmitting = true;
 
             Tournament tournament = new Tournament(
@@ -48,7 +49,7 @@ namespace Apollon.WPF.Commands
             catch (Exception)
             {
 
-                throw;
+                detailsViewModel.ErrorMessage = "Daten konnten nicht gespeichert werden!";
             }
             finally
             {

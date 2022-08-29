@@ -19,7 +19,7 @@ namespace Apollon.EntityFramework.Commands
         }
 
         public async Task Execute(Guid id)
-        {
+        {            
             using (TournamentsDbContext context = _contextFactory.Create())
             {
                 TournamentDto tournamentDto = new TournamentDto()

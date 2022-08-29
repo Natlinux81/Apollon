@@ -6,6 +6,9 @@
              xmlns:local="clr-namespace:Apollon.WPF.Views.Components" 
              xmlns:custom="clr-namespace:LoadingSpinnerControl;assembly=LoadingSpinnerControl"
              mc:Ignorable="d">
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="55"/>
@@ -126,6 +129,14 @@
                  VerticalContentAlignment="Center"
                  HorizontalAlignment="Left"
                  Background="LightGray"/>
+
+        <TextBlock Text="{Binding ErrorMessage}"
+                   Grid.Row="7"
+                   Grid.ColumnSpan="2"
+                   TextAlignment="Center"
+                   FontSize="14"
+                   Foreground="Red"
+                   Visibility="{Binding HasErrorMessage, Converter= {StaticResource BooleanToVisibilityConverter}}"/>                    
 
         <Grid Grid.Row="7"
               Grid.ColumnSpan="2"

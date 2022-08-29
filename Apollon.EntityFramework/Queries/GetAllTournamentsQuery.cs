@@ -20,7 +20,7 @@ namespace Apollon.EntityFramework.Queries
         }
 
         public async Task<IEnumerable<Tournament>> Execute()
-        {
+        {       
             using (TournamentsDbContext context = _contextFactory.Create())
             {
                 IEnumerable<TournamentDto> tournamentsDtos = await context.Tournaments.ToListAsync();

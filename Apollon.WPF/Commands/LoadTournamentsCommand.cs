@@ -21,6 +21,7 @@ namespace Apollon.WPF.Commands
 
         public override async Task ExecuteAsync(object parameter)
         {
+            _overviewViewModel.ErrorMessage = null;
             _overviewViewModel.IsLoading = true;
 
             try
@@ -29,7 +30,7 @@ namespace Apollon.WPF.Commands
             }
             catch (Exception)
             {
-                throw;
+                _overviewViewModel.ErrorMessage = "Daten konnten nicht geladen werden! Bitte starten Sie die Anwendung neu!";
             }
             finally
             {

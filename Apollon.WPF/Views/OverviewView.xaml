@@ -100,10 +100,31 @@
                        VerticalAlignment="Center"
                            Foreground="{StaticResource BrushPrimary1}"
                            Margin="0 0 0 30"
-                           FontSize="14">                   
+                           FontSize="14">
                 </TextBlock>
                 <custom:LoadingSpinner Diameter="50" IsLoading="True" Thickness="3" Color="{StaticResource BrushPrimary1}"/>
-            </StackPanel>                  
+            </StackPanel>
+            <Grid Width="250">
+                <Grid.Style>
+                    <Style TargetType="Grid">
+                        <Setter Property="Visibility" Value="Collapsed"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding HasErrorMessage}" Value="true">
+                                <Setter Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Grid.Style>
+                <TextBlock Text="{Binding ErrorMessage}"
+                       FontSize="14"
+                       Foreground="Red"
+                       TextWrapping="WrapWithOverflow"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                           TextAlignment="Center">
+
+                </TextBlock>
+            </Grid>            
         </Grid>
 
         <Grid Grid.Column="2"
@@ -116,8 +137,12 @@
                         <DataTrigger Binding="{Binding IsLoading}" Value="false">
                             <Setter Property="Visibility" Value="Visible"/>
                         </DataTrigger>
+                        <DataTrigger Binding="{Binding HasErrorMessage}" Value="true">
+                            <Setter Property="Visibility" Value="Hidden"/>
+                        </DataTrigger>
                     </Style.Triggers>
                 </Style>
+
             </Grid.Style>
             <StackPanel>
                 <TextBlock Margin="20"

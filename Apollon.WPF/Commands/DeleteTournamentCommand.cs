@@ -31,6 +31,7 @@ namespace Apollon.WPF.Commands
 
         public override async Task ExecuteAsync(object parameter)
         {
+            _warningDeleteViewModel.ErrorMessage = null;
             _warningDeleteViewModel.IsDeleting = true;
             
             Tournament tournament = _overviewListingItemViewModel.Tournament;
@@ -43,7 +44,7 @@ namespace Apollon.WPF.Commands
             }
             catch (Exception)
             {
-                throw;
+                _warningDeleteViewModel.ErrorMessage = "Speichern fehlgeschlagen!";
             }
             finally
             {

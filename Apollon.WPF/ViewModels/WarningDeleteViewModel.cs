@@ -24,7 +24,25 @@ namespace Apollon.WPF.ViewModels
 				OnPropertyChanged(nameof(IsDeleting));
 			}
 		}
-		public ICommand WarningCloseCommand { get;}
+
+        private string _errorMessage;
+        public string ErrorMessage
+        {
+            get
+            {
+                return _errorMessage;
+            }
+            set
+            {
+                _errorMessage = value;
+                OnPropertyChanged(nameof(ErrorMessage));
+                OnPropertyChanged(nameof(HasErrorMessage));
+            }
+        }
+
+        public bool HasErrorMessage => !string.IsNullOrEmpty(ErrorMessage);
+
+        public ICommand WarningCloseCommand { get;}
         public ICommand DeleteCommand { get; }
         public WarningDeleteViewModel(ModalNavigationStore modalNavigationStore,TournamentsStore tournamentsStore, OverviewListingItemViewModel overviewListingItemViewModel)
         {
