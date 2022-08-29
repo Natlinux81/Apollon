@@ -26,10 +26,7 @@
         </DataTemplate>
         <DataTemplate DataType="{x:Type vms:WarningDeleteViewModel}">
             <views:WarningDeleteView/>
-        </DataTemplate>
-        <DataTemplate DataType="{x:Type vms:NavBarViewModel}">
-            <views:NavBarView Content="{Binding CurrentViewModel}" DataContext="{Binding NavBarViewModel}"/>
-        </DataTemplate>
+        </DataTemplate>        
         <DataTemplate DataType="{x:Type vms:OverviewViewModel}">
             <views:OverviewView Content="{Binding CurrentViewModel}" DataContext="{Binding OverviewViewModel}"/>
         </DataTemplate>

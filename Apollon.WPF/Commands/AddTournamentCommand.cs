@@ -12,20 +12,16 @@ namespace Apollon.WPF.Commands
     public class AddTournamentCommand : AsyncCommandBase
     {
         private readonly TournamentsStore _tournamentStore;
+        private readonly NavigationStore _navigationStore;
         private readonly ModalNavigationStore _modalNavigationStore;
-        private AddTournamentViewModel _addTournamentViewModel;        
+        private AddTournamentViewModel _addTournamentViewModel;
 
-        public AddTournamentCommand(TournamentsStore tournamentStore, ModalNavigationStore modalNavigationStore)
-        {
-            _tournamentStore = tournamentStore;
-            _modalNavigationStore = modalNavigationStore;
-        }
-
-        public AddTournamentCommand(AddTournamentViewModel addTournamentViewModel, TournamentsStore tournamentStore, ModalNavigationStore modalNavigationStore)
+        public AddTournamentCommand(AddTournamentViewModel addTournamentViewModel, TournamentsStore tournamentStore, ModalNavigationStore modalNavigationStore, NavigationStore navigationStore)
         {
             _addTournamentViewModel = addTournamentViewModel;
             _tournamentStore = tournamentStore;
             _modalNavigationStore = modalNavigationStore;
+            _navigationStore = navigationStore;
         }
 
         public override async Task ExecuteAsync(object parameter)
@@ -50,6 +46,7 @@ namespace Apollon.WPF.Commands
                 await _tournamentStore.Add(tournament);
 
                 _modalNavigationStore.Close();
+                _navigationStore.CurrentViewModel = new NavBarViewModel(_navigationStore);
                 
             }
             catch (Exception)
