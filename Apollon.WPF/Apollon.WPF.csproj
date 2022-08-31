@@ -18,4 +18,8 @@
     <ProjectReference Include="..\Apollon.EntityFramework\Apollon.EntityFramework.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Images\Logos\" />
+  </ItemGroup>
+
 </Project>

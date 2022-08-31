@@ -4,11 +4,43 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Apollon.WPF.Views"
+             xmlns:components="clr-namespace:Apollon.WPF.Views.Components"
+             xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <TextBlock Text="Navbar"
-                   FontSize="35"
-                   Padding="100"/>
+    <Grid Margin="45">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Button Width="35"
+                Height="35"
+                Background="Transparent"
+                BorderThickness="0"
+                HorizontalAlignment="Left"
+                Margin="5">
+            <iconPacks:PackIconMaterial Kind="ArrowLeft"
+                                        Height="25"
+                                        Width="35"
+                                        Foreground="#0000a0"/>
+        </Button>
+
+        <components:TournamentDetails Grid.Column="1"/>
+        <StackPanel Grid.Row="1">
+            <Button Height="45"
+                    Background="Transparent"/>
+            <Button Height="45"
+                    Background="Transparent"/>
+            <Button Height="45"
+                    Background="Transparent"/>
+            <Button Height="45"
+                    Background="Transparent"/>
+        </StackPanel>
+
     </Grid>
 </UserControl>

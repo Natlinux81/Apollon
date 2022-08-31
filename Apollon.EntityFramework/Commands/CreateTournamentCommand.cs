@@ -20,9 +20,7 @@ namespace Apollon.EntityFramework.Commands
         }
 
         public  async Task Execute(Tournament tournament)
-        {
-            throw new Exception();
-
+        {     
             using (TournamentsDbContext context = _contextFactory.Create())
             {        
                 TournamentDto tournamentDto = new TournamentDto()
