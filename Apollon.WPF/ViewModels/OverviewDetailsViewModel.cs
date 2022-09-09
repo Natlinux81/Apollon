@@ -17,7 +17,7 @@ namespace Apollon.WPF.ViewModels
         public string Organisation => SelectedTournament?.Organisation ?? "keine Organisation";
         public string TournamentName => SelectedTournament?.TournamentName ?? "kein Name";
         public string Competition => SelectedTournament?.Competition ?? "keine Kategorie";
-        public string CompetitionImage => SelectedTournament?.CompetitionImage ?? "kein Bild";
+        public string CompetitionImage => SelectedTournament?.CompetitionImage ?? "D:\\Projekte\\Apollon\\Apollon\\Apollon.WPF\\Images\\Archery.png";
         public string StartDate => SelectedTournament?.StartDate.ToString("d") ?? "kein Datum"; 
         public string EndDate => SelectedTournament?.EndDate.ToString("d") ?? "kein Datum";
         public string Location => SelectedTournament?.Location ?? "kein Ort";

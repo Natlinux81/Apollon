@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace Apollon.WPF.ViewModels
@@ -56,13 +57,13 @@ namespace Apollon.WPF.ViewModels
 		public string CompetitionImage
 		{
 			get
-			{
+			{				
 				return _competitionImage;
 			}
 			set
 			{
 				_competitionImage = value;
-				OnPropertyChanged(nameof(CompetitionImage));
+				OnPropertyChanged(nameof(CompetitionImage));;
 			}
 		}
 

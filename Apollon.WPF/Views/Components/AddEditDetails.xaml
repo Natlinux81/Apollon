@@ -7,7 +7,7 @@
              xmlns:custom="clr-namespace:LoadingSpinnerControl;assembly=LoadingSpinnerControl"
              mc:Ignorable="d">
     <UserControl.Resources>
-        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>                
     </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -76,24 +76,23 @@
                   IsEditable="True"
                   Grid.Column="1"
                   Height="30"
-                  Width="150"
+                  Width="200"
                   FontSize="16"
                   VerticalContentAlignment="Center"
-                  HorizontalAlignment="Left">
-            <ComboBoxItem Content="Halle"></ComboBoxItem>
-            <ComboBoxItem Content="im Freien"></ComboBoxItem>
-            <ComboBoxItem Content="Feld"></ComboBoxItem>
-            <ComboBoxItem Content="3 D"></ComboBoxItem>            
+                  HorizontalAlignment="Left"
+                  Loaded="ComboBox_Loaded"
+                  SelectionChanged="ComboBox_SelectionChanged">            
         </ComboBox>
 
-        <Image x:Name="CompetitionImage"                 
+        <Image Name="CompetitionImage"                 
                Grid.Row="2"
                Grid.Column="1"
                Grid.RowSpan="2"
                Height="80"
                Width="80"
                HorizontalAlignment="Right"
-               Margin="0 0 80 0"/>
+               Margin="0 0 80 0"
+               Source="{Binding CompetitionImage, Mode=TwoWay, TargetNullValue={x:Null}}" />
         
         <DatePicker SelectedDateFormat="Long"
                     Grid.Row="3"

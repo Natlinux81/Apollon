@@ -57,8 +57,8 @@ namespace Apollon.WPF.ViewModels
             OverviewDetailsViewModel = new OverviewDetailsViewModel(selectedTournamentStore);
 
             LoadTournamentsCommand = new LoadTournamentsCommand(this, tournamentStore);
-            AddTournamentCommand = new OpenAddTournamentCommand(tournamentStore, modalNavigationStore, navigationStore);
-            NavigateNavBarCommand = new NavigateCommand<NavBarViewModel>(navigationStore, () => new NavBarViewModel(navigationStore));
+            AddTournamentCommand = new OpenAddTournamentCommand(tournamentStore, modalNavigationStore, navigationStore, selectedTournamentStore);
+            NavigateNavBarCommand = new NavigateCommand<NavBarViewModel>(navigationStore, () => new NavBarViewModel(navigationStore,selectedTournamentStore,modalNavigationStore,tournamentStore));
 
         }
 

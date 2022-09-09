@@ -23,7 +23,8 @@
                 Background="Transparent"
                 BorderThickness="0"
                 HorizontalAlignment="Left"
-                Margin="5">
+                Margin="5"
+                Command="{Binding NavigateOverviewCommand}">
             <iconPacks:PackIconMaterial Kind="ArrowLeft"
                                         Height="25"
                                         Width="35"
