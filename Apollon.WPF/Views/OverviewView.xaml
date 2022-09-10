@@ -156,14 +156,6 @@
                 <components:OverviewDetails Width="320"
                                         DataContext="{Binding OverviewDetailsViewModel}"/>
 
-                <Button Style="{StaticResource ModernButton}"
-                    Content="Namensliste"
-                    FontSize="16"
-                    Height="40"
-                    Width="210"
-                    Margin="40"
-                    Cursor="Hand"
-                    Command="{Binding NavigateNavBarCommand}"/>
             </StackPanel>
         </Grid>
              

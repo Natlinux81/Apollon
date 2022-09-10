@@ -218,7 +218,26 @@
                         </Style>
                     </TextBlock.Style>
                 </TextBlock>
-            </WrapPanel>            
+            </WrapPanel>
+            <Button 
+                    Content="Turnier öffnen"
+                    FontSize="16"
+                    Height="40"
+                    Width="210"
+                    Margin="40"
+                    Cursor="Hand"
+                    Command="{Binding NavigateNavBarCommand}">
+                 <Button.Style>                     
+                        <Style TargetType="Button" BasedOn="{StaticResource ModernButton}">
+                            <Setter Property="Visibility" Value="Hidden"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding HasSelectedTournament}" Value="True">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>                            
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+            </Button>
         </StackPanel>       
     </Grid>
 </UserControl>

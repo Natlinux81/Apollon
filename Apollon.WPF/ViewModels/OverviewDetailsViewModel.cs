@@ -1,10 +1,12 @@
 ﻿using Apollon.Domain.Models;
+using Apollon.WPF.Commands;
 using Apollon.WPF.Stores;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace Apollon.WPF.ViewModels
 {
@@ -23,11 +25,15 @@ namespace Apollon.WPF.ViewModels
         public string Location => SelectedTournament?.Location ?? "kein Ort";
         public int Rounds => SelectedTournament?.Rounds ?? 0;
 
-        public OverviewDetailsViewModel(SelectedTournamentsStore selectedTournamentStore)
+        public ICommand NavigateNavBarCommand { get; }
+
+        public OverviewDetailsViewModel(SelectedTournamentsStore selectedTournamentStore, NavigationStore navigationStore, ModalNavigationStore modalNavigationStore,TournamentsStore tournamentsStore)
         {
            _selectedTournamentStore = selectedTournamentStore;
 
-            _selectedTournamentStore.SelectedTournamentChanged += SelectedTournamentStore_SelectedTournamentChanged;           
+            _selectedTournamentStore.SelectedTournamentChanged += SelectedTournamentStore_SelectedTournamentChanged;
+
+            NavigateNavBarCommand = new NavigateCommand<NavBarViewModel>(navigationStore, () => new NavBarViewModel(navigationStore, selectedTournamentStore, modalNavigationStore, tournamentsStore));
         }
 
         protected override void Dispose()

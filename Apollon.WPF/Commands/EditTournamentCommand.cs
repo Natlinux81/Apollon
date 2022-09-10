@@ -45,6 +45,7 @@ namespace Apollon.WPF.Commands
                 await _tournamentStore.Update(tournament);
 
                 _modalNavigationStore.Close();
+
             }
             catch (Exception)
             {
