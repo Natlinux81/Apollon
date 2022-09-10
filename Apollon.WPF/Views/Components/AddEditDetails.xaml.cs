@@ -51,7 +51,10 @@ namespace Apollon.WPF.Views.Components
             {
                 CompetitionImage.Source = new BitmapImage(new Uri("D:\\Projekte\\Apollon\\Apollon\\Apollon.WPF\\Images\\TargetOutdoor.png"));
             }
-            
+            if (ComboBox.SelectedIndex == 3)
+            {
+                CompetitionImage.Source = new BitmapImage(new Uri("D:\\Projekte\\Apollon\\Apollon\\Apollon.WPF\\Images\\3D.png"));
+            }
         }
            
     }

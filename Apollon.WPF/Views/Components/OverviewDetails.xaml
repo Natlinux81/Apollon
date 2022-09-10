@@ -13,7 +13,7 @@
                 CornerRadius="10">
         </Border>
 
-        <TextBlock Text="klicke auf neues Turnier vorbereiten oder wähle ein vorhandenes Turnier um es zu bearbeiten!"
+        <TextBlock 
                        TextAlignment="Center"
                        VerticalAlignment="Center"
                        FontFamily="Arial"
@@ -24,7 +24,7 @@
                        TextWrapping="WrapWithOverflow">
             <TextBlock.Style>
                 <Style TargetType="TextBlock">
-                    <Setter Property="Visibility" Value="Hidden"/>
+                    <Setter Property="Visibility" Value="Hidden"/> 
                     <Style.Triggers>
                         <DataTrigger Binding="{Binding HasSelectedTournament}" Value="false">
                             <Setter Property="Visibility" Value="Visible"/>
@@ -32,6 +32,7 @@
                     </Style.Triggers>
                 </Style>
             </TextBlock.Style>
+            klicke auf <LineBreak/> Neues Turnier vorbereiten <LineBreak/><LineBreak/> oder wähle ein vorhandenes Turnier aus um es zu bearbeiten!
         </TextBlock>             
             <StackPanel>
                 <TextBlock Text="{Binding TournamentName}"
