@@ -15,7 +15,6 @@ namespace Apollon.WPF.ViewModels
     {
         
         private readonly SelectedTournamentsStore _selectedTournamentsStore;
-
         private Tournament SelectedTournament => _selectedTournamentsStore.SelectedTournament;
 
         public bool HasSelectedTournament => SelectedTournament != null;
@@ -27,13 +26,12 @@ namespace Apollon.WPF.ViewModels
         public string EndDate => SelectedTournament?.EndDate.ToString("d") ?? "kein Datum";
         public string Location => SelectedTournament?.Location ?? "kein Ort";
         public int Rounds => SelectedTournament?.Rounds ?? 0;
-
-        public AddEditDetailsViewModel AddEditDetailsViewModel { get; }
+        
         public ICommand NavigateOverviewCommand { get; }
         public NavBarViewModel(NavigationStore navigationStore, SelectedTournamentsStore selectedTournamentsStore, ModalNavigationStore modalNavigationStore, TournamentsStore tournamentsStore)
         {
-            NavigateOverviewCommand = new NavigateCommand<OverviewViewModel>(navigationStore, () => new OverviewViewModel(tournamentsStore, selectedTournamentsStore, modalNavigationStore,navigationStore));
-            
+            NavigateOverviewCommand = new NavigateCommand<OverviewViewModel>(navigationStore, () => OverviewViewModel.LoadViewModel( selectedTournamentsStore, modalNavigationStore, tournamentsStore, navigationStore));
+
             _selectedTournamentsStore = selectedTournamentsStore;
         }
     }

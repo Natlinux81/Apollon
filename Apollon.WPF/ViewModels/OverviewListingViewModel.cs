@@ -52,7 +52,7 @@ namespace Apollon.WPF.ViewModels
 
         protected override void Dispose()
         {
-            _selectedTournamentStore.SelectedTournamentChanged += SelectedTournamentStore_SelectedTournamentChanged;
+            _selectedTournamentStore.SelectedTournamentChanged -= SelectedTournamentStore_SelectedTournamentChanged;
 
             _tournamentStore.TournamentLoaded -= TournamentStore_TournamentLoaded;
             _tournamentStore.TournamentAdded -= TournamentStore_TournamentAdded;
