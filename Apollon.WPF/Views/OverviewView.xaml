@@ -62,6 +62,15 @@
                     Margin="40"
                     Cursor="Hand"
                     Command="{Binding AddTournamentCommand}"/>
+
+            <Button Style="{StaticResource ModernButton}"
+                    Content="Namenliste pflegen"
+                    FontSize="16"
+                    Height="40"
+                    Width="210"
+                    Margin="40"
+                    Cursor="Hand"
+                    Command="{Binding NavigateNameListCommand}"/>
         </StackPanel>
         
         <Grid Grid.Column="1"

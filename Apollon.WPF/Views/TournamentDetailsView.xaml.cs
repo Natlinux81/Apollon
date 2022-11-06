@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Apollon.WPF.Views
 {
     /// <summary>
-    /// Interaction logic for NavBarView.xaml
+    /// Interaction logic for TournamentDetailsView.xaml
     /// </summary>
-    public partial class NavBarView : UserControl
+    public partial class TournamentDetailsView : UserControl
     {
-        public NavBarView()
+        public TournamentDetailsView()
         {
             InitializeComponent();
         }

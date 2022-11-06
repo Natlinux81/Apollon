@@ -49,8 +49,11 @@
                 <DataTemplate DataType="{x:Type vms:OverviewViewModel}">
                     <views:OverviewView/>
                 </DataTemplate>
-                <DataTemplate DataType="{x:Type vms:NavBarViewModel}">
-                    <views:NavBarView/>
+                <DataTemplate DataType="{x:Type vms:TournamentDetailsViewModel}">
+                    <views:TournamentDetailsView/>
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type vms:RootdatesViewModel}">
+                    <views:RootdatesView/>
                 </DataTemplate>
             </ContentControl.Resources>
         </ContentControl>        

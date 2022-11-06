@@ -46,7 +46,7 @@
                         <Style TargetType="TextBlock">
                             <Setter Property="Visibility" Value="Hidden"/>
                             <Style.Triggers>
-                                <DataTrigger Binding="{Binding HasSelectedTournament}" Value="True">
+                            <DataTrigger Binding="{Binding HasSelectedTournament}" Value="True">
                                     <Setter Property="Visibility" Value="Visible"/>
                                 </DataTrigger>
                             </Style.Triggers>

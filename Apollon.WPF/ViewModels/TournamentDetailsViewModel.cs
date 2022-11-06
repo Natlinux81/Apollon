@@ -10,7 +10,7 @@ using System.Windows.Input;
 
 namespace Apollon.WPF.ViewModels
 {
-    public class NavBarViewModel : ViewModelBase
+    public class TournamentDetailsViewModel : ViewModelBase
 
     {
         
@@ -28,7 +28,7 @@ namespace Apollon.WPF.ViewModels
         public int Rounds => SelectedTournament?.Rounds ?? 0;
         
         public ICommand NavigateOverviewCommand { get; }
-        public NavBarViewModel(NavigationStore navigationStore, SelectedTournamentsStore selectedTournamentsStore, ModalNavigationStore modalNavigationStore, TournamentsStore tournamentsStore)
+        public TournamentDetailsViewModel(NavigationStore navigationStore, SelectedTournamentsStore selectedTournamentsStore, ModalNavigationStore modalNavigationStore, TournamentsStore tournamentsStore)
         {
             NavigateOverviewCommand = new NavigateCommand<OverviewViewModel>(navigationStore, () => OverviewViewModel.LoadViewModel( selectedTournamentsStore, modalNavigationStore, tournamentsStore, navigationStore));
 

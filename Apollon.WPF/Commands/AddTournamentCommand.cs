@@ -50,7 +50,7 @@ namespace Apollon.WPF.Commands
                 await _tournamentStore.Add(tournament);
 
                 _modalNavigationStore.Close();
-                _navigationStore.CurrentViewModel = new NavBarViewModel(_navigationStore, _selectedTournamentsStore, _modalNavigationStore, _tournamentStore);
+                _navigationStore.CurrentViewModel = new TournamentDetailsViewModel(_navigationStore, _selectedTournamentsStore, _modalNavigationStore, _tournamentStore);
 
             }
             catch (Exception)
