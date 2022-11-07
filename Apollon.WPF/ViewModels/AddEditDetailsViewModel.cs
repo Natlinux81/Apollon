@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Apollon.Domain.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -166,19 +167,38 @@ namespace Apollon.WPF.ViewModels
         public ICommand SubmitCommand { get; }
         public ICommand CancelCommand { get; }
 
-        public ObservableCollection<string> CompetitionList { get; set; }
+        public ObservableCollection<Competition> CompetitionList { get; set; }
 
         public AddEditDetailsViewModel(ICommand submitCommand, ICommand cancelCommand)
 		{
 			SubmitCommand = submitCommand;
 			CancelCommand = cancelCommand;
 
-            CompetitionList = new ObservableCollection<string>
+            CompetitionList = new ObservableCollection<Competition>
             {
-                "Halle", "im Freien", "Feld", "3D"
-            };
+				new Competition
+				{
+					CompetitionName = "Halle",
+					CompetitionImage = "targetHall.png"
+                },
+				new Competition
+				{
+					CompetitionName = "im Freien",
+					CompetitionImage ="targetOutdoor.png"
+                },
+				new Competition
+				{
+					CompetitionName = "Feld",
+					CompetitionImage = "targetField.png"
+                },
 
-            Competition = CompetitionList[1];
+                new Competition
+                {
+                    CompetitionName = "3D",
+                    CompetitionImage = "3d.png"
+                }
+
+            };            
         }
 	}	
 	

@@ -70,8 +70,7 @@
                  VerticalContentAlignment="Center"                     
                  Background="LightGray"/>
 
-        <ComboBox Grid.Row="2"
-                  x:Name="ComboBox"                   
+        <ComboBox Grid.Row="2"                                     
                   Text="{Binding Competition}"
                   IsReadOnly="False"
                   IsEditable="True"
@@ -81,14 +80,10 @@
                   FontSize="16"
                   VerticalContentAlignment="Center"
                   HorizontalAlignment="Left"
-                  ItemsSource="{Binding CompetitionList}">
-            <!--<ComboBox.ItemTemplate>
-                <DataTemplate>
-                    <TextBlock Text="{Binding Source=}"/>
-                </DataTemplate>
-            </ComboBox.ItemTemplate>-->           
+                  ItemsSource="{Binding CompetitionList}"
+                  DisplayMemberPath="CompetitionName">                    
         </ComboBox>
-
+        
         <Image x:Name="CompetitionImage"                 
                Grid.Row="2"
                Grid.Column="1"

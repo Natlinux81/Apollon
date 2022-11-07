@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Apollon.WPF" 
+        xmlns:components="clr-namespace:Apollon.WPF.Views.Components"
         xmlns:views="clr-namespace:Apollon.WPF.Views"
         xmlns:vms="clr-namespace:Apollon.WPF.ViewModels" 
         xmlns:custom="clr-namespace:ModalControl;assembly=ModalControl"
@@ -29,6 +30,9 @@
         </DataTemplate>        
         <DataTemplate DataType="{x:Type vms:OverviewViewModel}">
             <views:OverviewView Content="{Binding CurrentViewModel}" DataContext="{Binding OverviewViewModel}"/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vms:AddEditDetailsViewModel}">
+            <components:AddEditDetails/>
         </DataTemplate>
     </Window.Resources>    
         <Grid>
