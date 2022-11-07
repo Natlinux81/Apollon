@@ -1,13 +1,14 @@
-﻿<UserControl x:Class="Apollon.WPF.Views.Components.AddEditDetails"
+﻿<UserControl
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Apollon.WPF.Views.Components" 
              xmlns:custom="clr-namespace:LoadingSpinnerControl;assembly=LoadingSpinnerControl"
+             xmlns:ViewModels="clr-namespace:Apollon.WPF.ViewModels" x:Class="Apollon.WPF.Views.Components.AddEditDetails"
              mc:Ignorable="d">
     <UserControl.Resources>
-        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>                
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
     </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -27,27 +28,27 @@
 
         <TextBlock Text="Veranstalter: "                       
                    Style="{StaticResource ModalTextBlock}"/>
-        
+
         <TextBlock Grid.Row="1"
                    Text="Turniername: "
                    Style="{StaticResource ModalTextBlock}"/>
-        
+
         <TextBlock Grid.Row="2"                   
                    Text="Wettkampfart: "                    
                    Style="{StaticResource ModalTextBlock}"/>
-        
+
         <TextBlock Grid.Row="3"
                    Text="Startdatum: "
                    Style="{StaticResource ModalTextBlock}"/>
-        
+
         <TextBlock Grid.Row="4"
                    Text="Enddatum: "
                    Style="{StaticResource ModalTextBlock}"/>
-        
+
         <TextBlock Grid.Row="5"
                    Text="Veranstaltungsort: "
                    Style="{StaticResource ModalTextBlock}"/>
-        
+
         <TextBlock Grid.Row="6"
                    Text="Durchgänge: "
                    Style="{StaticResource ModalTextBlock}"/>
@@ -59,7 +60,7 @@
                  Height="30"
                  Background="LightGray"
                  VerticalContentAlignment="Center"/>
-        
+
         <TextBox Grid.Row="1"
                  Grid.Column="1"
                  Text="{Binding TournamentName, UpdateSourceTrigger=PropertyChanged}"
@@ -80,11 +81,15 @@
                   FontSize="16"
                   VerticalContentAlignment="Center"
                   HorizontalAlignment="Left"
-                  Loaded="ComboBox_Loaded"
-                  SelectionChanged="ComboBox_SelectionChanged">            
+                  ItemsSource="{Binding CompetitionList}">
+            <!--<ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Source=}"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>-->           
         </ComboBox>
 
-        <Image Name="CompetitionImage"                 
+        <Image x:Name="CompetitionImage"                 
                Grid.Row="2"
                Grid.Column="1"
                Grid.RowSpan="2"
@@ -93,7 +98,7 @@
                HorizontalAlignment="Right"
                Margin="0 0 80 0"
                Source="{Binding CompetitionImage, Mode=TwoWay, TargetNullValue={x:Null}}" />
-        
+
         <DatePicker SelectedDateFormat="Long"
                     Grid.Row="3"
                     SelectedDate="{Binding StartDate}"
@@ -101,7 +106,7 @@
                     Height="30"
                     FontSize="14"                        
                     HorizontalAlignment="Left"/>
-                    
+
         <DatePicker SelectedDateFormat="Long"
                     Grid.Row="4"
                     SelectedDate="{Binding EndDate}"
@@ -135,7 +140,7 @@
                    TextAlignment="Center"
                    FontSize="14"
                    Foreground="Red"
-                   Visibility="{Binding HasErrorMessage, Converter= {StaticResource BooleanToVisibilityConverter}}"/>                    
+                   Visibility="{Binding HasErrorMessage, Converter={StaticResource BooleanToVisibilityConverter}}"/>
 
         <Grid Grid.Row="7"
               Grid.ColumnSpan="2"
@@ -155,7 +160,7 @@
                     Height="35" 
                     FontSize="16"
                     IsEnabled="{Binding CanSubmit}"/>
-            
+
             <Button Content="Abbrechen"
                     Command="{Binding CancelCommand}"
                     Style="{StaticResource ModernButton}"

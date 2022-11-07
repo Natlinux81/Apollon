@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,6 +12,7 @@ namespace Apollon.WPF.ViewModels
 {
     public class AddEditDetailsViewModel : ViewModelBase
     {
+		
 		private string _organisation;
 		public string Organisation
 		{
@@ -37,10 +40,10 @@ namespace Apollon.WPF.ViewModels
 				OnPropertyChanged(nameof(TournamentName));
 				OnPropertyChanged(nameof(CanSubmit));
 			}
-		}
+		}       
 
-		private string _competition;
-		public string Competition
+        private string _competition;
+		public string Competition 
 		{
 			get
 			{
@@ -49,11 +52,12 @@ namespace Apollon.WPF.ViewModels
 			set
 			{
 				_competition = value;
-				OnPropertyChanged(nameof(Competition));
+				OnPropertyChanged(nameof(Competition));				
+								
 			}
-		}
+		}     
 
-		private string _competitionImage;
+        private string _competitionImage;
 		public string CompetitionImage
 		{
 			get
@@ -162,11 +166,20 @@ namespace Apollon.WPF.ViewModels
         public ICommand SubmitCommand { get; }
         public ICommand CancelCommand { get; }
 
+        public ObservableCollection<string> CompetitionList { get; set; }
+
         public AddEditDetailsViewModel(ICommand submitCommand, ICommand cancelCommand)
-        {
-            SubmitCommand = submitCommand;
-            CancelCommand = cancelCommand;
+		{
+			SubmitCommand = submitCommand;
+			CancelCommand = cancelCommand;
+
+            CompetitionList = new ObservableCollection<string>
+            {
+                "Halle", "im Freien", "Feld", "3D"
+            };
+
+            Competition = CompetitionList[1];
         }
-    }	
+	}	
 	
 }
