@@ -8,8 +8,8 @@
              xmlns:ViewModels="clr-namespace:Apollon.WPF.ViewModels" x:Class="Apollon.WPF.Views.Components.AddEditDetails"
              mc:Ignorable="d">
     <UserControl.Resources>
-        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
-    </UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>        
+    </UserControl.Resources>    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="55"/>
@@ -81,7 +81,10 @@
                   VerticalContentAlignment="Center"
                   HorizontalAlignment="Left"
                   ItemsSource="{Binding CompetitionList}"
-                  DisplayMemberPath="CompetitionName">                    
+                  DisplayMemberPath="CompetitionName"
+                  SelectedValuePath="CompetitionName"
+                  SelectedValue="{Binding CurrentCompetition.CompetitionName}"
+                  SelectedItem="{Binding CurrentCompetition}">                    
         </ComboBox>
         
         <Image x:Name="CompetitionImage"                 
@@ -92,7 +95,7 @@
                Width="80"
                HorizontalAlignment="Right"
                Margin="0 0 80 0"
-               Source="{Binding CompetitionImage, Mode=TwoWay, TargetNullValue={x:Null}}" />
+               Source="{Binding CompetitionImage, TargetNullValue={x:Null}}" />
 
         <DatePicker SelectedDateFormat="Long"
                     Grid.Row="3"
@@ -154,7 +157,10 @@
                     Width="120"
                     Height="35" 
                     FontSize="16"
-                    IsEnabled="{Binding CanSubmit}"/>
+                    IsEnabled="{Binding CanSubmit}"
+                    ToolTip="Turniername muss angegeben werden!"
+                    ToolTipService.ShowOnDisabled="True"
+                    ToolTipService.BetweenShowDelay="1000"/>
 
             <Button Content="Abbrechen"
                     Command="{Binding CancelCommand}"

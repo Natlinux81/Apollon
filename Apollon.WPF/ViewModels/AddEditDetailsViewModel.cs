@@ -3,7 +3,9 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -69,6 +71,21 @@ namespace Apollon.WPF.ViewModels
 			{
 				_competitionImage = value;
 				OnPropertyChanged(nameof(CompetitionImage));;
+			}
+		}
+
+		private Competition _currentCompetition;
+		public Competition CurrentCompetition
+		{
+			get
+			{
+				return _currentCompetition;
+			}
+			set
+			{
+				_currentCompetition = value;
+				CompetitionImage = _currentCompetition.CompetitionImage;
+				OnPropertyChanged(nameof(CurrentCompetition));
 			}
 		}
 
@@ -179,23 +196,23 @@ namespace Apollon.WPF.ViewModels
 				new Competition
 				{
 					CompetitionName = "Halle",
-					CompetitionImage = "targetHall.png"
+					CompetitionImage = @"\Images\targetHall.png"
                 },
 				new Competition
 				{
 					CompetitionName = "im Freien",
-					CompetitionImage ="targetOutdoor.png"
+					CompetitionImage = @"\Images\targetOutdoor.png"
                 },
 				new Competition
 				{
 					CompetitionName = "Feld",
-					CompetitionImage = "targetField.png"
+					CompetitionImage = @"\Images\targetField.png"
                 },
 
                 new Competition
                 {
                     CompetitionName = "3D",
-                    CompetitionImage = "3d.png"
+                    CompetitionImage = @"\Images\3d.png"
                 }
 
             };            

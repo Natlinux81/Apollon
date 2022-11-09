@@ -8,6 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="images\3d.png" />
+    <None Remove="images\targetField.png" />
+    <None Remove="images\targetHall.png" />
+    <None Remove="images\targetOutdoor.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="LoadingSpinner.WPF" Version="1.0.0" />
     <PackageReference Include="MahApps.Metro.IconPacks.Material" Version="4.11.0" />
     <PackageReference Include="SimpleModal.WPF" Version="1.0.0" />
@@ -20,6 +27,21 @@
 
   <ItemGroup>
     <Folder Include="Images\Logos\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="images\3d.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="images\targetField.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="images\targetHall.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="images\targetOutdoor.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 </Project>

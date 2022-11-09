@@ -27,7 +27,10 @@
                 <Setter Property="Background" Value="#ff8000"/>
                 <Setter Property="Opacity" Value="0.8"/>
                 <Setter Property="Foreground" Value="#0000a0"/>
-            </Trigger>            
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Opacity" Value="0.5"/>
+            </Trigger>
         </Style.Triggers>
 
     </Style>
