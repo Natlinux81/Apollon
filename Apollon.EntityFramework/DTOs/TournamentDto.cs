@@ -9,6 +9,7 @@ namespace Apollon.EntityFramework.DTOs
     public class TournamentDto
     {
         public Guid Id { get; set; }
+        public string Logo { get; set; }
         public string Organisation { get; set; }
         public string TournamentName { get; set; }
         public string Competition { get; set; }

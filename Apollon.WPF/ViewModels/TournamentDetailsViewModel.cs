@@ -18,6 +18,7 @@ namespace Apollon.WPF.ViewModels
         private Tournament SelectedTournament => _selectedTournamentsStore.SelectedTournament;
 
         public bool HasSelectedTournament => SelectedTournament != null;
+        public string Logo => SelectedTournament?.Logo ?? "D:\\Projekte\\Apollon\\Apollon\\Apollon.WPF\\Images\\Archery.png";
         public string Organisation => SelectedTournament?.Organisation ?? "keine Organisation";
         public string TournamentName => SelectedTournament?.TournamentName ?? "kein Name";
         public string Competition => SelectedTournament?.Competition ?? "keine Kategorie";

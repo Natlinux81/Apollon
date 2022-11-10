@@ -25,6 +25,7 @@ namespace Apollon.EntityFramework.Commands
                 TournamentDto tournamentDto = new TournamentDto()
                 {
                     Id = tournament.Id,
+                    Logo = tournament.Logo,
                     Organisation = tournament.Organisation,
                     TournamentName = tournament.TournamentName,
                     Competition = tournament.Competition,

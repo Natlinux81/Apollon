@@ -27,6 +27,7 @@ namespace Apollon.EntityFramework.Queries
 
                 return tournamentsDtos.Select(y => new Tournament(
                     y.Id,
+                    y.Logo,
                     y.Organisation,
                     y.TournamentName,
                     y.Competition,

@@ -31,6 +31,7 @@ namespace Apollon.WPF.Commands
 
             Tournament tournament = new Tournament(
                 _editTournamentViewModel.TournamentId,
+                detailsViewModel.Logo,
                 detailsViewModel.Organisation,
                 detailsViewModel.TournamentName,
                 detailsViewModel.Competition,

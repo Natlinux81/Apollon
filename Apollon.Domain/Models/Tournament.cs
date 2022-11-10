@@ -8,9 +8,10 @@ namespace Apollon.Domain.Models
 {
     public class Tournament
     {
-        public Tournament(Guid id, string organisation, string tournamentName, string competition, string competitionImage, DateTime startDate, DateTime endDate, string location, int rounds)
+        public Tournament(Guid id, string logo, string organisation, string tournamentName, string competition, string competitionImage, DateTime startDate, DateTime endDate, string location, int rounds)
         {
             Id = id;
+            Logo = logo;
             Organisation = organisation;
             TournamentName = tournamentName;
             Competition = competition;
@@ -22,6 +23,7 @@ namespace Apollon.Domain.Models
         }
 
         public Guid Id { get; }
+        public string Logo { get; }
         public string Organisation { get; }
         public string TournamentName { get; }
         public string Competition { get; }

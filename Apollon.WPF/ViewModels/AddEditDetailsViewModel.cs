@@ -1,4 +1,5 @@
 ﻿using Apollon.Domain.Models;
+using Apollon.WPF.Commands;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,20 @@ namespace Apollon.WPF.ViewModels
 {
     public class AddEditDetailsViewModel : ViewModelBase
     {
-		
+		private string logo;
+		public string Logo
+		{
+			get
+			{
+				return logo;
+			}
+			set
+			{
+				logo = value;
+				OnPropertyChanged(nameof(Logo));
+			}
+		}	
+
 		private string _organisation;
 		public string Organisation
 		{
@@ -183,13 +197,16 @@ namespace Apollon.WPF.ViewModels
 
         public ICommand SubmitCommand { get; }
         public ICommand CancelCommand { get; }
+		public ICommand ChooseLogoCommand { get; }
 
-        public ObservableCollection<Competition> CompetitionList { get; set; }
-
-        public AddEditDetailsViewModel(ICommand submitCommand, ICommand cancelCommand)
+        public ObservableCollection<Competition> CompetitionList { get; }
+		
+		
+		public AddEditDetailsViewModel(ICommand submitCommand, ICommand cancelCommand)
 		{
 			SubmitCommand = submitCommand;
 			CancelCommand = cancelCommand;
+			ChooseLogoCommand = new ChooseLogoCommand(this);	
 
             CompetitionList = new ObservableCollection<Competition>
             {
@@ -214,9 +231,7 @@ namespace Apollon.WPF.ViewModels
                     CompetitionName = "3D",
                     CompetitionImage = @"\Images\3d.png"
                 }
-
             };            
         }
 	}	
-	
 }

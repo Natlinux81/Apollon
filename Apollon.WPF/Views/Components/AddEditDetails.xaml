@@ -58,8 +58,10 @@
                  FontFamily="Arial"
                  FontSize="16"
                  Height="30"
+                 Width="300"
                  Background="LightGray"
-                 VerticalContentAlignment="Center"/>
+                 VerticalContentAlignment="Center"
+                 HorizontalAlignment="Left"/>
 
         <TextBox Grid.Row="1"
                  Grid.Column="1"
@@ -67,8 +69,27 @@
                  FontFamily="Arial"                     
                  FontSize="16"
                  Height="30"
+                 Width="300"
+                 HorizontalAlignment="Left"
                  VerticalContentAlignment="Center"                     
                  Background="LightGray"/>
+
+        <StackPanel Grid.Column="1"
+               Grid.RowSpan="2">
+            <Image 
+               Height="80"
+               Width="80"
+               HorizontalAlignment="Right"
+               Source="{Binding Logo, TargetNullValue={x:Null}}"/>
+            <Button Style="{StaticResource ModernButton}"
+                    Content="Logo wählen"
+                    Height="20"
+                    Width="80"
+                    HorizontalAlignment="Right"
+                    FontSize="10"
+                    Command="{Binding ChooseLogoCommand}"/>                  
+        </StackPanel>
+        
 
         <ComboBox Grid.Row="2"                                     
                   Text="{Binding Competition}"
@@ -90,11 +111,11 @@
         <Image x:Name="CompetitionImage"                 
                Grid.Row="2"
                Grid.Column="1"
-               Grid.RowSpan="2"
+               Grid.RowSpan="3"
                Height="80"
                Width="80"
                HorizontalAlignment="Right"
-               Margin="0 0 80 0"
+               Margin="0 0 60 0"
                Source="{Binding CompetitionImage, TargetNullValue={x:Null}}" />
 
         <DatePicker SelectedDateFormat="Long"
@@ -119,6 +140,8 @@
                  FontFamily="Arial"                     
                  FontSize="16"
                  Height="30"
+                 Width="300"
+                 HorizontalAlignment="Left"
                  VerticalContentAlignment="Center"
                  Background="LightGray"/>
         <TextBox Grid.Row="6"

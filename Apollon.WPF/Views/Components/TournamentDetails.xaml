@@ -13,7 +13,7 @@
             <ColumnDefinition Width="auto"/>
         </Grid.ColumnDefinitions>
         <Image Grid.Column="0"
-               Source="D:\Projekte\Apollon\Apollon\Apollon.WPF\Images\Logos\logo_klein_DSB.jpg"
+               Source="{Binding Logo}"
                Width="80"
                VerticalAlignment="Center"/>
         <StackPanel Grid.Column="1">            
