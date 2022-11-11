@@ -8,11 +8,12 @@ using System.Threading.Tasks;
 
 namespace Apollon.EntityFramework
 {
-    public class TournamentsDbContext : DbContext
+    public class ApplicationDbContext : DbContext
     {
-        public TournamentsDbContext(DbContextOptions options) : base(options)
+        public ApplicationDbContext(DbContextOptions options) : base(options)
         {
         }
         public DbSet<TournamentDto> Tournaments { get; set; }
+        public DbSet<CompetitionDto> Competition { get; set; }
     }
 }

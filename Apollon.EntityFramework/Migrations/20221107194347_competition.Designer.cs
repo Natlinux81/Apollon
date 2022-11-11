@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Apollon.EntityFramework.Migrations
 {
-    [DbContext(typeof(TournamentsDbContext))]
+    [DbContext(typeof(ApplicationDbContext))]
     [Migration("20221107194347_competition")]
     partial class competition
     {

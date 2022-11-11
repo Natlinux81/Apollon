@@ -24,6 +24,7 @@ namespace Apollon.WPF.ViewModels
             AddEditDetailsViewModel = new AddEditDetailsViewModel(submitCommand, cancelCommand)
 
             {
+                Logo = tournament.Logo,
                 Organisation = tournament.Organisation,
                 TournamentName = tournament.TournamentName,
                 Competition = tournament.Competition,

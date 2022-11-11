@@ -7,18 +7,18 @@ using System.Threading.Tasks;
 
 namespace Apollon.EntityFramework
 {
-    public class TournamentsDbContextFactory
+    public class ApplicationDBContextFactory
     {        
         private readonly DbContextOptions _options;
 
-        public TournamentsDbContextFactory(DbContextOptions options)
+        public ApplicationDBContextFactory(DbContextOptions options)
         {            
             _options = options;
         }
 
-        public TournamentsDbContext Create()
+        public ApplicationDbContext Create()
         {         
-            return new TournamentsDbContext(_options);
+            return new ApplicationDbContext(_options);
         }
     }
 }

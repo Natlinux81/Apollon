@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Apollon.EntityFramework.Migrations
 {
-    [DbContext(typeof(TournamentsDbContext))]
+    [DbContext(typeof(ApplicationDbContext))]
     partial class TournamentsDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

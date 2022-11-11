@@ -24,7 +24,7 @@ namespace Apollon.WPF
     {
         private readonly NavigationStore _navigationStore;
         private readonly ModalNavigationStore _modalNavigationStore;
-        private readonly TournamentsDbContextFactory _tournamentsDbContextFactory;
+        private readonly ApplicationDBContextFactory _tournamentsDbContextFactory;
         private readonly IGetAllTournamentsQuery _getAllTournamentQuery;
         private readonly ICreateTournamentCommand _createTournamentCommand;
         private readonly IUpdateTournamentCommand _updateTournamentCommand;
@@ -38,7 +38,7 @@ namespace Apollon.WPF
 
             _navigationStore = new NavigationStore();
             _modalNavigationStore = new ModalNavigationStore();
-            _tournamentsDbContextFactory = new TournamentsDbContextFactory(
+            _tournamentsDbContextFactory = new ApplicationDBContextFactory(
                 new DbContextOptionsBuilder().UseSqlServer(connectionString).Options);
             _getAllTournamentQuery = new GetAllTournamentsQuery(_tournamentsDbContextFactory);
             _createTournamentCommand = new CreateTournamentCommand(_tournamentsDbContextFactory);
@@ -49,7 +49,7 @@ namespace Apollon.WPF
         }
         protected override void OnStartup(StartupEventArgs e)
         {
-            using(TournamentsDbContext context = _tournamentsDbContextFactory.Create())
+            using(ApplicationDbContext context = _tournamentsDbContextFactory.Create())
             {
                 context.Database.Migrate();
             }

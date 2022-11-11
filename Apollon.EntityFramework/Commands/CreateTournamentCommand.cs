@@ -12,16 +12,16 @@ namespace Apollon.EntityFramework.Commands
 {
     public class CreateTournamentCommand : ICreateTournamentCommand
     {
-        private readonly TournamentsDbContextFactory _contextFactory;
+        private readonly ApplicationDBContextFactory _contextFactory;
 
-        public CreateTournamentCommand(TournamentsDbContextFactory contextFactory)
+        public CreateTournamentCommand(ApplicationDBContextFactory contextFactory)
         {
             _contextFactory = contextFactory;
         }
 
         public  async Task Execute(Tournament tournament)
         {     
-            using (TournamentsDbContext context = _contextFactory.Create())
+            using (ApplicationDbContext context = _contextFactory.Create())
             {        
                 TournamentDto tournamentDto = new TournamentDto()
                 {

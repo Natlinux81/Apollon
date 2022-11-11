@@ -11,16 +11,16 @@ namespace Apollon.EntityFramework.Commands
 {
     public class UpdateTournamentCommand : IUpdateTournamentCommand
     {
-        private readonly TournamentsDbContextFactory _contextFactory;
+        private readonly ApplicationDBContextFactory _contextFactory;
 
-        public UpdateTournamentCommand(TournamentsDbContextFactory contextFactory)
+        public UpdateTournamentCommand(ApplicationDBContextFactory contextFactory)
         {
             _contextFactory = contextFactory;
         }
 
         public async Task Execute(Tournament tournament)
         {            
-            using (TournamentsDbContext context = _contextFactory.Create())
+            using (ApplicationDbContext context = _contextFactory.Create())
             {                
                 TournamentDto tournamentDto = new TournamentDto()
                 {

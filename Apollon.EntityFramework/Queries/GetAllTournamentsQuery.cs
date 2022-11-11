@@ -12,16 +12,16 @@ namespace Apollon.EntityFramework.Queries
 {
     public class GetAllTournamentsQuery : IGetAllTournamentsQuery
     {
-        private readonly TournamentsDbContextFactory _contextFactory;
+        private readonly ApplicationDBContextFactory _contextFactory;
 
-        public GetAllTournamentsQuery(TournamentsDbContextFactory contextFactory)
+        public GetAllTournamentsQuery(ApplicationDBContextFactory contextFactory)
         {
             _contextFactory = contextFactory;
         }
 
         public async Task<IEnumerable<Tournament>> Execute()
         {       
-            using (TournamentsDbContext context = _contextFactory.Create())
+            using (ApplicationDbContext context = _contextFactory.Create())
             {
                 IEnumerable<TournamentDto> tournamentsDtos = await context.Tournaments.ToListAsync();
 
