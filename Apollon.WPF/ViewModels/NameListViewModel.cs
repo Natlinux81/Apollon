@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Apollon.WPF.ViewModels
 {
-    public class RootdatesViewModel : ViewModelBase
+    public class NameListViewModel : ViewModelBase
     {
     }
 }

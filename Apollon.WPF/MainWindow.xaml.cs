@@ -49,6 +49,7 @@ namespace Apollon.WPF
             else
 
             this.WindowState = WindowState.Maximized;
+            this.Topmost = true;
 
         }
 

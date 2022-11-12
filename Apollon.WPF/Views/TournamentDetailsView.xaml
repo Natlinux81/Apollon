@@ -6,17 +6,20 @@
              xmlns:components="clr-namespace:Apollon.WPF.Views.Components"
              xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
              xmlns:local="clr-namespace:Apollon.WPF.Views"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Margin="50">
+             mc:Ignorable="d">
+    <Grid Margin="20" >
         <Grid.RowDefinitions>
-            <RowDefinition Height="100"/>
-            <RowDefinition/>
+            <RowDefinition Height="120"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="150"/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
+        <Border Grid.Column="2" Grid.Row="2"
+                BorderBrush="#0000a0"
+                BorderThickness="1"
+                CornerRadius="2"></Border>
 
         <Button Width="35"
                 Height="35"
@@ -31,6 +34,7 @@
                                         Foreground="#0000a0"/>
         </Button>
 
-        <components:TournamentDetails Grid.Column="1"/>    
+        <components:TournamentDetails Grid.Column="1" Margin="0,35,0,10" HorizontalAlignment="Center"/>
+        <components:NavBarView Grid.Row="1" Margin="0 ,0 ,2, 30"/>
     </Grid>
 </UserControl>

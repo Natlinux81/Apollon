@@ -8,6 +8,7 @@
                 <ResourceDictionary Source="Themes/ButtonTheme.xaml"/>
                 <ResourceDictionary Source="Themes/ModalTextblockTheme.xaml"/>
                 <ResourceDictionary Source="Themes/Common.xaml"/>
+                <ResourceDictionary Source="Themes/NavBarTemplate.xaml "/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
