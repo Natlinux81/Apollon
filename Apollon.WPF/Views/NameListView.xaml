@@ -4,12 +4,22 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Apollon.WPF.Views"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <TextBlock Text="Stammdaten"
-                    FontSize="30"
-                    TextAlignment="Center"
-                    VerticalAlignment="Center"/>
+             mc:Ignorable="d">
+    <Grid Margin="35">
+        <DataGrid FontSize="14"
+                  HorizontalAlignment="Center"
+                  CanUserAddRows="True"
+                  AutoGenerateColumns="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="120" Header="Vorname"  Binding="{Binding FirstName}"/>
+                <DataGridTextColumn Width="120" Header="Nachname" Binding="{Binding LastName}" />
+                <DataGridTextColumn Width="120" Header="Passnummer"  Binding="{Binding PassNumber}"/>
+                <DataGridTextColumn Width="150" Header="Verein" Binding="{Binding Society}" />
+                <DataGridTextColumn Width="120" Header="Vereinsnummer"  Binding="{Binding SocietyNumber}"/>
+                <DataGridTextColumn Width="100" Header="Geburtsdatum" Binding="{Binding Birthday}" />
+                <DataGridTextColumn Header="Bundesland"  Binding="{Binding Country}"/>             
+            </DataGrid.Columns>
+            
+        </DataGrid>
     </Grid>
 </UserControl>

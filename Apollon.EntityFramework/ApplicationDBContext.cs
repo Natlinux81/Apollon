@@ -14,6 +14,7 @@ namespace Apollon.EntityFramework
         {
         }
         public DbSet<TournamentDto> Tournaments { get; set; }
+        public DbSet<NameListDto> NameList { get; set; }
         public DbSet<CompetitionDto> Competition { get; set; }
     }
 }
