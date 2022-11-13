@@ -4,6 +4,7 @@ using Apollon.EntityFramework;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Apollon.EntityFramework.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class TournamentsDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221113173340_Targets")]
+    partial class Targets
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -62,9 +64,6 @@ namespace Apollon.EntityFramework.Migrations
                     b.Property<int>("PassNumber")
                         .HasColumnType("int");
 
-                    b.Property<int>("Qualification")
-                        .HasColumnType("int");
-
                     b.Property<string>("Society")
                         .HasColumnType("nvarchar(max)");
 
@@ -105,9 +104,6 @@ namespace Apollon.EntityFramework.Migrations
 
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
-
-                    b.Property<int>("Targets")
-                        .HasColumnType("int");
 
                     b.Property<string>("TournamentName")
                         .HasColumnType("nvarchar(max)");

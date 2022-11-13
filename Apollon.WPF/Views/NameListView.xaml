@@ -17,7 +17,8 @@
                 <DataGridTextColumn Width="150" Header="Verein" Binding="{Binding Society}" />
                 <DataGridTextColumn Width="120" Header="Vereinsnummer"  Binding="{Binding SocietyNumber}"/>
                 <DataGridTextColumn Width="100" Header="Geburtsdatum" Binding="{Binding Birthday}" />
-                <DataGridTextColumn Header="Bundesland"  Binding="{Binding Country}"/>             
+                <DataGridTextColumn Header="Bundesland"  Binding="{Binding Country}"/>
+                <DataGridTextColumn Header="Qualifikation"  Binding="{Binding Qualification}"/>
             </DataGrid.Columns>
             
         </DataGrid>

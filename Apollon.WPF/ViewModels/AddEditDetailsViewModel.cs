@@ -162,6 +162,20 @@ namespace Apollon.WPF.ViewModels
 			}
 		}
 
+		private int _targets;
+		public int Targets
+		{
+			get
+			{
+				return _targets;
+			}
+			set
+			{
+				_targets = value;
+				OnPropertyChanged(nameof(Targets));
+			}
+		}
+
 		private bool _isSubmitting;
 		public bool IsSubmitting
 		{

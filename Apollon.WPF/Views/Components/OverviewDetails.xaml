@@ -137,7 +137,7 @@
                 </Image>
             </WrapPanel>              
 
-            <WrapPanel Margin="10" HorizontalAlignment="Center"> 
+            <WrapPanel Margin="5" HorizontalAlignment="Center"> 
                     <TextBlock Text="{Binding StartDate}"
                        TextAlignment="Center"
                        FontFamily="Arial"
@@ -198,7 +198,7 @@
                        FontWeight="Bold"
                        FontSize="14"
                        Foreground="#0000a0"
-                       Margin="10">
+                       Margin="5">
                     <TextBlock.Style>
                         <Style TargetType="TextBlock">
                             <Setter Property="Visibility" Value="Hidden"/>
@@ -216,7 +216,7 @@
                        FontWeight="Bold"
                        FontSize="14"
                        Foreground="#0000a0"
-                       Margin="10">
+                       Margin="5">
                     <TextBlock.Style>
                         <Style TargetType="TextBlock">
                             <Setter Property="Visibility" Value="Hidden"/>
@@ -233,7 +233,43 @@
                        FontWeight="Bold"
                        FontSize="14"
                        Foreground="#0000a0"
-                       Margin="10">
+                       Margin="5">
+                    <TextBlock.Style>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="Visibility" Value="Hidden"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding HasSelectedTournament}" Value="True">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+            </WrapPanel>
+            <WrapPanel HorizontalAlignment="Center">
+                <TextBlock Text="Anzahl der Scheiben:"                       
+                       FontFamily="Arial"
+                       FontWeight="Bold"
+                       FontSize="14"
+                       Foreground="#0000a0"
+                       Margin="5">
+                    <TextBlock.Style>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="Visibility" Value="Hidden"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding HasSelectedTournament}" Value="True">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+                <TextBlock Text="{Binding Targets}"                       
+                       FontFamily="Arial"
+                       FontWeight="Bold"
+                       FontSize="14"
+                       Foreground="#0000a0"
+                       Margin="5">
                     <TextBlock.Style>
                         <Style TargetType="TextBlock">
                             <Setter Property="Visibility" Value="Hidden"/>
@@ -247,13 +283,13 @@
                 </TextBlock>
             </WrapPanel>
             <Button 
-                    Content="Turnier öffnen"
-                    FontSize="16"
-                    Height="40"
+                    Content="Turnier vorbereiten"
+                    FontSize="14"
+                    Height="35"
                     Width="150"
-                    Margin="20"
+                    Margin="10"
                     Cursor="Hand"
-                    Command="{Binding NavigateNavBarCommand}">
+                    Command="{Binding NavigateTournamentDetailsCommand}">
                  <Button.Style>                     
                         <Style TargetType="Button" BasedOn="{StaticResource ModernButton}">
                             <Setter Property="Visibility" Value="Hidden"/>
@@ -264,6 +300,44 @@
                             </Style.Triggers>
                         </Style>
                     </Button.Style>
+            </Button>
+            <Button 
+                    Content="Turnier durchführen"
+                    FontSize="14"
+                    Height="35"
+                    Width="150"
+                    Margin="10"
+                    Cursor="Hand"
+                    Command="{Binding NavigateNavBarCommand}">
+                <Button.Style>
+                    <Style TargetType="Button" BasedOn="{StaticResource ModernButton}">
+                        <Setter Property="Visibility" Value="Hidden"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding HasSelectedTournament}" Value="True">
+                                <Setter Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button 
+                    Content="Turnier abschließen"
+                    FontSize="14"
+                    Height="35"
+                    Width="150"
+                    Margin="10"
+                    Cursor="Hand"
+                    Command="{Binding NavigateNavBarCommand}">
+                <Button.Style>
+                    <Style TargetType="Button" BasedOn="{StaticResource ModernButton}">
+                        <Setter Property="Visibility" Value="Hidden"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding HasSelectedTournament}" Value="True">
+                                <Setter Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
             </Button>
         </StackPanel>       
     </Grid>

@@ -35,6 +35,7 @@ namespace Apollon.EntityFramework.Commands
                     EndDate = tournament.EndDate,
                     Location = tournament.Location,
                     Rounds = tournament.Rounds,
+                    Targets = tournament.Targets,
                 };
 
                 context.Tournaments.Add(tournamentDto);

@@ -144,8 +144,10 @@
                  HorizontalAlignment="Left"
                  VerticalContentAlignment="Center"
                  Background="LightGray"/>
-        <TextBox Grid.Row="6"
+        <WrapPanel Grid.Row="6"
                  Grid.Column="1"
+                   VerticalAlignment="Center">
+            <TextBox 
                  Text="{Binding Rounds}"
                  FontFamily="Arial"                     
                  FontSize="16"
@@ -154,6 +156,21 @@
                  VerticalContentAlignment="Center"
                  HorizontalAlignment="Left"
                  Background="LightGray"/>
+            <TextBlock
+                   Margin="50 0 0 0"
+                   Text="Anzahl der Scheiben: "
+                   Style="{StaticResource ModalTextBlock}"/>
+            <TextBox 
+                 Text="{Binding Targets}"
+                 FontFamily="Arial"                     
+                 FontSize="16"
+                 Height="30"
+                 Width="50"
+                 VerticalContentAlignment="Center"
+                 HorizontalAlignment="Left"
+                 Background="LightGray"/>
+        </WrapPanel>        
+      
 
         <TextBlock Text="{Binding ErrorMessage}"
                    Grid.Row="7"

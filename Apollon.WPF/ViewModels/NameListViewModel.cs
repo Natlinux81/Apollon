@@ -105,5 +105,19 @@ namespace Apollon.WPF.ViewModels
 				OnPropertyChanged(nameof(Country));
 			}
 		}
+
+		private int _qualification;
+		public int Qualification
+		{
+			get
+			{
+				return _qualification;
+			}
+			set
+			{
+				_qualification = value;
+				OnPropertyChanged(nameof(Qualification));
+			}
+		}
 	}
 }

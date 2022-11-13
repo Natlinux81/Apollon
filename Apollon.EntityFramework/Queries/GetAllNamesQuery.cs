@@ -33,7 +33,8 @@ namespace Apollon.EntityFramework.Queries
                     y.Society,
                     y.SocietyNumber,
                     y.Birthday,
-                    y.Country));
+                    y.Country,
+                    y.Qualification));
             }
         }
     }

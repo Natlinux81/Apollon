@@ -39,7 +39,8 @@ namespace Apollon.WPF.Commands
                 detailsViewModel.StartDate,
                 detailsViewModel.EndDate,
                 detailsViewModel.Location,
-                detailsViewModel.Rounds);
+                detailsViewModel.Rounds,
+                detailsViewModel.Targets);
 
             try
             {

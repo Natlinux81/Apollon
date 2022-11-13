@@ -27,6 +27,7 @@ namespace Apollon.WPF.ViewModels
         public string EndDate => SelectedTournament?.EndDate.ToString("d") ?? "kein Datum";
         public string Location => SelectedTournament?.Location ?? "kein Ort";
         public int Rounds => SelectedTournament?.Rounds ?? 0;
+        public int Targets => SelectedTournament?.Targets ?? 0;
         
         public ICommand NavigateOverviewCommand { get; }
         public TournamentDetailsViewModel(NavigationStore navigationStore, SelectedTournamentsStore selectedTournamentsStore, ModalNavigationStore modalNavigationStore, TournamentsStore tournamentsStore)

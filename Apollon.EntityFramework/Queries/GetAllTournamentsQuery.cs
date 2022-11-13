@@ -35,7 +35,8 @@ namespace Apollon.EntityFramework.Queries
                     y.StartDate,
                     y.EndDate,
                     y.Location,
-                    y.Rounds));
+                    y.Rounds,
+                    y.Targets));
             }
         }
     }

@@ -18,5 +18,6 @@ namespace Apollon.EntityFramework.DTOs
         public DateTime EndDate { get; set; }
         public string Location { get; set; }
         public int Rounds { get; set; }
+        public int Targets { get; set; }
     }
 }

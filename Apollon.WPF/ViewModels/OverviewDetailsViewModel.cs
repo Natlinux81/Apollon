@@ -25,8 +25,9 @@ namespace Apollon.WPF.ViewModels
         public string EndDate => SelectedTournament?.EndDate.ToString("d") ?? "kein Datum";
         public string Location => SelectedTournament?.Location ?? "kein Ort";
         public int Rounds => SelectedTournament?.Rounds ?? 0;
+        public int Targets => SelectedTournament?.Targets ?? 0;
 
-        public ICommand NavigateNavBarCommand { get; }
+        public ICommand NavigateTournamentDetailsCommand { get; }
 
         public OverviewDetailsViewModel(SelectedTournamentsStore selectedTournamentStore, NavigationStore navigationStore, ModalNavigationStore modalNavigationStore,TournamentsStore tournamentsStore)
         {
@@ -34,7 +35,7 @@ namespace Apollon.WPF.ViewModels
 
             _selectedTournamentStore.SelectedTournamentChanged += SelectedTournamentStore_SelectedTournamentChanged;
 
-            NavigateNavBarCommand = new NavigateCommand<TournamentDetailsViewModel>(navigationStore, () => new TournamentDetailsViewModel(navigationStore, selectedTournamentStore, modalNavigationStore, tournamentsStore));
+            NavigateTournamentDetailsCommand = new NavigateCommand<TournamentDetailsViewModel>(navigationStore, () => new TournamentDetailsViewModel(navigationStore, selectedTournamentStore, modalNavigationStore, tournamentsStore));
         }
 
         protected override void Dispose()
@@ -57,6 +58,7 @@ namespace Apollon.WPF.ViewModels
             OnPropertyChanged(nameof(EndDate));
             OnPropertyChanged(nameof(Location));
             OnPropertyChanged(nameof(Rounds));
+            OnPropertyChanged(nameof(Targets));
         }
     }
 }
