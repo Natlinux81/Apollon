@@ -18,9 +18,9 @@ namespace Apollon.WPF.Views
     /// <summary>
     /// Interaction logic for TournamentDetailsView.xaml
     /// </summary>
-    public partial class TournamentDetailsView : UserControl
+    public partial class PreparationView : UserControl
     {
-        public TournamentDetailsView()
+        public PreparationView()
         {
             InitializeComponent();
         }

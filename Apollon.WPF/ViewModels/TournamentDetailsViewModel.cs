@@ -11,9 +11,7 @@ using System.Windows.Input;
 namespace Apollon.WPF.ViewModels
 {
     public class TournamentDetailsViewModel : ViewModelBase
-
     {
-        
         private readonly SelectedTournamentsStore _selectedTournamentsStore;
         private Tournament SelectedTournament => _selectedTournamentsStore.SelectedTournament;
 
@@ -28,12 +26,10 @@ namespace Apollon.WPF.ViewModels
         public string Location => SelectedTournament?.Location ?? "kein Ort";
         public int Rounds => SelectedTournament?.Rounds ?? 0;
         public int Targets => SelectedTournament?.Targets ?? 0;
-        
-        public ICommand NavigateOverviewCommand { get; }
-        public TournamentDetailsViewModel(NavigationStore navigationStore, SelectedTournamentsStore selectedTournamentsStore, ModalNavigationStore modalNavigationStore, TournamentsStore tournamentsStore)
-        {
-            NavigateOverviewCommand = new NavigateCommand<OverviewViewModel>(navigationStore, () => OverviewViewModel.LoadViewModel( selectedTournamentsStore, modalNavigationStore, tournamentsStore, navigationStore));
 
+        
+        public TournamentDetailsViewModel(SelectedTournamentsStore selectedTournamentsStore)
+        {        
             _selectedTournamentsStore = selectedTournamentsStore;
         }
     }

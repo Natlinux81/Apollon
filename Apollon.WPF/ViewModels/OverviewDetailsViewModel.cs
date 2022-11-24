@@ -35,7 +35,7 @@ namespace Apollon.WPF.ViewModels
 
             _selectedTournamentStore.SelectedTournamentChanged += SelectedTournamentStore_SelectedTournamentChanged;
 
-            NavigateTournamentDetailsCommand = new NavigateCommand<TournamentDetailsViewModel>(navigationStore, () => new TournamentDetailsViewModel(navigationStore, selectedTournamentStore, modalNavigationStore, tournamentsStore));
+            NavigateTournamentDetailsCommand = new NavigateCommand<PreparationViewModel>(navigationStore, () => new PreparationViewModel(_selectedTournamentStore,navigationStore, modalNavigationStore, tournamentsStore));
         }
 
         protected override void Dispose()

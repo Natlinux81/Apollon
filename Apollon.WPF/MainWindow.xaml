@@ -27,13 +27,7 @@
         </DataTemplate>
         <DataTemplate DataType="{x:Type vms:WarningDeleteViewModel}">
             <views:WarningDeleteView/>
-        </DataTemplate>        
-        <DataTemplate DataType="{x:Type vms:OverviewViewModel}">
-            <views:OverviewView Content="{Binding CurrentViewModel}" DataContext="{Binding OverviewViewModel}"/>
-        </DataTemplate>
-        <DataTemplate DataType="{x:Type vms:AddEditDetailsViewModel}">
-            <components:AddEditDetails/>
-        </DataTemplate>
+        </DataTemplate>       
     </Window.Resources>    
         <Grid>
             <Grid.RowDefinitions>
@@ -41,8 +35,7 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <custom:Modal Grid.RowSpan="2" Panel.ZIndex="1" IsOpen="{Binding IsModalOpen}">
-            
+            <custom:Modal Grid.RowSpan="2" Panel.ZIndex="1" IsOpen="{Binding IsModalOpen}">            
                 <ContentControl Margin="30" Content="{Binding CurrentModalViewModel}"/>
             </custom:Modal>
       
@@ -53,8 +46,8 @@
                 <DataTemplate DataType="{x:Type vms:OverviewViewModel}">
                     <views:OverviewView/>
                 </DataTemplate>
-                <DataTemplate DataType="{x:Type vms:TournamentDetailsViewModel}">
-                    <views:TournamentDetailsView/>
+                <DataTemplate DataType="{x:Type vms:PreparationViewModel}">
+                    <views:PreparationView/>
                 </DataTemplate>
                 <DataTemplate DataType="{x:Type vms:NameListViewModel}">
                     <views:RootdatesView/>
