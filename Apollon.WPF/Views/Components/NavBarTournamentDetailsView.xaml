@@ -65,18 +65,7 @@
                                          HorizontalAlignment="Center"
                                                     VerticalAlignment="Center"/>
                         </MenuItem.Icon>
-                    </MenuItem>
-                    <MenuItem Header="Kl. Vereinsmeistersch."                              
-                              Template="{StaticResource Item_Template}">
-                        <MenuItem.Icon>
-                            <iconPacks:PackIconMaterial Kind="BallotOutline"
-                                        Height="20"
-                                        Width="20"
-                                        Foreground="#0000a0"
-                                         HorizontalAlignment="Center"
-                                                    VerticalAlignment="Center"/>
-                        </MenuItem.Icon>
-                    </MenuItem>
+                    </MenuItem>                    
                     <MenuItem Header="Teilnehmer setzen"
                               Template="{StaticResource Item_Template}">
                         <MenuItem.Icon>

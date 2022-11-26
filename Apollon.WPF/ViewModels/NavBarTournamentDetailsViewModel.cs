@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Apollon.WPF.Commands;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,8 +10,10 @@ namespace Apollon.WPF.ViewModels
 {
     public class NavBarTournamentDetailsViewModel : ViewModelBase
     {
-        public ICommand NavigateNameListCommand { get;}
-        public ICommand GroupsCommand { get;}
+        public ICommand NavigateArchersCommand { get;}
+        public ICommand NavigateGroupsCommand { get;}
+        public ICommand NavigateClassesCommand { get;}
 
+        
     }
 }
