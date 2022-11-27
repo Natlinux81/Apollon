@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using Apollon.WPF.Services;
 
 namespace Apollon.WPF.ViewModels
 {
@@ -59,7 +58,7 @@ namespace Apollon.WPF.ViewModels
 
             LoadTournamentsCommand = new LoadTournamentsCommand(this, tournamentStore);
             AddTournamentCommand = new OpenAddTournamentCommand(tournamentStore, modalNavigationStore, navigationStore, selectedTournamentStore);
-            NavigateNameListCommand = new NavigateCommand<NameListViewModel>(new NavigationService<NameListViewModel>(navigationStore, () => new NameListViewModel()));
+            NavigateNameListCommand = new NavigateCommand<NameListViewModel>(navigationStore, () => new NameListViewModel());
 
         }
 

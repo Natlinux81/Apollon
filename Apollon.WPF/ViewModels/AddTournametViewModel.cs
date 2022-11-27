@@ -1,5 +1,4 @@
 ﻿using Apollon.WPF.Commands;
-using Apollon.WPF.Services;
 using Apollon.WPF.Stores;
 using System;
 using System.Collections.Generic;
@@ -16,7 +15,7 @@ namespace Apollon.WPF.ViewModels
 
         public AddTournamentViewModel(TournamentsStore tournamentStore, ModalNavigationStore modalNavigationStore, NavigationStore navigationStore,SelectedTournamentsStore selectedTournamentsStore)
         {
-            ICommand submitCommand = new AddTournamentCommand(this, new NavigationService<PreparationViewModel>(navigationStore, () => new PreparationViewModel( selectedTournamentsStore, navigationStore, modalNavigationStore, tournamentStore)));
+            ICommand submitCommand = new AddTournamentCommand(this, tournamentStore,modalNavigationStore,navigationStore, selectedTournamentsStore);
             ICommand cancelCommand = new CloseModalCommand(modalNavigationStore);            
             AddEditDetailsViewModel = new AddEditDetailsViewModel(submitCommand, cancelCommand);
         }

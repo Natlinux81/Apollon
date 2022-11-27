@@ -1,5 +1,4 @@
 ﻿using Apollon.Domain.Models;
-using Apollon.WPF.Services;
 using Apollon.WPF.Stores;
 using Apollon.WPF.ViewModels;
 using System;
@@ -13,23 +12,19 @@ namespace Apollon.WPF.Commands
     public class AddTournamentCommand : AsyncCommandBase
     {
         private readonly TournamentsStore _tournamentStore;
-        private readonly NavigationService<PreparationViewModel> _navigationService;
+        private readonly NavigationStore _navigationStore;
         private readonly ModalNavigationStore _modalNavigationStore;
         private readonly SelectedTournamentsStore _selectedTournamentsStore;
         private AddTournamentViewModel _addTournamentViewModel;
 
-        public AddTournamentCommand(AddTournamentViewModel addTournamentViewModel, NavigationService<PreparationViewModel> navigationService)
-        {
-        }
 
-        public AddTournamentCommand(TournamentsStore tournamentStore, NavigationService<PreparationViewModel> navigationService, ModalNavigationStore modalNavigationStore,
-                                    SelectedTournamentsStore selectedTournamentsStore, AddTournamentViewModel addTournamentViewModel)
+        public AddTournamentCommand(AddTournamentViewModel addTournamentViewModel, TournamentsStore tournamentStore, ModalNavigationStore modalNavigationStore, NavigationStore navigationStore, SelectedTournamentsStore selectedTournamentsStore)
         {
-            _tournamentStore = tournamentStore;
-            _navigationService = navigationService;
-            _modalNavigationStore = modalNavigationStore;
-            _selectedTournamentsStore = selectedTournamentsStore;
             _addTournamentViewModel = addTournamentViewModel;
+            _tournamentStore = tournamentStore;
+            _modalNavigationStore = modalNavigationStore;
+            _navigationStore = navigationStore;
+            _selectedTournamentsStore = selectedTournamentsStore;
         }
 
         public override async Task ExecuteAsync(object parameter)
@@ -57,7 +52,7 @@ namespace Apollon.WPF.Commands
                 await _tournamentStore.Add(tournament);
 
                 _modalNavigationStore.Close();
-                _navigationService.Navigate();
+                _navigationStore.CurrentViewModel = new PreparationViewModel(_selectedTournamentsStore, _navigationStore, _modalNavigationStore, _tournamentStore);
 
             }
             catch (Exception)
