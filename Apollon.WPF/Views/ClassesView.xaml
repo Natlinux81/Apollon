@@ -7,7 +7,7 @@
              xmlns:components="clr-namespace:Apollon.WPF.Views.Components"
              mc:Ignorable="d" 
              d:DesignHeight="680" d:DesignWidth="1100">
-    <Grid Margin="1535">
+    <Grid Margin="15, 35">
         <Grid.RowDefinitions>
             <RowDefinition Height="80"/>
             <RowDefinition Height="550"/>

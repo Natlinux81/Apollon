@@ -11,7 +11,7 @@ namespace Apollon.WPF.ViewModels
 {
     public class NavBarPreparationViewModel : ViewModelBase
     {
-        public ICommand NavigateOverviewCommand { get;}
+        public ICommand NavigateOverviewCommand { get; }
         public ICommand NavigateGroupsCommand { get;}
         public ICommand NavigateClassesCommand { get;}  
         public ICommand NavigateArchersCommand { get;}

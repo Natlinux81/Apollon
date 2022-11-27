@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Apollon.WPF.Stores;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,10 +9,12 @@ namespace Apollon.WPF.ViewModels
 {
     public class ArchersViewModel : ViewModelBase
     {
+        public TournamentDetailsViewModel TournamentDetailsViewModel { get; }
         public NavBarPreparationViewModel NavBarPreparationViewModel { get; }
 
-        public ArchersViewModel(NavBarPreparationViewModel navBarPreparationViewModel)
+        public ArchersViewModel(NavBarPreparationViewModel navBarPreparationViewModel, SelectedTournamentsStore selectedTournamentsStore)
         {
+            TournamentDetailsViewModel = new TournamentDetailsViewModel(selectedTournamentsStore);
             NavBarPreparationViewModel = navBarPreparationViewModel;
         }
     }

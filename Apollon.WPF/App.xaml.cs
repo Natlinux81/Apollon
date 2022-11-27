@@ -4,6 +4,7 @@ using Apollon.Domain.Queries;
 using Apollon.EntityFramework;
 using Apollon.EntityFramework.Commands;
 using Apollon.EntityFramework.Queries;
+using Apollon.WPF.Services;
 using Apollon.WPF.Stores;
 using Apollon.WPF.ViewModels;
 using Microsoft.EntityFrameworkCore;
@@ -30,7 +31,8 @@ namespace Apollon.WPF
         private readonly IUpdateTournamentCommand _updateTournamentCommand;
         private readonly IDeleteTournamentCommand _deleteTournamentCommand;
         private readonly TournamentsStore _tournamentStore;
-        private readonly SelectedTournamentsStore _selectedTournamentStore;        
+        private readonly SelectedTournamentsStore _selectedTournamentStore;
+        private readonly NavBarPreparationViewModel _navBarPreparationViewModel;
 
         public App()
         {
@@ -46,7 +48,13 @@ namespace Apollon.WPF
             _deleteTournamentCommand = new DeleteTournamentCommand(_tournamentsDbContextFactory);
             _tournamentStore = new TournamentsStore(_getAllTournamentQuery, _createTournamentCommand, _updateTournamentCommand, _deleteTournamentCommand);
             _selectedTournamentStore = new SelectedTournamentsStore(_tournamentStore);
-        }
+
+            _navBarPreparationViewModel = new NavBarPreparationViewModel(CreateOverviewNavigationService(),
+                                                                         CreateGroupsNavigationService(),
+                                                                         CreateClassesNavigationService(),
+                                                                         CreateArchersNavigationService());
+        }       
+
         protected override void OnStartup(StartupEventArgs e)
         {
             using(ApplicationDbContext context = _tournamentsDbContextFactory.Create())
@@ -58,13 +66,17 @@ namespace Apollon.WPF
                 _selectedTournamentStore,
                 _modalNavigationStore,
                 _tournamentStore,
-                _navigationStore);
+                _navigationStore,
+                CreateGroupsNavigationService());
 
             _navigationStore.CurrentViewModel = OverviewViewModel.LoadViewModel(
                 _selectedTournamentStore,
                 _modalNavigationStore,
                 _tournamentStore,
-                _navigationStore);
+                _navigationStore,
+                CreateGroupsNavigationService());
+
+            
 
             MainWindow = new MainWindow()
             {
@@ -73,6 +85,30 @@ namespace Apollon.WPF
             MainWindow.Show();
 
             base.OnStartup(e);
+        }
+
+         private NavigationService<OverviewViewModel> CreateOverviewNavigationService()
+        {
+            return new NavigationService<OverviewViewModel>(
+                _navigationStore, () => OverviewViewModel.LoadViewModel(_selectedTournamentStore, _modalNavigationStore, _tournamentStore, _navigationStore, CreateGroupsNavigationService()));
+        }
+
+        private NavigationService<GroupsViewModel> CreateGroupsNavigationService()
+        {
+            return new NavigationService<GroupsViewModel>(
+                _navigationStore, () => new GroupsViewModel( _navBarPreparationViewModel, _selectedTournamentStore, _navigationStore, _modalNavigationStore, _tournamentStore, CreateGroupsNavigationService()));
+        }
+
+        private NavigationService<ClassesViewModel> CreateClassesNavigationService()
+        {
+            return new NavigationService<ClassesViewModel>(
+                _navigationStore, ()=> new ClassesViewModel(_navBarPreparationViewModel, _selectedTournamentStore));
+        }
+
+        private NavigationService<ArchersViewModel> CreateArchersNavigationService()
+        {
+            return new NavigationService<ArchersViewModel>(
+                _navigationStore, () => new ArchersViewModel(_navBarPreparationViewModel, _selectedTournamentStore));
         }
     }
 }

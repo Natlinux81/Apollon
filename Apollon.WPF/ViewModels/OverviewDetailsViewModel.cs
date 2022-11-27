@@ -30,14 +30,13 @@ namespace Apollon.WPF.ViewModels
 
         public ICommand NavigatePreparationCommand { get; }
 
-        public OverviewDetailsViewModel(SelectedTournamentsStore selectedTournamentStore, NavigationStore navigationStore, ModalNavigationStore modalNavigationStore,TournamentsStore tournamentsStore)
+        public OverviewDetailsViewModel(SelectedTournamentsStore selectedTournamentStore, NavigationService<GroupsViewModel> groupNavigationService)
         {
            _selectedTournamentStore = selectedTournamentStore;
 
             _selectedTournamentStore.SelectedTournamentChanged += SelectedTournamentStore_SelectedTournamentChanged;
 
-            NavigatePreparationCommand = new NavigateCommand<GroupsViewModel>(new NavigationService<GroupsViewModel> (
-                navigationStore, () => new GroupsViewModel( _selectedTournamentStore, navigationStore, modalNavigationStore, tournamentsStore)));
+            NavigatePreparationCommand = new NavigateCommand<GroupsViewModel>(groupNavigationService);
         }
 
         protected override void Dispose()

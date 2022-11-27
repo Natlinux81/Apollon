@@ -46,10 +46,10 @@ namespace Apollon.WPF.ViewModels
         public ICommand NavigateNameListCommand { get; }
 
         public OverviewViewModel(TournamentsStore tournamentStore, SelectedTournamentsStore selectedTournamentStore, 
-                                ModalNavigationStore modalNavigationStore, NavigationStore navigationStore)
+                                ModalNavigationStore modalNavigationStore, NavigationStore navigationStore, NavigationService<GroupsViewModel> groupNavigationService)
         {
             OverviewListingViewModel = new OverviewListingViewModel(selectedTournamentStore, modalNavigationStore, tournamentStore);
-            OverviewDetailsViewModel = new OverviewDetailsViewModel(selectedTournamentStore ,navigationStore, modalNavigationStore,tournamentStore);
+            OverviewDetailsViewModel = new OverviewDetailsViewModel(selectedTournamentStore ,groupNavigationService);
 
             LoadTournamentsCommand = new LoadTournamentsCommand(this, tournamentStore);
             OpenAddTournamentCommand = new OpenAddTournamentCommand(tournamentStore, modalNavigationStore, navigationStore, selectedTournamentStore);
@@ -61,9 +61,10 @@ namespace Apollon.WPF.ViewModels
         public static OverviewViewModel LoadViewModel(SelectedTournamentsStore selectedTournamentStore,
                                                       ModalNavigationStore modalNavigationStore, 
                                                       TournamentsStore tournamentStore, 
-                                                      NavigationStore navigationStore)
+                                                      NavigationStore navigationStore,
+                                                      NavigationService<GroupsViewModel> groupNavigationService)
         {
-            OverviewViewModel viewModel = new OverviewViewModel(tournamentStore, selectedTournamentStore, modalNavigationStore, navigationStore);
+            OverviewViewModel viewModel = new OverviewViewModel(tournamentStore, selectedTournamentStore, modalNavigationStore, navigationStore, groupNavigationService);
 
             viewModel.LoadTournamentsCommand.Execute(null);
 

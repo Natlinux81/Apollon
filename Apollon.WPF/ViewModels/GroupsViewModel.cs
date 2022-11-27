@@ -18,11 +18,13 @@ namespace Apollon.WPF.ViewModels
         public NavBarPreparationViewModel NavBarPreparationViewModel { get; }
         public ICommand NavigateOverviewCommand { get; }
 
-        public GroupsViewModel(SelectedTournamentsStore selectedTournamentStore, NavigationStore navigationStore, ModalNavigationStore modalNavigationStore, TournamentsStore tournamentsStore)
+        public GroupsViewModel(NavBarPreparationViewModel navBarPreparationViewModel, SelectedTournamentsStore selectedTournamentStore, NavigationStore navigationStore, ModalNavigationStore modalNavigationStore, TournamentsStore tournamentsStore, NavigationService<GroupsViewModel> groupNavigationService)
         {    
             TournamentDetailsViewModel = new TournamentDetailsViewModel(selectedTournamentStore);
-                       
-            NavigateOverviewCommand = new NavigateCommand<OverviewViewModel>(new NavigationService<OverviewViewModel>(navigationStore, () => OverviewViewModel.LoadViewModel(selectedTournamentStore, modalNavigationStore, tournamentsStore, navigationStore)));
+            
+            NavBarPreparationViewModel = navBarPreparationViewModel;
+
+            NavigateOverviewCommand = new NavigateCommand<OverviewViewModel>(new NavigationService<OverviewViewModel>(navigationStore, () => OverviewViewModel.LoadViewModel(selectedTournamentStore, modalNavigationStore, tournamentsStore, navigationStore, groupNavigationService)));
         }
     }
 }
