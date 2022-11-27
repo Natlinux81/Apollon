@@ -5,8 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Apollon.WPF.Views.Components"
              mc:Ignorable="d" 
-             d:DesignHeight="100" d:DesignWidth="800">
-    <Grid>
+             d:DesignHeight="680" d:DesignWidth="1100">
+    <Grid Height="80">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="600"/>
@@ -14,7 +14,8 @@
         </Grid.ColumnDefinitions>
         <Image Grid.Column="0"
                Source="{Binding Logo}"
-               Width="80"
+               Width="70"
+               Height="70"
                VerticalAlignment="Center"/>
         <StackPanel Grid.Column="1">            
             <WrapPanel HorizontalAlignment="Center">
@@ -81,6 +82,7 @@
         <Image Grid.Column="2"
                Source="{Binding CompetitionImage}"
                Width="70"
+               Height="70"
                VerticalAlignment="Center"/>
     </Grid>
 </UserControl>

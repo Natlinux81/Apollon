@@ -1,5 +1,6 @@
 ﻿using Apollon.Domain.Models;
 using Apollon.WPF.Commands;
+using Apollon.WPF.Services;
 using Apollon.WPF.Stores;
 using System;
 using System.Collections.Generic;
@@ -14,13 +15,14 @@ namespace Apollon.WPF.ViewModels
     {      
 
         public TournamentDetailsViewModel TournamentDetailsViewModel { get; }
+        public NavBarPreparationViewModel NavBarPreparationViewModel { get; }
         public ICommand NavigateOverviewCommand { get; }
 
         public GroupsViewModel(SelectedTournamentsStore selectedTournamentStore, NavigationStore navigationStore, ModalNavigationStore modalNavigationStore, TournamentsStore tournamentsStore)
-        {
+        {    
             TournamentDetailsViewModel = new TournamentDetailsViewModel(selectedTournamentStore);
-
-            NavigateOverviewCommand = new NavigateCommand<OverviewViewModel>(navigationStore, () => OverviewViewModel.LoadViewModel(selectedTournamentStore, modalNavigationStore, tournamentsStore, navigationStore));
+                       
+            NavigateOverviewCommand = new NavigateCommand<OverviewViewModel>(new NavigationService<OverviewViewModel>(navigationStore, () => OverviewViewModel.LoadViewModel(selectedTournamentStore, modalNavigationStore, tournamentsStore, navigationStore)));
         }
     }
 }

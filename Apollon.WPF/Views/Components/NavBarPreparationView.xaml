@@ -6,8 +6,12 @@
              xmlns:local="clr-namespace:Apollon.WPF.Views.Components"
              xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="680" d:DesignWidth="1100">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
         <StackPanel>
             <Button Width="35"
                 Height="35"
@@ -19,15 +23,25 @@
                                         Width="35"
                                         Foreground="#0000a0"/>
             </Button>
-            <Menu Height="450"
+
+            <TextBlock Text="Vorbereitung"
+                       Foreground="#0000a0"
+                           FontFamily="Arial"
+                           FontWeight="Bold"
+                           FontSize="24"
+                       HorizontalAlignment="Center"
+                       Margin="0 15"/>           
+        </StackPanel>
+        <Menu Height="350"
                   Background="Transparent"
-                  Margin="0,20,0,0">
-                <Menu.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <VirtualizingStackPanel Orientation="Vertical"/>
-                    </ItemsPanelTemplate>
-                </Menu.ItemsPanel>
-                <MenuItem Header="Turnierdaten"
+              Grid.Row="1"
+              Margin=" 0 40">
+            <Menu.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <VirtualizingStackPanel Orientation="Vertical"/>
+                </ItemsPanelTemplate>
+            </Menu.ItemsPanel>
+            <MenuItem Header="Turnierdaten"
                           Template="{StaticResource Menu_SubMenu_Template}"
                           Foreground="#0000a0"
                            FontFamily="Arial"
@@ -35,61 +49,64 @@
                            FontSize="16"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Center"
-                          Margin="0 40">
+                          Margin="0 20">
+                <MenuItem.Icon>
+                    <iconPacks:PackIconMaterial Kind="BowArrow"
+                                        Height="20"
+                                        Width="20"
+                                        Foreground="#0000a0"
+                                         HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"/>
+                </MenuItem.Icon>
+                <MenuItem Header="Gruppen"
+                              Template="{StaticResource Item_Template}"
+                              Command="{Binding NavigateGroupsCommand}">
                     <MenuItem.Icon>
-                        <iconPacks:PackIconMaterial Kind="BowArrow"
+                        <iconPacks:PackIconMaterial Kind="AccountMultiple"
                                         Height="20"
                                         Width="20"
                                         Foreground="#0000a0"
                                          HorizontalAlignment="Center"
                                                     VerticalAlignment="Center"/>
                     </MenuItem.Icon>
-                    <MenuItem Header="Gruppen"
-                              Template="{StaticResource Item_Template}">
-                        <MenuItem.Icon>
-                            <iconPacks:PackIconMaterial Kind="AccountMultiple"
-                                        Height="20"
-                                        Width="20"
-                                        Foreground="#0000a0"
-                                         HorizontalAlignment="Center"
-                                                    VerticalAlignment="Center"/>
-                        </MenuItem.Icon>
-                    </MenuItem>
-                    <MenuItem Header="Klassen"
-                              Template="{StaticResource Item_Template}">
-                        <MenuItem.Icon>
-                            <iconPacks:PackIconMaterial Kind="ArrowProjectileMultiple"
-                                        Height="20"
-                                        Width="20"
-                                        Foreground="#0000a0"
-                                         HorizontalAlignment="Center"
-                                                    VerticalAlignment="Center"/>
-                        </MenuItem.Icon>
-                    </MenuItem>
-                    <MenuItem Header="Namenliste"
-                              Template="{StaticResource Item_Template}">
-                        <MenuItem.Icon>
-                            <iconPacks:PackIconMaterial Kind="BadgeAccount"
-                                        Height="20"
-                                        Width="20"
-                                        Foreground="#0000a0"
-                                         HorizontalAlignment="Center"
-                                                    VerticalAlignment="Center"/>
-                        </MenuItem.Icon>
-                    </MenuItem>
-                    <MenuItem Header="Teilnehmer setzen"
-                              Template="{StaticResource Item_Template}">
-                        <MenuItem.Icon>
-                            <iconPacks:PackIconMaterial Kind="ArrowProjectile"
-                                        Height="20"
-                                        Width="20"
-                                        Foreground="#0000a0"
-                                         HorizontalAlignment="Center"
-                                                    VerticalAlignment="Center"/>
-                        </MenuItem.Icon>
-                    </MenuItem>
                 </MenuItem>
-                <MenuItem Header="Daten"
+                <MenuItem Header="Klassen"
+                              Template="{StaticResource Item_Template}"
+                              Command="{Binding NavigateClassesCommand}">
+                    <MenuItem.Icon>
+                        <iconPacks:PackIconMaterial Kind="ArrowProjectileMultiple"
+                                        Height="20"
+                                        Width="20"
+                                        Foreground="#0000a0"
+                                         HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Namenliste"
+                              Template="{StaticResource Item_Template}">
+                    <MenuItem.Icon>
+                        <iconPacks:PackIconMaterial Kind="BadgeAccount"
+                                        Height="20"
+                                        Width="20"
+                                        Foreground="#0000a0"
+                                         HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Teilnehmer setzen"
+                              Template="{StaticResource Item_Template}"
+                              Command="{Binding NavigateArchersCommand}">
+                    <MenuItem.Icon>
+                        <iconPacks:PackIconMaterial Kind="ArrowProjectile"
+                                        Height="20"
+                                        Width="20"
+                                        Foreground="#0000a0"
+                                         HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="Daten"
                           Template="{StaticResource Menu_SubMenu_Template }"
                           Foreground="#0000a0"
                            FontFamily="Arial"
@@ -98,6 +115,16 @@
                            VerticalAlignment="Center"
                            HorizontalAlignment="Center"
                            Margin="0 10">
+                <MenuItem.Icon>
+                    <iconPacks:PackIconMaterial Kind="FileAccount"
+                                        Height="20"
+                                        Width="20"
+                                        Foreground="#0000a0"
+                                         HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"/>
+                </MenuItem.Icon>
+                <MenuItem Header="Gruppen"
+                              Template="{StaticResource Item_Template}">
                     <MenuItem.Icon>
                         <iconPacks:PackIconMaterial Kind="FileAccount"
                                         Height="20"
@@ -106,85 +133,75 @@
                                          HorizontalAlignment="Center"
                                                     VerticalAlignment="Center"/>
                     </MenuItem.Icon>
-                    <MenuItem Header="Gruppen"
-                              Template="{StaticResource Item_Template}">
-                        <MenuItem.Icon>
-                            <iconPacks:PackIconMaterial Kind="FileAccount"
-                                        Height="20"
-                                        Width="20"
-                                        Foreground="#0000a0"
-                                         HorizontalAlignment="Center"
-                                                    VerticalAlignment="Center"/>
-                        </MenuItem.Icon>
-                    </MenuItem>
-                    <MenuItem Header="Gruppen"
-                              Template="{StaticResource Item_Template}">
-                        <MenuItem.Icon>
-                            <iconPacks:PackIconMaterial Kind="FileAccount"
-                                        Height="20"
-                                        Width="20"
-                                        Foreground="#0000a0"
-                                         HorizontalAlignment="Center"
-                                                    VerticalAlignment="Center"/>
-                        </MenuItem.Icon>
-                    </MenuItem>
-                    <MenuItem Header="Gruppen"
-                              Template="{StaticResource Item_Template}">
-                        <MenuItem.Icon>
-                            <iconPacks:PackIconMaterial Kind="FileAccount"
-                                        Height="20"
-                                        Width="20"
-                                        Foreground="#0000a0"
-                                         HorizontalAlignment="Center"
-                                                    VerticalAlignment="Center"/>
-                        </MenuItem.Icon>
-                    </MenuItem>
-                    <MenuItem Header="Gruppen"
-                              Template="{StaticResource Item_Template}">
-                        <MenuItem.Icon>
-                            <iconPacks:PackIconMaterial Kind="FileAccount"
-                                        Height="20"
-                                        Width="20"
-                                        Foreground="#0000a0"
-                                         HorizontalAlignment="Center"
-                                                    VerticalAlignment="Center"/>
-                        </MenuItem.Icon>
-                    </MenuItem>
-                    <MenuItem Header="Gruppen"
-                              Template="{StaticResource Item_Template}">
-                        <MenuItem.Icon>
-                            <iconPacks:PackIconMaterial Kind="FileAccount"
-                                        Height="20"
-                                        Width="20"
-                                        Foreground="#0000a0"
-                                         HorizontalAlignment="Center"
-                                                    VerticalAlignment="Center"/>
-                        </MenuItem.Icon>
-                    </MenuItem>
-                    <MenuItem Header="Gruppen"
-                              Template="{StaticResource Item_Template}">
-                        <MenuItem.Icon>
-                            <iconPacks:PackIconMaterial Kind="FileAccount"
-                                        Height="20"
-                                        Width="20"
-                                        Foreground="#0000a0"
-                                         HorizontalAlignment="Center"
-                                                    VerticalAlignment="Center"/>
-                        </MenuItem.Icon>
-                    </MenuItem>
-                    <MenuItem Header="Gruppen"
-                              Template="{StaticResource Item_Template}">
-                        <MenuItem.Icon>
-                            <iconPacks:PackIconMaterial Kind="FileAccount"
-                                        Height="20"
-                                        Width="20"
-                                        Foreground="#0000a0"
-                                         HorizontalAlignment="Center"
-                                                    VerticalAlignment="Center"/>
-                        </MenuItem.Icon>
-                    </MenuItem>
                 </MenuItem>
-                <MenuItem Header="Berichte"
+                <MenuItem Header="Gruppen"
+                              Template="{StaticResource Item_Template}">
+                    <MenuItem.Icon>
+                        <iconPacks:PackIconMaterial Kind="FileAccount"
+                                        Height="20"
+                                        Width="20"
+                                        Foreground="#0000a0"
+                                         HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Gruppen"
+                              Template="{StaticResource Item_Template}">
+                    <MenuItem.Icon>
+                        <iconPacks:PackIconMaterial Kind="FileAccount"
+                                        Height="20"
+                                        Width="20"
+                                        Foreground="#0000a0"
+                                         HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Gruppen"
+                              Template="{StaticResource Item_Template}">
+                    <MenuItem.Icon>
+                        <iconPacks:PackIconMaterial Kind="FileAccount"
+                                        Height="20"
+                                        Width="20"
+                                        Foreground="#0000a0"
+                                         HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Gruppen"
+                              Template="{StaticResource Item_Template}">
+                    <MenuItem.Icon>
+                        <iconPacks:PackIconMaterial Kind="FileAccount"
+                                        Height="20"
+                                        Width="20"
+                                        Foreground="#0000a0"
+                                         HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Gruppen"
+                              Template="{StaticResource Item_Template}">
+                    <MenuItem.Icon>
+                        <iconPacks:PackIconMaterial Kind="FileAccount"
+                                        Height="20"
+                                        Width="20"
+                                        Foreground="#0000a0"
+                                         HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Gruppen"
+                              Template="{StaticResource Item_Template}">
+                    <MenuItem.Icon>
+                        <iconPacks:PackIconMaterial Kind="FileAccount"
+                                        Height="20"
+                                        Width="20"
+                                        Foreground="#0000a0"
+                                         HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="Berichte"
                           Template="{StaticResource Menu_SubMenu_Template }"
                           Foreground="#0000a0"
                            FontFamily="Arial"
@@ -192,6 +209,16 @@
                            FontSize="16"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Center">
+                <MenuItem.Icon>
+                    <iconPacks:PackIconMaterial Kind="FileAccount"
+                                        Height="20"
+                                        Width="20"
+                                        Foreground="#0000a0"
+                                         HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"/>
+                </MenuItem.Icon>
+                <MenuItem Header="Gruppen"
+                              Template="{StaticResource Item_Template}">
                     <MenuItem.Icon>
                         <iconPacks:PackIconMaterial Kind="FileAccount"
                                         Height="20"
@@ -200,85 +227,75 @@
                                          HorizontalAlignment="Center"
                                                     VerticalAlignment="Center"/>
                     </MenuItem.Icon>
-                    <MenuItem Header="Gruppen"
-                              Template="{StaticResource Item_Template}">
-                        <MenuItem.Icon>
-                            <iconPacks:PackIconMaterial Kind="FileAccount"
-                                        Height="20"
-                                        Width="20"
-                                        Foreground="#0000a0"
-                                         HorizontalAlignment="Center"
-                                                    VerticalAlignment="Center"/>
-                        </MenuItem.Icon>
-                    </MenuItem>
-                    <MenuItem Header="Gruppen"
-                              Template="{StaticResource Item_Template}">
-                        <MenuItem.Icon>
-                            <iconPacks:PackIconMaterial Kind="FileAccount"
-                                        Height="20"
-                                        Width="20"
-                                        Foreground="#0000a0"
-                                         HorizontalAlignment="Center"
-                                                    VerticalAlignment="Center"/>
-                        </MenuItem.Icon>
-                    </MenuItem>
-                    <MenuItem Header="Gruppen"
-                              Template="{StaticResource Item_Template}">
-                        <MenuItem.Icon>
-                            <iconPacks:PackIconMaterial Kind="FileAccount"
-                                        Height="20"
-                                        Width="20"
-                                        Foreground="#0000a0"
-                                         HorizontalAlignment="Center"
-                                                    VerticalAlignment="Center"/>
-                        </MenuItem.Icon>
-                    </MenuItem>
-                    <MenuItem Header="Gruppen"
-                              Template="{StaticResource Item_Template}">
-                        <MenuItem.Icon>
-                            <iconPacks:PackIconMaterial Kind="FileAccount"
-                                        Height="20"
-                                        Width="20"
-                                        Foreground="#0000a0"
-                                         HorizontalAlignment="Center"
-                                                    VerticalAlignment="Center"/>
-                        </MenuItem.Icon>
-                    </MenuItem>
-                    <MenuItem Header="Gruppen"
-                              Template="{StaticResource Item_Template}">
-                        <MenuItem.Icon>
-                            <iconPacks:PackIconMaterial Kind="FileAccount"
-                                        Height="20"
-                                        Width="20"
-                                        Foreground="#0000a0"
-                                         HorizontalAlignment="Center"
-                                                    VerticalAlignment="Center"/>
-                        </MenuItem.Icon>
-                    </MenuItem>
-                    <MenuItem Header="Gruppen"
-                              Template="{StaticResource Item_Template}">
-                        <MenuItem.Icon>
-                            <iconPacks:PackIconMaterial Kind="FileAccount"
-                                        Height="20"
-                                        Width="20"
-                                        Foreground="#0000a0"
-                                         HorizontalAlignment="Center"
-                                                    VerticalAlignment="Center"/>
-                        </MenuItem.Icon>
-                    </MenuItem>
-                    <MenuItem Header="Gruppen"
-                              Template="{StaticResource Item_Template}">
-                        <MenuItem.Icon>
-                            <iconPacks:PackIconMaterial Kind="FileAccount"
-                                        Height="20"
-                                        Width="20"
-                                        Foreground="#0000a0"
-                                         HorizontalAlignment="Center"
-                                                    VerticalAlignment="Center"/>
-                        </MenuItem.Icon>
-                    </MenuItem>
                 </MenuItem>
-                <MenuItem Header="Klassenprüfung"
+                <MenuItem Header="Gruppen"
+                              Template="{StaticResource Item_Template}">
+                    <MenuItem.Icon>
+                        <iconPacks:PackIconMaterial Kind="FileAccount"
+                                        Height="20"
+                                        Width="20"
+                                        Foreground="#0000a0"
+                                         HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Gruppen"
+                              Template="{StaticResource Item_Template}">
+                    <MenuItem.Icon>
+                        <iconPacks:PackIconMaterial Kind="FileAccount"
+                                        Height="20"
+                                        Width="20"
+                                        Foreground="#0000a0"
+                                         HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Gruppen"
+                              Template="{StaticResource Item_Template}">
+                    <MenuItem.Icon>
+                        <iconPacks:PackIconMaterial Kind="FileAccount"
+                                        Height="20"
+                                        Width="20"
+                                        Foreground="#0000a0"
+                                         HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Gruppen"
+                              Template="{StaticResource Item_Template}">
+                    <MenuItem.Icon>
+                        <iconPacks:PackIconMaterial Kind="FileAccount"
+                                        Height="20"
+                                        Width="20"
+                                        Foreground="#0000a0"
+                                         HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Gruppen"
+                              Template="{StaticResource Item_Template}">
+                    <MenuItem.Icon>
+                        <iconPacks:PackIconMaterial Kind="FileAccount"
+                                        Height="20"
+                                        Width="20"
+                                        Foreground="#0000a0"
+                                         HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Gruppen"
+                              Template="{StaticResource Item_Template}">
+                    <MenuItem.Icon>
+                        <iconPacks:PackIconMaterial Kind="FileAccount"
+                                        Height="20"
+                                        Width="20"
+                                        Foreground="#0000a0"
+                                         HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="Klassenprüfung"
                           Template="{StaticResource Menu_SubMenu_Template }"
                           Foreground="#0000a0"
                            FontFamily="Arial"
@@ -287,6 +304,16 @@
                            VerticalAlignment="Center"
                            HorizontalAlignment="Center"
                            Margin="0 40">
+                <MenuItem.Icon>
+                    <iconPacks:PackIconMaterial Kind="FileAccount"
+                                        Height="20"
+                                        Width="20"
+                                        Foreground="#0000a0"
+                                         HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"/>
+                </MenuItem.Icon>
+                <MenuItem Header="Gruppen"
+                              Template="{StaticResource Item_Template}">
                     <MenuItem.Icon>
                         <iconPacks:PackIconMaterial Kind="FileAccount"
                                         Height="20"
@@ -295,85 +322,74 @@
                                          HorizontalAlignment="Center"
                                                     VerticalAlignment="Center"/>
                     </MenuItem.Icon>
-                    <MenuItem Header="Gruppen"
-                              Template="{StaticResource Item_Template}">
-                        <MenuItem.Icon>
-                            <iconPacks:PackIconMaterial Kind="FileAccount"
-                                        Height="20"
-                                        Width="20"
-                                        Foreground="#0000a0"
-                                         HorizontalAlignment="Center"
-                                                    VerticalAlignment="Center"/>
-                        </MenuItem.Icon>
-                    </MenuItem>
-                    <MenuItem Header="Gruppen"
-                              Template="{StaticResource Item_Template}">
-                        <MenuItem.Icon>
-                            <iconPacks:PackIconMaterial Kind="FileAccount"
-                                        Height="20"
-                                        Width="20"
-                                        Foreground="#0000a0"
-                                         HorizontalAlignment="Center"
-                                                    VerticalAlignment="Center"/>
-                        </MenuItem.Icon>
-                    </MenuItem>
-                    <MenuItem Header="Gruppen"
-                              Template="{StaticResource Item_Template}">
-                        <MenuItem.Icon>
-                            <iconPacks:PackIconMaterial Kind="FileAccount"
-                                        Height="20"
-                                        Width="20"
-                                        Foreground="#0000a0"
-                                         HorizontalAlignment="Center"
-                                                    VerticalAlignment="Center"/>
-                        </MenuItem.Icon>
-                    </MenuItem>
-                    <MenuItem Header="Gruppen"
-                              Template="{StaticResource Item_Template}">
-                        <MenuItem.Icon>
-                            <iconPacks:PackIconMaterial Kind="FileAccount"
-                                        Height="20"
-                                        Width="20"
-                                        Foreground="#0000a0"
-                                         HorizontalAlignment="Center"
-                                                    VerticalAlignment="Center"/>
-                        </MenuItem.Icon>
-                    </MenuItem>
-                    <MenuItem Header="Gruppen"
-                              Template="{StaticResource Item_Template}">
-                        <MenuItem.Icon>
-                            <iconPacks:PackIconMaterial Kind="FileAccount"
-                                        Height="20"
-                                        Width="20"
-                                        Foreground="#0000a0"
-                                         HorizontalAlignment="Center"
-                                                    VerticalAlignment="Center"/>
-                        </MenuItem.Icon>
-                    </MenuItem>
-                    <MenuItem Header="Gruppen"
-                              Template="{StaticResource Item_Template}">
-                        <MenuItem.Icon>
-                            <iconPacks:PackIconMaterial Kind="FileAccount"
-                                        Height="20"
-                                        Width="20"
-                                        Foreground="#0000a0"
-                                         HorizontalAlignment="Center"
-                                                    VerticalAlignment="Center"/>
-                        </MenuItem.Icon>
-                    </MenuItem>
-                    <MenuItem Header="Gruppen"
-                              Template="{StaticResource Item_Template}">
-                        <MenuItem.Icon>
-                            <iconPacks:PackIconMaterial Kind="FileAccount"
-                                        Height="20"
-                                        Width="20"
-                                        Foreground="#0000a0"
-                                         HorizontalAlignment="Center"
-                                                    VerticalAlignment="Center"/>
-                        </MenuItem.Icon>
-                    </MenuItem>
                 </MenuItem>
-            </Menu>
-        </StackPanel>
+                <MenuItem Header="Gruppen"
+                              Template="{StaticResource Item_Template}">
+                    <MenuItem.Icon>
+                        <iconPacks:PackIconMaterial Kind="FileAccount"
+                                        Height="20"
+                                        Width="20"
+                                        Foreground="#0000a0"
+                                         HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Gruppen"
+                              Template="{StaticResource Item_Template}">
+                    <MenuItem.Icon>
+                        <iconPacks:PackIconMaterial Kind="FileAccount"
+                                        Height="20"
+                                        Width="20"
+                                        Foreground="#0000a0"
+                                         HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Gruppen"
+                              Template="{StaticResource Item_Template}">
+                    <MenuItem.Icon>
+                        <iconPacks:PackIconMaterial Kind="FileAccount"
+                                        Height="20"
+                                        Width="20"
+                                        Foreground="#0000a0"
+                                         HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Gruppen"
+                              Template="{StaticResource Item_Template}">
+                    <MenuItem.Icon>
+                        <iconPacks:PackIconMaterial Kind="FileAccount"
+                                        Height="20"
+                                        Width="20"
+                                        Foreground="#0000a0"
+                                         HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Gruppen"
+                              Template="{StaticResource Item_Template}">
+                    <MenuItem.Icon>
+                        <iconPacks:PackIconMaterial Kind="FileAccount"
+                                        Height="20"
+                                        Width="20"
+                                        Foreground="#0000a0"
+                                         HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Gruppen"
+                              Template="{StaticResource Item_Template}">
+                    <MenuItem.Icon>
+                        <iconPacks:PackIconMaterial Kind="FileAccount"
+                                        Height="20"
+                                        Width="20"
+                                        Foreground="#0000a0"
+                                         HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+        </Menu>
     </Grid>
 </UserControl>

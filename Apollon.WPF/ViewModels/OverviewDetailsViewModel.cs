@@ -1,5 +1,6 @@
 ﻿using Apollon.Domain.Models;
 using Apollon.WPF.Commands;
+using Apollon.WPF.Services;
 using Apollon.WPF.Stores;
 using System;
 using System.Collections.Generic;
@@ -35,7 +36,8 @@ namespace Apollon.WPF.ViewModels
 
             _selectedTournamentStore.SelectedTournamentChanged += SelectedTournamentStore_SelectedTournamentChanged;
 
-            NavigatePreparationCommand = new NavigateCommand<GroupsViewModel>(navigationStore, () => new GroupsViewModel(selectedTournamentStore, navigationStore, modalNavigationStore, tournamentsStore));
+            NavigatePreparationCommand = new NavigateCommand<GroupsViewModel>(new NavigationService<GroupsViewModel> (
+                navigationStore, () => new GroupsViewModel( _selectedTournamentStore, navigationStore, modalNavigationStore, tournamentsStore)));
         }
 
         protected override void Dispose()

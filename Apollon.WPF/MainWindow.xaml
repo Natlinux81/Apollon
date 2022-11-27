@@ -49,6 +49,12 @@
                 <DataTemplate DataType="{x:Type vms:GroupsViewModel}">
                     <views:GroupsView/>
                 </DataTemplate>
+                <DataTemplate DataType="{x:Type vms:ClassesViewModel}">
+                    <views:ClassesView/>
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type vms:ArchersViewModel}">
+                    <views:ArchersView/>
+                </DataTemplate>
                 <DataTemplate DataType="{x:Type vms:NameListViewModel}">
                     <views:RootdatesView/>
                 </DataTemplate>
