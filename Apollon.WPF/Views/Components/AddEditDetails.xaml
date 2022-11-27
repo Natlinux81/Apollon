@@ -148,7 +148,7 @@
                  Grid.Column="1"
                    VerticalAlignment="Center">
             <TextBox 
-                 Text="{Binding Rounds}"
+                 Text="{Binding Groups}"
                  FontFamily="Arial"                     
                  FontSize="16"
                  Height="30"

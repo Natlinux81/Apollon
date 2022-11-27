@@ -1,4 +1,5 @@
-﻿using Apollon.WPF.Commands;
+﻿using Apollon.Domain.Models;
+using Apollon.WPF.Commands;
 using Apollon.WPF.Stores;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,8 @@ using System.Windows.Input;
 namespace Apollon.WPF.ViewModels
 {
     public class GroupsViewModel : ViewModelBase
-    {
+    {      
+
         public TournamentDetailsViewModel TournamentDetailsViewModel { get; }
         public ICommand NavigateOverviewCommand { get; }
 
