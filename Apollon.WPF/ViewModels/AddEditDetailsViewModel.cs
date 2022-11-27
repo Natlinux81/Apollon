@@ -135,7 +135,7 @@ namespace Apollon.WPF.ViewModels
 		}
 
 		private int _rounds;
-		public int Rounds
+		public int Groups
 		{
 			get
 			{
@@ -144,7 +144,7 @@ namespace Apollon.WPF.ViewModels
 			set
 			{
 				_rounds = value;
-				OnPropertyChanged(nameof(Rounds));
+				OnPropertyChanged(nameof(Groups));
 			}
 		}
 

@@ -32,7 +32,7 @@ namespace Apollon.WPF.ViewModels
                 StartDate = tournament.StartDate,
                 EndDate = tournament.EndDate,
                 Location = tournament.Location,
-                Rounds = tournament.Rounds,
+                Groups = tournament.Rounds,
                 Targets = tournament.Targets,
             };
            

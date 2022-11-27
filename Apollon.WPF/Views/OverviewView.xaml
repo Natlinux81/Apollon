@@ -61,7 +61,7 @@
                     Width="210"
                     Margin="40"
                     Cursor="Hand"
-                    Command="{Binding AddTournamentCommand}"/>
+                    Command="{Binding OpenAddTournamentCommand}"/>
 
             <Button Style="{StaticResource ModernButton}"
                     Content="Namenliste pflegen"

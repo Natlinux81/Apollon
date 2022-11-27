@@ -27,7 +27,7 @@ namespace Apollon.WPF.ViewModels
         public int Rounds => SelectedTournament?.Rounds ?? 0;
         public int Targets => SelectedTournament?.Targets ?? 0;
 
-        public ICommand NavigateTournamentDetailsCommand { get; }
+        public ICommand NavigatePreparationCommand { get; }
 
         public OverviewDetailsViewModel(SelectedTournamentsStore selectedTournamentStore, NavigationStore navigationStore, ModalNavigationStore modalNavigationStore,TournamentsStore tournamentsStore)
         {
@@ -35,7 +35,7 @@ namespace Apollon.WPF.ViewModels
 
             _selectedTournamentStore.SelectedTournamentChanged += SelectedTournamentStore_SelectedTournamentChanged;
 
-            NavigateTournamentDetailsCommand = new NavigateCommand<PreparationViewModel>(navigationStore, () => new PreparationViewModel(_selectedTournamentStore,navigationStore, modalNavigationStore, tournamentsStore));
+            NavigatePreparationCommand = new NavigateCommand<GroupsViewModel>(navigationStore, () => new GroupsViewModel(selectedTournamentStore, navigationStore, modalNavigationStore, tournamentsStore));
         }
 
         protected override void Dispose()

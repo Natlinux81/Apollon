@@ -46,7 +46,7 @@ namespace Apollon.WPF.ViewModels
 
         public bool HasErrorMessage => !string.IsNullOrEmpty(ErrorMessage);
 
-        public ICommand AddTournamentCommand { get; }
+        public ICommand OpenAddTournamentCommand { get; }
         public ICommand LoadTournamentsCommand { get; } 
         public ICommand NavigateNameListCommand { get; }
 
@@ -57,7 +57,7 @@ namespace Apollon.WPF.ViewModels
             OverviewDetailsViewModel = new OverviewDetailsViewModel(selectedTournamentStore ,navigationStore, modalNavigationStore,tournamentStore);
 
             LoadTournamentsCommand = new LoadTournamentsCommand(this, tournamentStore);
-            AddTournamentCommand = new OpenAddTournamentCommand(tournamentStore, modalNavigationStore, navigationStore, selectedTournamentStore);
+            OpenAddTournamentCommand = new OpenAddTournamentCommand(tournamentStore, modalNavigationStore, navigationStore, selectedTournamentStore);
             NavigateNameListCommand = new NavigateCommand<NameListViewModel>(navigationStore, () => new NameListViewModel());
 
         }

@@ -39,7 +39,7 @@ namespace Apollon.WPF.Commands
                 detailsViewModel.StartDate,
                 detailsViewModel.EndDate,
                 detailsViewModel.Location,
-                detailsViewModel.Rounds,
+                detailsViewModel.Groups,
                 detailsViewModel.Targets);
 
             try

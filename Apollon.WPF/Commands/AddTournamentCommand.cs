@@ -44,7 +44,7 @@ namespace Apollon.WPF.Commands
                 detailsViewModel.StartDate,
                 detailsViewModel.EndDate,
                 detailsViewModel.Location,
-                detailsViewModel.Rounds,
+                detailsViewModel.Groups,
                 detailsViewModel.Targets);
 
             try
@@ -52,7 +52,7 @@ namespace Apollon.WPF.Commands
                 await _tournamentStore.Add(tournament);
 
                 _modalNavigationStore.Close();
-                _navigationStore.CurrentViewModel = new PreparationViewModel(_selectedTournamentsStore, _navigationStore, _modalNavigationStore, _tournamentStore);
+                _navigationStore.CurrentViewModel = new GroupsViewModel(_selectedTournamentsStore, _navigationStore, _modalNavigationStore, _tournamentStore);
 
             }
             catch (Exception)

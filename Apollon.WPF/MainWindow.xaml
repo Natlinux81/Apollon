@@ -46,8 +46,8 @@
                 <DataTemplate DataType="{x:Type vms:OverviewViewModel}">
                     <views:OverviewView/>
                 </DataTemplate>
-                <DataTemplate DataType="{x:Type vms:PreparationViewModel}">
-                    <views:PreparationView/>
+                <DataTemplate DataType="{x:Type vms:GroupsViewModel}">
+                    <views:GroupsView/>
                 </DataTemplate>
                 <DataTemplate DataType="{x:Type vms:NameListViewModel}">
                     <views:RootdatesView/>

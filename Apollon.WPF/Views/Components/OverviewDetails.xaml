@@ -289,7 +289,7 @@
                     Width="150"
                     Margin="10"
                     Cursor="Hand"
-                    Command="{Binding NavigateTournamentDetailsCommand}">
+                    Command="{Binding NavigatePreparationCommand}">
                  <Button.Style>                     
                         <Style TargetType="Button" BasedOn="{StaticResource ModernButton}">
                             <Setter Property="Visibility" Value="Hidden"/>

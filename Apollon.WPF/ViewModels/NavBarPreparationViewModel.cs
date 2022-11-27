@@ -8,7 +8,7 @@ using System.Windows.Input;
 
 namespace Apollon.WPF.ViewModels
 {
-    public class NavBarTournamentDetailsViewModel : ViewModelBase
+    public class NavBarPreparationViewModel : ViewModelBase
     {
         public ICommand NavigateArchersCommand { get;}
         public ICommand NavigateGroupsCommand { get;}
