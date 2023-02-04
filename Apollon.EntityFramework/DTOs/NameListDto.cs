@@ -14,7 +14,7 @@ namespace Apollon.EntityFramework.DTOs
         public int PassNumber { get; set; }
         public string Society { get; set; }
         public int SocietyNumber { get; set; }
-        public string Birthday { get; set; }
+        public DateTime Birthday { get; set; }
         public string Country { get; set; }
         public int Qualification { get; set; }
     }

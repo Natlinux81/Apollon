@@ -9,16 +9,20 @@
         <DataGrid FontSize="14"
                   HorizontalAlignment="Center"
                   CanUserAddRows="True"
-                  AutoGenerateColumns="True">
+                  AutoGenerateColumns="True"
+                  IsReadOnly="{Binding IsReadOnly}">
+            <DataTemplate>
+                
+            </DataTemplate>
             <DataGrid.Columns>
-                <DataGridTextColumn Width="120" Header="Vorname"  Binding="{Binding FirstName}"/>
-                <DataGridTextColumn Width="120" Header="Nachname" Binding="{Binding LastName}" />
-                <DataGridTextColumn Width="120" Header="Passnummer"  Binding="{Binding PassNumber}"/>
-                <DataGridTextColumn Width="150" Header="Verein" Binding="{Binding Society}" />
-                <DataGridTextColumn Width="120" Header="Vereinsnummer"  Binding="{Binding SocietyNumber}"/>
-                <DataGridTextColumn Width="100" Header="Geburtsdatum" Binding="{Binding Birthday}" />
-                <DataGridTextColumn Header="Bundesland"  Binding="{Binding Country}"/>
-                <DataGridTextColumn Header="Qualifikation"  Binding="{Binding Qualification}"/>
+                <DataGridTextColumn Width="120" Header="Vorname"  Binding="{Binding FirstName}" IsReadOnly="False"/>
+                <DataGridTextColumn Width="120" Header="Nachname" Binding="{Binding LastName}" IsReadOnly="False"/>
+                <DataGridTextColumn Width="120" Header="Passnummer"  Binding="{Binding PassNumber}" IsReadOnly="False"/>
+                <DataGridTextColumn Width="150" Header="Verein" Binding="{Binding Society}" IsReadOnly="False" />
+                <DataGridTextColumn Width="120" Header="Vereinsnummer"  Binding="{Binding SocietyNumber}" IsReadOnly="False"/>
+                <DataGridTextColumn Width="100" Header="Geburtsdatum" Binding="{Binding Birthday}"  IsReadOnly="False"/>
+                <DataGridTextColumn Header="Bundesland"  Binding="{Binding Country}" IsReadOnly="False"/>
+                <DataGridTextColumn Header="Qualifikation"  Binding="{Binding Qualification}" IsReadOnly="False"/>
             </DataGrid.Columns>
             
         </DataGrid>

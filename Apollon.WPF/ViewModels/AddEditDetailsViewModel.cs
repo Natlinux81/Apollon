@@ -134,16 +134,16 @@ namespace Apollon.WPF.ViewModels
 			}
 		}
 
-		private int _rounds;
+		private int _groups;
 		public int Groups
 		{
 			get
 			{
-				return _rounds;
+				return _groups;
 			}
 			set
 			{
-				_rounds = value;
+				_groups = value;
 				OnPropertyChanged(nameof(Groups));
 			}
 		}

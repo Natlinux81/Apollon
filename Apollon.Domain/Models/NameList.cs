@@ -8,7 +8,7 @@ namespace Apollon.Domain.Models
 {
     public class NameList
     {
-        public NameList(Guid id, string firstName, string lastName, int passNumber, string society, int societyNumber, string birthday, string country, int qualification)
+        public NameList(Guid id, string firstName, string lastName, int passNumber, string society, int societyNumber, DateTime birthday, string country, int qualification)
         {
             Id = id;
             FirstName = firstName;
@@ -27,7 +27,7 @@ namespace Apollon.Domain.Models
         public int PassNumber { get; }
         public string Society { get; }
         public int SocietyNumber { get; }
-        public string Birthday { get; }
+        public DateTime Birthday { get; }
         public string Country { get; }
         public int Qualification { get; }
     }

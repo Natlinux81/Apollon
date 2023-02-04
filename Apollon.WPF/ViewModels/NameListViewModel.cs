@@ -78,8 +78,8 @@ namespace Apollon.WPF.ViewModels
 			}
 		}
 
-		private string _birthday;
-		public string Birthday
+		private DateTime _birthday;
+		public DateTime Birthday
 		{
 			get
 			{
@@ -117,6 +117,20 @@ namespace Apollon.WPF.ViewModels
 			{
 				_qualification = value;
 				OnPropertyChanged(nameof(Qualification));
+			}
+		}
+
+		private bool _isreadOnly;
+		public bool IsReadOnly
+		{
+			get
+			{
+				return _isreadOnly;
+			}
+			set
+			{
+				_isreadOnly = value;
+				OnPropertyChanged(nameof(IsReadOnly));
 			}
 		}
 	}

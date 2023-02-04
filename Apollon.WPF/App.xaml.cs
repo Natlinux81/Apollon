@@ -51,7 +51,8 @@ namespace Apollon.WPF
 
             _navBarPreparationViewModel = new NavBarPreparationViewModel(CreateOverviewNavigationService(),
                                                                          CreateGroupsNavigationService(),
-                                                                         CreateClassesNavigationService(),
+                                                                         CreateNamelistNavigationService(),
+                                                                         CreateClassesNavigationService(),                                                                        
                                                                          CreateArchersNavigationService());
         }       
 
@@ -103,6 +104,12 @@ namespace Apollon.WPF
         {
             return new NavigationService<ClassesViewModel>(
                 _navigationStore, ()=> new ClassesViewModel(_navBarPreparationViewModel, _selectedTournamentStore));
+        }
+
+        private NavigationService<NameListViewModel> CreateNamelistNavigationService()
+        {
+            return new NavigationService<NameListViewModel>(
+                _navigationStore, () => new NameListViewModel());
         }
 
         private NavigationService<ArchersViewModel> CreateArchersNavigationService()

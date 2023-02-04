@@ -81,7 +81,7 @@
                 </StackPanel>
                 <Image Grid.Column="2"
                Grid.Row="2"
-               Source="{Binding Logo}"               
+               Source="{Binding Logo, TargetNullValue={x:Null}}"               
                Width="50"
                Height="50">
                     <Image.Style>

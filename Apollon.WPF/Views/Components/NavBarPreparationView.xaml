@@ -83,7 +83,8 @@
                     </MenuItem.Icon>
                 </MenuItem>
                 <MenuItem Header="Namenliste"
-                              Template="{StaticResource Item_Template}">
+                              Template="{StaticResource Item_Template}"
+                               Command="{Binding NavigateNamelistCommand}">
                     <MenuItem.Icon>
                         <iconPacks:PackIconMaterial Kind="BadgeAccount"
                                         Height="20"
