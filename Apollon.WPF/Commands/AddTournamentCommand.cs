@@ -2,29 +2,22 @@
 using Apollon.WPF.Stores;
 using Apollon.WPF.ViewModels;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Apollon.WPF.Commands
 {
     public class AddTournamentCommand : AsyncCommandBase
     {
-        private readonly TournamentsStore _tournamentStore;
-        private readonly NavigationStore _navigationStore;
-        private readonly ModalNavigationStore _modalNavigationStore;
-        private readonly SelectedTournamentsStore _selectedTournamentsStore;
+        private readonly TournamentsStore _tournamentStore;        
+        private readonly ModalNavigationStore _modalNavigationStore;       
         private AddTournamentViewModel _addTournamentViewModel;
 
 
-        public AddTournamentCommand(AddTournamentViewModel addTournamentViewModel, TournamentsStore tournamentStore, ModalNavigationStore modalNavigationStore, NavigationStore navigationStore, SelectedTournamentsStore selectedTournamentsStore)
+        public AddTournamentCommand(AddTournamentViewModel addTournamentViewModel, TournamentsStore tournamentStore, ModalNavigationStore modalNavigationStore)
         {
             _addTournamentViewModel = addTournamentViewModel;
             _tournamentStore = tournamentStore;
-            _modalNavigationStore = modalNavigationStore;
-            _navigationStore = navigationStore;
-            _selectedTournamentsStore = selectedTournamentsStore;
+            _modalNavigationStore = modalNavigationStore;           
         }
 
         public override async Task ExecuteAsync(object parameter)
@@ -51,8 +44,7 @@ namespace Apollon.WPF.Commands
             {
                 await _tournamentStore.Add(tournament);
 
-                _modalNavigationStore.Close();
-                //_navigationStore.CurrentViewModel = new GroupsViewModel(_selectedTournamentsStore, _navigationStore, _modalNavigationStore, _tournamentStore);
+                _modalNavigationStore.Close();                
 
             }
             catch (Exception)

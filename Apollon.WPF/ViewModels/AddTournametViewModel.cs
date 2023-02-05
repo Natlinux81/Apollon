@@ -13,9 +13,9 @@ namespace Apollon.WPF.ViewModels
     {
         public AddEditDetailsViewModel AddEditDetailsViewModel { get; }
 
-        public AddTournamentViewModel(TournamentsStore tournamentStore, ModalNavigationStore modalNavigationStore, NavigationStore navigationStore,SelectedTournamentsStore selectedTournamentsStore)
+        public AddTournamentViewModel(TournamentsStore tournamentStore, ModalNavigationStore modalNavigationStore)
         {
-            ICommand submitCommand = new AddTournamentCommand(this, tournamentStore,modalNavigationStore,navigationStore, selectedTournamentsStore);
+            ICommand submitCommand = new AddTournamentCommand(this, tournamentStore,modalNavigationStore);
             ICommand cancelCommand = new CloseModalCommand(modalNavigationStore);            
             AddEditDetailsViewModel = new AddEditDetailsViewModel(submitCommand, cancelCommand);
         }

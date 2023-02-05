@@ -1,5 +1,4 @@
 ﻿using Apollon.Domain.Commands;
-using Apollon.Domain.Models;
 using Apollon.Domain.Queries;
 using Apollon.EntityFramework;
 using Apollon.EntityFramework.Commands;
@@ -8,19 +7,10 @@ using Apollon.WPF.Services;
 using Apollon.WPF.Stores;
 using Apollon.WPF.ViewModels;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace Apollon.WPF
-{
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// </summary>
+{    
     public partial class App : Application
     {
         private readonly NavigationStore _navigationStore;
@@ -65,19 +55,13 @@ namespace Apollon.WPF
             
             OverviewViewModel overviewViewModel = OverviewViewModel.LoadViewModel(
                 _selectedTournamentStore,
-                _modalNavigationStore,
-                _tournamentStore,
-                _navigationStore,
-                CreateGroupsNavigationService());
+                _modalNavigationStore,                
+                _tournamentStore, 
+                CreateGroupsNavigationService(),
+                CreateNamelistNavigationService());           
 
-            _navigationStore.CurrentViewModel = OverviewViewModel.LoadViewModel(
-                _selectedTournamentStore,
-                _modalNavigationStore,
-                _tournamentStore,
-                _navigationStore,
-                CreateGroupsNavigationService());
-
-            
+            NavigationService<OverviewViewModel> overvoewNavigationService = CreateOverviewNavigationService();
+            overvoewNavigationService.Navigate();
 
             MainWindow = new MainWindow()
             {
@@ -91,13 +75,13 @@ namespace Apollon.WPF
          private NavigationService<OverviewViewModel> CreateOverviewNavigationService()
         {
             return new NavigationService<OverviewViewModel>(
-                _navigationStore, () => OverviewViewModel.LoadViewModel(_selectedTournamentStore, _modalNavigationStore, _tournamentStore, _navigationStore, CreateGroupsNavigationService()));
+                _navigationStore, () => OverviewViewModel.LoadViewModel(_selectedTournamentStore, _modalNavigationStore, _tournamentStore, CreateGroupsNavigationService(), CreateNamelistNavigationService()));
         }
 
         private NavigationService<GroupsViewModel> CreateGroupsNavigationService()
         {
             return new NavigationService<GroupsViewModel>(
-                _navigationStore, () => new GroupsViewModel( _navBarPreparationViewModel, _selectedTournamentStore, _navigationStore, _modalNavigationStore, _tournamentStore, CreateGroupsNavigationService()));
+                _navigationStore, () => new GroupsViewModel(_navBarPreparationViewModel, _selectedTournamentStore, CreateOverviewNavigationService()));
         }
 
         private NavigationService<ClassesViewModel> CreateClassesNavigationService()
