@@ -38,8 +38,16 @@
             <custom:Modal Grid.RowSpan="2" Panel.ZIndex="1" IsOpen="{Binding IsModalOpen}">            
                 <ContentControl Margin="30" Content="{Binding CurrentModalViewModel}"/>
             </custom:Modal>
-      
-        <views:Layout Grid.RowSpan="2"/>
+
+        <Border CornerRadius="5"
+                Grid.RowSpan="2">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                    <GradientStop Color="{StaticResource ColorPrimary4}" Offset="0.2"/>
+                    <GradientStop Color="{StaticResource ColorPrimary5}" Offset="0.8"/>
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
 
         <ContentControl Content="{Binding CurrentViewModel}">
             <ContentControl.Resources>

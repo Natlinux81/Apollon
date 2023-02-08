@@ -1,4 +1,5 @@
 ﻿using Apollon.Domain.Models;
+using Apollon.WPF.Services;
 using Apollon.WPF.Stores;
 using Apollon.WPF.ViewModels;
 using System;
@@ -11,13 +12,15 @@ namespace Apollon.WPF.Commands
         private readonly TournamentsStore _tournamentStore;        
         private readonly ModalNavigationStore _modalNavigationStore;       
         private AddTournamentViewModel _addTournamentViewModel;
+        private readonly NavigationService<GroupsViewModel> _navigationService;
 
 
-        public AddTournamentCommand(AddTournamentViewModel addTournamentViewModel, TournamentsStore tournamentStore, ModalNavigationStore modalNavigationStore)
+        public AddTournamentCommand(AddTournamentViewModel addTournamentViewModel, TournamentsStore tournamentStore, ModalNavigationStore modalNavigationStore, NavigationService<GroupsViewModel> navigationService)
         {
             _addTournamentViewModel = addTournamentViewModel;
             _tournamentStore = tournamentStore;
-            _modalNavigationStore = modalNavigationStore;           
+            _modalNavigationStore = modalNavigationStore;
+            _navigationService = navigationService;
         }
 
         public override async Task ExecuteAsync(object parameter)
@@ -45,7 +48,7 @@ namespace Apollon.WPF.Commands
                 await _tournamentStore.Add(tournament);
 
                 _modalNavigationStore.Close();                
-
+                _navigationService.Navigate();
             }
             catch (Exception)
             {

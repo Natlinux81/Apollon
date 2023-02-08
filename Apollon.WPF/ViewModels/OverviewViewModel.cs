@@ -52,7 +52,7 @@ namespace Apollon.WPF.ViewModels
             OverviewDetailsViewModel = new OverviewDetailsViewModel(selectedTournamentStore ,groupNavigationService);
 
             LoadTournamentsCommand = new LoadTournamentsCommand(this, tournamentStore);
-            OpenAddTournamentCommand = new OpenAddTournamentCommand(tournamentStore, modalNavigationStore);
+            OpenAddTournamentCommand = new OpenAddTournamentCommand(tournamentStore, modalNavigationStore, groupNavigationService);
             NavigateNameListCommand = new NavigateCommand<NameListViewModel>(NameListNavigationService);
 
         }
