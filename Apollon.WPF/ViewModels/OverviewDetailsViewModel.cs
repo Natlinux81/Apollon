@@ -24,15 +24,17 @@ namespace Apollon.WPF.ViewModels
         public int Targets => SelectedTournament?.Targets ?? 0;
 
         public ICommand NavigatePreparationCommand { get; }
+        public SelectedTournamentsStore SelectedTournamentStore { get; }
+        
 
-        public OverviewDetailsViewModel(SelectedTournamentsStore selectedTournamentStore, NavigationService<GroupsViewModel> groupNavigationService)
+        public OverviewDetailsViewModel(SelectedTournamentsStore selectedTournamentStore, INavigationService<GroupsViewModel> groupNavigationService)
         {
            _selectedTournamentStore = selectedTournamentStore;
 
             _selectedTournamentStore.SelectedTournamentChanged += SelectedTournamentStore_SelectedTournamentChanged;
 
             NavigatePreparationCommand = new NavigateCommand<GroupsViewModel>(groupNavigationService);
-        }
+        }        
 
         protected override void Dispose()
         {

@@ -17,11 +17,11 @@ namespace Apollon.WPF.ViewModels
         public ICommand NavigateNamelistCommand { get;}
         public ICommand NavigateArchersCommand { get;}
 
-        public NavBarPreparationViewModel(NavigationService<OverviewViewModel> overviewNavigationService, 
-                                          NavigationService<GroupsViewModel> groupNavigationService, 
-                                          NavigationService<NameListViewModel> namelistNavigationService,
-                                          NavigationService<ClassesViewModel> classNavigationService, 
-                                          NavigationService<ArchersViewModel> archersNavigationService)
+        public NavBarPreparationViewModel(INavigationService<OverviewViewModel> overviewNavigationService, 
+                                          INavigationService<GroupsViewModel> groupNavigationService, 
+                                          INavigationService<NameListViewModel> namelistNavigationService,
+                                          INavigationService<ClassesViewModel> classNavigationService,
+                                          INavigationService<ArchersViewModel> archersNavigationService)
         {
             NavigateOverviewCommand = new NavigateCommand<OverviewViewModel>(overviewNavigationService);
             NavigateGroupsCommand = new NavigateCommand<GroupsViewModel>(groupNavigationService);

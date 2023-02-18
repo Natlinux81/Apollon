@@ -9,13 +9,6 @@ namespace Apollon.WPF.ViewModels
 {
     public class ArchersViewModel : ViewModelBase
     {
-        public TournamentDetailsViewModel TournamentDetailsViewModel { get; }
-        public NavBarPreparationViewModel NavBarPreparationViewModel { get; }
-
-        public ArchersViewModel(NavBarPreparationViewModel navBarPreparationViewModel, SelectedTournamentsStore selectedTournamentsStore)
-        {
-            TournamentDetailsViewModel = new TournamentDetailsViewModel(selectedTournamentsStore);
-            NavBarPreparationViewModel = navBarPreparationViewModel;
-        }
+        
     }
 }

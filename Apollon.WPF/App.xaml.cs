@@ -39,12 +39,8 @@ namespace Apollon.WPF
             _tournamentStore = new TournamentsStore(_getAllTournamentQuery, _createTournamentCommand, _updateTournamentCommand, _deleteTournamentCommand);
             _selectedTournamentStore = new SelectedTournamentsStore(_tournamentStore);
 
-            _navBarPreparationViewModel = new NavBarPreparationViewModel(CreateOverviewNavigationService(),
-                                                                         CreateGroupsNavigationService(),
-                                                                         CreateNamelistNavigationService(),
-                                                                         CreateClassesNavigationService(),                                                                        
-                                                                         CreateArchersNavigationService());
-        }       
+            _navBarPreparationViewModel = CreateNavbarViewModel();
+        }      
 
         protected override void OnStartup(StartupEventArgs e)
         {
@@ -56,11 +52,11 @@ namespace Apollon.WPF
             OverviewViewModel overviewViewModel = OverviewViewModel.LoadViewModel(
                 _selectedTournamentStore,
                 _modalNavigationStore,                
-                _tournamentStore, 
-                CreateGroupsNavigationService(),
-                CreateNamelistNavigationService());           
+                _tournamentStore,                 
+                CreateNamelistNavigationService(),
+                CreateGroupsNavigationService());           
 
-            NavigationService<OverviewViewModel> overvoewNavigationService = CreateOverviewNavigationService();
+            INavigationService<OverviewViewModel> overvoewNavigationService = CreateOverviewNavigationService();
             overvoewNavigationService.Navigate();
 
             MainWindow = new MainWindow()
@@ -72,34 +68,47 @@ namespace Apollon.WPF
             base.OnStartup(e);
         }
 
-         private NavigationService<OverviewViewModel> CreateOverviewNavigationService()
+         private INavigationService<OverviewViewModel> CreateOverviewNavigationService()
         {
             return new NavigationService<OverviewViewModel>(
-                _navigationStore, () => OverviewViewModel.LoadViewModel(_selectedTournamentStore, _modalNavigationStore, _tournamentStore, CreateGroupsNavigationService(), CreateNamelistNavigationService()));
+                _navigationStore, () => OverviewViewModel.LoadViewModel(_selectedTournamentStore, 
+                                                                        _modalNavigationStore, 
+                                                                        _tournamentStore, 
+                                                                        CreateNamelistNavigationService(),
+                                                                        CreateGroupsNavigationService()));
         }
 
-        private NavigationService<GroupsViewModel> CreateGroupsNavigationService()
+        private NavBarPreparationViewModel CreateNavbarViewModel()
         {
-            return new NavigationService<GroupsViewModel>(
-                _navigationStore, () => new GroupsViewModel(_navBarPreparationViewModel, _selectedTournamentStore, CreateOverviewNavigationService()));
+            return new NavBarPreparationViewModel(CreateOverviewNavigationService(),
+                                                  CreateGroupsNavigationService(),
+                                                  CreateNamelistNavigationService(),
+                                                  CreateClassesNavigationService(),
+                                                  CreateArchersNavigationService());
         }
 
-        private NavigationService<ClassesViewModel> CreateClassesNavigationService()
+        private INavigationService<GroupsViewModel> CreateGroupsNavigationService()
         {
-            return new NavigationService<ClassesViewModel>(
-                _navigationStore, ()=> new ClassesViewModel(_navBarPreparationViewModel, _selectedTournamentStore));
+            return new LayoutNavigationService<GroupsViewModel>(
+                _navigationStore, () => new GroupsViewModel(CreateOverviewNavigationService()), CreateNavbarViewModel);
         }
 
-        private NavigationService<NameListViewModel> CreateNamelistNavigationService()
+        private INavigationService<ClassesViewModel> CreateClassesNavigationService()
         {
-            return new NavigationService<NameListViewModel>(
-                _navigationStore, () => new NameListViewModel());
+            return new LayoutNavigationService<ClassesViewModel>(
+                _navigationStore, ()=> new ClassesViewModel(), CreateNavbarViewModel);
         }
 
-        private NavigationService<ArchersViewModel> CreateArchersNavigationService()
+        private INavigationService<NameListViewModel> CreateNamelistNavigationService()
         {
-            return new NavigationService<ArchersViewModel>(
-                _navigationStore, () => new ArchersViewModel(_navBarPreparationViewModel, _selectedTournamentStore));
+            return new LayoutNavigationService<NameListViewModel>(
+                _navigationStore, () => new NameListViewModel(), CreateNavbarViewModel);
+        }
+
+        private INavigationService<ArchersViewModel> CreateArchersNavigationService()
+        {
+            return new LayoutNavigationService<ArchersViewModel>(
+                _navigationStore, () => new ArchersViewModel(), CreateNavbarViewModel);
         }
     }
 }

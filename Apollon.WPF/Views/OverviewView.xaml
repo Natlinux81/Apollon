@@ -49,7 +49,7 @@
 
             <Image Grid.Column="2"
                Grid.Row="2"
-               Source="D:\Projekte\Apollon\Apollon\Apollon.WPF\Images\Archery.png"
+               Source="\images\Archery.png"
                Width="250"
                Height="250">
             </Image>

@@ -54,6 +54,9 @@
                 <DataTemplate DataType="{x:Type vms:OverviewViewModel}">
                     <views:OverviewView/>
                 </DataTemplate>
+                <DataTemplate DataType="{x:Type vms:LayoutViewModel}">
+                    <components:Layout/>
+                </DataTemplate>
                 <DataTemplate DataType="{x:Type vms:GroupsViewModel}">
                     <views:GroupsView/>
                 </DataTemplate>
